@@ -121,6 +121,9 @@
   <data name="digital_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\digital-7.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="digital_7__mono_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\digital-7 (mono).ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="POCKC___" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\POCKC___.TTF;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

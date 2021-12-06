@@ -73,6 +73,16 @@ namespace SerialPortComm.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
+        internal static byte[] digital_7__mono_ {
+            get {
+                object obj = ResourceManager.GetObject("digital_7__mono_", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
         internal static byte[] POCKC___ {
             get {
                 object obj = ResourceManager.GetObject("POCKC___", resourceCulture);
