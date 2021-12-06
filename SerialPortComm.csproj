@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassesControl\CommunicationManager.cs" />
+    <Compile Include="ClassesControl\IniFile.cs" />
     <Compile Include="ClassesControl\ThemeColor.cs" />
     <Compile Include="Frames\FormComSettings.cs">
       <SubType>Form</SubType>
@@ -160,8 +161,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Resources\Upsilon.ttf" />
-    <None Include="Resources\digital-7 %28mono%29.ttf" />
-    <None Include="Resources\digital-7.ttf" />
+    <Content Include="Resources\digital-7 %28mono%29.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\digital-7.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\POCKC___.TTF" />
     <None Include="SerialPortComm_TemporaryKey.pfx" />
   </ItemGroup>

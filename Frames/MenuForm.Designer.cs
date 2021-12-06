@@ -65,7 +65,7 @@ namespace SerialPortComm.Frames
             this.btnInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInfo.FlatAppearance.BorderSize = 0;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnInfo.Location = new System.Drawing.Point(0, 230);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -81,7 +81,7 @@ namespace SerialPortComm.Frames
             this.btnSendSettings.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSendSettings.FlatAppearance.BorderSize = 0;
             this.btnSendSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSendSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSendSettings.Location = new System.Drawing.Point(0, 170);
             this.btnSendSettings.Name = "btnSendSettings";
             this.btnSendSettings.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -97,7 +97,7 @@ namespace SerialPortComm.Frames
             this.btnComSettings.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnComSettings.FlatAppearance.BorderSize = 0;
             this.btnComSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnComSettings.Location = new System.Drawing.Point(0, 110);
             this.btnComSettings.Name = "btnComSettings";
             this.btnComSettings.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -114,7 +114,7 @@ namespace SerialPortComm.Frames
             this.btnGeneralSettings.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGeneralSettings.FlatAppearance.BorderSize = 0;
             this.btnGeneralSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGeneralSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGeneralSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnGeneralSettings.Location = new System.Drawing.Point(0, 50);
             this.btnGeneralSettings.Name = "btnGeneralSettings";
             this.btnGeneralSettings.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);

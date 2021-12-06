@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Reflection;
 using SerialPortComm.Frames;
+using System.Configuration;
 
 namespace SerialPortComm
 {
@@ -17,12 +18,13 @@ namespace SerialPortComm
     {
         PrivateFontCollection fontCollection = new PrivateFontCollection();
 
+
         public frmMain()
         {
             InitializeComponent();
 
-            fontCollection.AddFontFile(@"..\..\Resources\digital-7.ttf"); // файл шрифта
-            fontCollection.AddFontFile(@"..\..\Resources\digital-7 (mono).ttf"); // файл шрифта
+            fontCollection.AddFontFile(@ConfigurationManager.AppSettings["digital-7"]); // файл шрифта
+            fontCollection.AddFontFile(@ConfigurationManager.AppSettings["digital-7_mono"]); // файл шрифта
         }
 
         private void frmMain_Load(object sender, EventArgs e)
