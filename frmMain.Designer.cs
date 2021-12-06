@@ -44,14 +44,11 @@ namespace SerialPortComm
             this.lbDataValue_Temperature = new System.Windows.Forms.Label();
             this.lbInfo_Temperature = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbDataValue_MassFlow = new System.Windows.Forms.Label();
+            this.lbInfo_MassFlow = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbDataValue_RoH2O = new System.Windows.Forms.Label();
+            this.lbInfo_RoH2O = new System.Windows.Forms.Label();
             this.panelLogInfo = new System.Windows.Forms.Panel();
             this.rchbLogInfo = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -90,7 +87,6 @@ namespace SerialPortComm
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panelLogInfo.SuspendLayout();
             this.panelChildRight.SuspendLayout();
             this.groupBoxSettingCom.SuspendLayout();
@@ -106,7 +102,7 @@ namespace SerialPortComm
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(0, 0);
             this.PanelMain.Name = "PanelMain";
-            this.PanelMain.Size = new System.Drawing.Size(944, 461);
+            this.PanelMain.Size = new System.Drawing.Size(964, 561);
             this.PanelMain.TabIndex = 0;
             // 
             // panelChildFill
@@ -117,7 +113,7 @@ namespace SerialPortComm
             this.panelChildFill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildFill.Location = new System.Drawing.Point(0, 0);
             this.panelChildFill.Name = "panelChildFill";
-            this.panelChildFill.Size = new System.Drawing.Size(744, 461);
+            this.panelChildFill.Size = new System.Drawing.Size(764, 561);
             this.panelChildFill.TabIndex = 1;
             // 
             // panelData
@@ -127,33 +123,34 @@ namespace SerialPortComm
             this.panelData.Location = new System.Drawing.Point(0, 0);
             this.panelData.Name = "panelData";
             this.panelData.Padding = new System.Windows.Forms.Padding(10, 5, 10, 33);
-            this.panelData.Size = new System.Drawing.Size(744, 289);
+            this.panelData.Size = new System.Drawing.Size(764, 389);
             this.panelData.TabIndex = 2;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.groupBox1.Controls.Add(this.flowLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(10, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(724, 251);
+            this.groupBox1.Size = new System.Drawing.Size(744, 351);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data Value";
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.panel_DozaNow);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(718, 232);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(738, 332);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel_DozaNow
@@ -165,10 +162,10 @@ namespace SerialPortComm
             this.panel_DozaNow.Controls.Add(this.lbInfo_DozaNow);
             this.panel_DozaNow.Location = new System.Drawing.Point(3, 3);
             this.panel_DozaNow.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel_DozaNow.MinimumSize = new System.Drawing.Size(250, 70);
+            this.panel_DozaNow.MinimumSize = new System.Drawing.Size(275, 70);
             this.panel_DozaNow.Name = "panel_DozaNow";
             this.panel_DozaNow.Padding = new System.Windows.Forms.Padding(5);
-            this.panel_DozaNow.Size = new System.Drawing.Size(250, 70);
+            this.panel_DozaNow.Size = new System.Drawing.Size(275, 70);
             this.panel_DozaNow.TabIndex = 0;
             // 
             // lbDataValue_DozaNow
@@ -177,7 +174,7 @@ namespace SerialPortComm
             this.lbDataValue_DozaNow.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbDataValue_DozaNow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbDataValue_DozaNow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbDataValue_DozaNow.Location = new System.Drawing.Point(5, 35);
+            this.lbDataValue_DozaNow.Location = new System.Drawing.Point(5, 33);
             this.lbDataValue_DozaNow.Name = "lbDataValue_DozaNow";
             this.lbDataValue_DozaNow.Padding = new System.Windows.Forms.Padding(5);
             this.lbDataValue_DozaNow.Size = new System.Drawing.Size(91, 25);
@@ -188,13 +185,13 @@ namespace SerialPortComm
             // 
             this.lbInfo_DozaNow.AutoSize = true;
             this.lbInfo_DozaNow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbInfo_DozaNow.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo_DozaNow.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbInfo_DozaNow.Location = new System.Drawing.Point(5, 5);
             this.lbInfo_DozaNow.Name = "lbInfo_DozaNow";
             this.lbInfo_DozaNow.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.lbInfo_DozaNow.Size = new System.Drawing.Size(216, 30);
+            this.lbInfo_DozaNow.Size = new System.Drawing.Size(232, 28);
             this.lbInfo_DozaNow.TabIndex = 0;
-            this.lbInfo_DozaNow.Text = "Текущее значение дозы:";
+            this.lbInfo_DozaNow.Text = "Текущее значение дозы (м³):";
             this.lbInfo_DozaNow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
@@ -204,12 +201,12 @@ namespace SerialPortComm
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.lbDataValue_VolumeFlow);
             this.panel1.Controls.Add(this.lbInfo_VolumeFlow);
-            this.panel1.Location = new System.Drawing.Point(259, 3);
+            this.panel1.Location = new System.Drawing.Point(284, 3);
             this.panel1.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel1.MinimumSize = new System.Drawing.Size(250, 70);
+            this.panel1.MinimumSize = new System.Drawing.Size(275, 70);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(250, 70);
+            this.panel1.Size = new System.Drawing.Size(275, 70);
             this.panel1.TabIndex = 1;
             // 
             // lbDataValue_VolumeFlow
@@ -218,7 +215,7 @@ namespace SerialPortComm
             this.lbDataValue_VolumeFlow.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbDataValue_VolumeFlow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbDataValue_VolumeFlow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbDataValue_VolumeFlow.Location = new System.Drawing.Point(5, 35);
+            this.lbDataValue_VolumeFlow.Location = new System.Drawing.Point(5, 33);
             this.lbDataValue_VolumeFlow.Name = "lbDataValue_VolumeFlow";
             this.lbDataValue_VolumeFlow.Padding = new System.Windows.Forms.Padding(5);
             this.lbDataValue_VolumeFlow.Size = new System.Drawing.Size(91, 25);
@@ -229,13 +226,13 @@ namespace SerialPortComm
             // 
             this.lbInfo_VolumeFlow.AutoSize = true;
             this.lbInfo_VolumeFlow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbInfo_VolumeFlow.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo_VolumeFlow.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbInfo_VolumeFlow.Location = new System.Drawing.Point(5, 5);
             this.lbInfo_VolumeFlow.Name = "lbInfo_VolumeFlow";
             this.lbInfo_VolumeFlow.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.lbInfo_VolumeFlow.Size = new System.Drawing.Size(241, 30);
+            this.lbInfo_VolumeFlow.Size = new System.Drawing.Size(274, 28);
             this.lbInfo_VolumeFlow.TabIndex = 0;
-            this.lbInfo_VolumeFlow.Text = "Текущий объёмный расход:";
+            this.lbInfo_VolumeFlow.Text = "Текущий объёмный расход (м³/ч):";
             this.lbInfo_VolumeFlow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
@@ -247,10 +244,10 @@ namespace SerialPortComm
             this.panel2.Controls.Add(this.lbInfo_Temperature);
             this.panel2.Location = new System.Drawing.Point(3, 79);
             this.panel2.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel2.MinimumSize = new System.Drawing.Size(250, 70);
+            this.panel2.MinimumSize = new System.Drawing.Size(275, 70);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(250, 70);
+            this.panel2.Size = new System.Drawing.Size(275, 70);
             this.panel2.TabIndex = 2;
             // 
             // lbDataValue_Temperature
@@ -259,7 +256,7 @@ namespace SerialPortComm
             this.lbDataValue_Temperature.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbDataValue_Temperature.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbDataValue_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbDataValue_Temperature.Location = new System.Drawing.Point(5, 35);
+            this.lbDataValue_Temperature.Location = new System.Drawing.Point(5, 33);
             this.lbDataValue_Temperature.Name = "lbDataValue_Temperature";
             this.lbDataValue_Temperature.Padding = new System.Windows.Forms.Padding(5);
             this.lbDataValue_Temperature.Size = new System.Drawing.Size(59, 25);
@@ -270,13 +267,13 @@ namespace SerialPortComm
             // 
             this.lbInfo_Temperature.AutoSize = true;
             this.lbInfo_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbInfo_Temperature.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo_Temperature.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbInfo_Temperature.Location = new System.Drawing.Point(5, 5);
             this.lbInfo_Temperature.Name = "lbInfo_Temperature";
             this.lbInfo_Temperature.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.lbInfo_Temperature.Size = new System.Drawing.Size(199, 30);
+            this.lbInfo_Temperature.Size = new System.Drawing.Size(214, 28);
             this.lbInfo_Temperature.TabIndex = 0;
-            this.lbInfo_Temperature.Text = "Текущее температура:";
+            this.lbInfo_Temperature.Text = "Текущее температура (℃):";
             this.lbInfo_Temperature.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel3
@@ -284,153 +281,113 @@ namespace SerialPortComm
             this.panel3.AutoSize = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(259, 79);
+            this.panel3.Controls.Add(this.lbDataValue_MassFlow);
+            this.panel3.Controls.Add(this.lbInfo_MassFlow);
+            this.panel3.Location = new System.Drawing.Point(284, 79);
             this.panel3.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel3.MinimumSize = new System.Drawing.Size(250, 70);
+            this.panel3.MinimumSize = new System.Drawing.Size(275, 70);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.panel3.Size = new System.Drawing.Size(250, 70);
+            this.panel3.Size = new System.Drawing.Size(275, 70);
             this.panel3.TabIndex = 3;
             // 
-            // label1
+            // lbDataValue_MassFlow
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(5, 35);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(5);
-            this.label1.Size = new System.Drawing.Size(59, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "00,00";
+            this.lbDataValue_MassFlow.AutoSize = true;
+            this.lbDataValue_MassFlow.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_MassFlow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_MassFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_MassFlow.Location = new System.Drawing.Point(5, 33);
+            this.lbDataValue_MassFlow.Name = "lbDataValue_MassFlow";
+            this.lbDataValue_MassFlow.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_MassFlow.Size = new System.Drawing.Size(91, 25);
+            this.lbDataValue_MassFlow.TabIndex = 1;
+            this.lbDataValue_MassFlow.Text = "0000,0000";
             // 
-            // label2
+            // lbInfo_MassFlow
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 5);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label2.Size = new System.Drawing.Size(199, 30);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Текущее температура:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbInfo_MassFlow.AutoSize = true;
+            this.lbInfo_MassFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_MassFlow.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfo_MassFlow.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_MassFlow.Name = "lbInfo_MassFlow";
+            this.lbInfo_MassFlow.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_MassFlow.Size = new System.Drawing.Size(261, 28);
+            this.lbInfo_MassFlow.TabIndex = 0;
+            this.lbInfo_MassFlow.Text = "Текущий массовый расход (т/ч):";
+            this.lbInfo_MassFlow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel4
             // 
             this.panel4.AutoSize = true;
             this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.lbDataValue_RoH2O);
+            this.panel4.Controls.Add(this.lbInfo_RoH2O);
             this.panel4.Location = new System.Drawing.Point(3, 155);
             this.panel4.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel4.MinimumSize = new System.Drawing.Size(250, 70);
+            this.panel4.MinimumSize = new System.Drawing.Size(275, 70);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(5);
-            this.panel4.Size = new System.Drawing.Size(250, 70);
+            this.panel4.Size = new System.Drawing.Size(275, 70);
             this.panel4.TabIndex = 4;
             // 
-            // label3
+            // lbDataValue_RoH2O
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Location = new System.Drawing.Point(5, 35);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(5);
-            this.label3.Size = new System.Drawing.Size(59, 25);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "00,00";
+            this.lbDataValue_RoH2O.AutoSize = true;
+            this.lbDataValue_RoH2O.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_RoH2O.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_RoH2O.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_RoH2O.Location = new System.Drawing.Point(5, 33);
+            this.lbDataValue_RoH2O.Name = "lbDataValue_RoH2O";
+            this.lbDataValue_RoH2O.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_RoH2O.Size = new System.Drawing.Size(59, 25);
+            this.lbDataValue_RoH2O.TabIndex = 1;
+            this.lbDataValue_RoH2O.Text = "00,00";
             // 
-            // label4
+            // lbInfo_RoH2O
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 5);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label4.Size = new System.Drawing.Size(199, 30);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Текущее температура:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel5
-            // 
-            this.panel5.AutoSize = true;
-            this.panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(259, 155);
-            this.panel5.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel5.MinimumSize = new System.Drawing.Size(250, 70);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(5);
-            this.panel5.Size = new System.Drawing.Size(250, 70);
-            this.panel5.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Location = new System.Drawing.Point(5, 35);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(5);
-            this.label5.Size = new System.Drawing.Size(59, 25);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "00,00";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(5, 5);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label6.Size = new System.Drawing.Size(199, 30);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Текущее температура:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbInfo_RoH2O.AutoSize = true;
+            this.lbInfo_RoH2O.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_RoH2O.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfo_RoH2O.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_RoH2O.Name = "lbInfo_RoH2O";
+            this.lbInfo_RoH2O.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_RoH2O.Size = new System.Drawing.Size(211, 28);
+            this.lbInfo_RoH2O.TabIndex = 0;
+            this.lbInfo_RoH2O.Text = "Текущая плотность (т/м³):";
+            this.lbInfo_RoH2O.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelLogInfo
             // 
             this.panelLogInfo.BackColor = System.Drawing.Color.Silver;
             this.panelLogInfo.Controls.Add(this.rchbLogInfo);
             this.panelLogInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLogInfo.Location = new System.Drawing.Point(0, 289);
+            this.panelLogInfo.Location = new System.Drawing.Point(0, 389);
             this.panelLogInfo.Name = "panelLogInfo";
             this.panelLogInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.panelLogInfo.Size = new System.Drawing.Size(744, 150);
+            this.panelLogInfo.Size = new System.Drawing.Size(764, 150);
             this.panelLogInfo.TabIndex = 1;
             // 
             // rchbLogInfo
             // 
-            this.rchbLogInfo.BackColor = System.Drawing.Color.AliceBlue;
+            this.rchbLogInfo.BackColor = System.Drawing.SystemColors.Info;
             this.rchbLogInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rchbLogInfo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rchbLogInfo.ForeColor = System.Drawing.SystemColors.InfoText;
             this.rchbLogInfo.Location = new System.Drawing.Point(3, 3);
             this.rchbLogInfo.Name = "rchbLogInfo";
             this.rchbLogInfo.ReadOnly = true;
-            this.rchbLogInfo.Size = new System.Drawing.Size(738, 144);
+            this.rchbLogInfo.Size = new System.Drawing.Size(758, 144);
             this.rchbLogInfo.TabIndex = 0;
-            this.rchbLogInfo.Text = " Тестовый текст №1";
+            this.rchbLogInfo.Text = "Тестовый текст....";
+            this.rchbLogInfo.WordWrap = false;
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(744, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(764, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -442,10 +399,10 @@ namespace SerialPortComm
             this.panelChildRight.Controls.Add(this.btnOpenPort);
             this.panelChildRight.Controls.Add(this.groupBoxSettingCom);
             this.panelChildRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelChildRight.Location = new System.Drawing.Point(744, 0);
+            this.panelChildRight.Location = new System.Drawing.Point(764, 0);
             this.panelChildRight.Name = "panelChildRight";
             this.panelChildRight.Padding = new System.Windows.Forms.Padding(5, 5, 5, 20);
-            this.panelChildRight.Size = new System.Drawing.Size(200, 461);
+            this.panelChildRight.Size = new System.Drawing.Size(200, 561);
             this.panelChildRight.TabIndex = 0;
             // 
             // btnMenu
@@ -458,12 +415,13 @@ namespace SerialPortComm
             this.btnMenu.TabIndex = 4;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnStartSend
             // 
             this.btnStartSend.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnStartSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartSend.Location = new System.Drawing.Point(5, 336);
+            this.btnStartSend.Location = new System.Drawing.Point(5, 436);
             this.btnStartSend.Name = "btnStartSend";
             this.btnStartSend.Size = new System.Drawing.Size(190, 35);
             this.btnStartSend.TabIndex = 3;
@@ -475,7 +433,7 @@ namespace SerialPortComm
             // 
             this.btnClosePort.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClosePort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClosePort.Location = new System.Drawing.Point(5, 371);
+            this.btnClosePort.Location = new System.Drawing.Point(5, 471);
             this.btnClosePort.Name = "btnClosePort";
             this.btnClosePort.Size = new System.Drawing.Size(190, 35);
             this.btnClosePort.TabIndex = 2;
@@ -486,7 +444,7 @@ namespace SerialPortComm
             // 
             this.btnOpenPort.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnOpenPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenPort.Location = new System.Drawing.Point(5, 406);
+            this.btnOpenPort.Location = new System.Drawing.Point(5, 506);
             this.btnOpenPort.Name = "btnOpenPort";
             this.btnOpenPort.Size = new System.Drawing.Size(190, 35);
             this.btnOpenPort.TabIndex = 1;
@@ -725,9 +683,10 @@ namespace SerialPortComm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 461);
+            this.ClientSize = new System.Drawing.Size(964, 561);
             this.Controls.Add(this.PanelMain);
             this.HelpButton = true;
+            this.MinimumSize = new System.Drawing.Size(560, 600);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serial Port Communication";
@@ -749,8 +708,6 @@ namespace SerialPortComm
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panelLogInfo.ResumeLayout(false);
             this.panelChildRight.ResumeLayout(false);
             this.groupBoxSettingCom.ResumeLayout(false);
@@ -808,14 +765,11 @@ namespace SerialPortComm
         private System.Windows.Forms.Label lbDataValue_Temperature;
         private System.Windows.Forms.Label lbInfo_Temperature;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbDataValue_MassFlow;
+        private System.Windows.Forms.Label lbInfo_MassFlow;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbDataValue_RoH2O;
+        private System.Windows.Forms.Label lbInfo_RoH2O;
     }
 }
 

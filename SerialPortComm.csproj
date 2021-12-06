@@ -83,6 +83,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassesControl\CommunicationManager.cs" />
+    <Compile Include="ClassesControl\ThemeColor.cs" />
+    <Compile Include="Frames\FormComSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\FormComSettings.Designer.cs">
+      <DependentUpon>FormComSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\FormGeneralSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\FormGeneralSetting.Designer.cs">
+      <DependentUpon>FormGeneralSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\FormInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\FormInfo.Designer.cs">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\FormSendSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\FormSendSettings.Designer.cs">
+      <DependentUpon>FormSendSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +122,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frames\FormComSettings.resx">
+      <DependentUpon>FormComSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\FormGeneralSetting.resx">
+      <DependentUpon>FormGeneralSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\FormInfo.resx">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\FormSendSettings.resx">
+      <DependentUpon>FormSendSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
