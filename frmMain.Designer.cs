@@ -33,11 +33,28 @@ namespace SerialPortComm
             this.panelChildFill = new System.Windows.Forms.Panel();
             this.panelData = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.panelLogInfo = new System.Windows.Forms.Panel();
             this.richTextBoxLogInfo = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelChildRight = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -60,11 +77,21 @@ namespace SerialPortComm
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.PanelMain.SuspendLayout();
             this.panelChildFill.SuspendLayout();
             this.panelData.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panelLogInfo.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.panelChildRight.SuspendLayout();
             this.groupBoxSettingCom.SuspendLayout();
             this.panelGroupBoxTop.SuspendLayout();
@@ -105,6 +132,7 @@ namespace SerialPortComm
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(10, 5);
@@ -114,50 +142,207 @@ namespace SerialPortComm
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data Value";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Controls.Add(this.panel5);
+            this.flowLayoutPanel1.Controls.Add(this.panel6);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(718, 232);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(251, 70);
+            this.panel1.TabIndex = 0;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(7, 22);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(131, 45);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(4, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "label13";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.richTextBox2);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Location = new System.Drawing.Point(260, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(251, 70);
+            this.panel2.TabIndex = 2;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(7, 22);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(131, 45);
+            this.richTextBox2.TabIndex = 1;
+            this.richTextBox2.Text = "";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(4, 8);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "label14";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.richTextBox3);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Location = new System.Drawing.Point(3, 79);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(251, 70);
+            this.panel3.TabIndex = 2;
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(7, 22);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(131, 45);
+            this.richTextBox3.TabIndex = 1;
+            this.richTextBox3.Text = "";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(4, 8);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(63, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "label15";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.richTextBox4);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Location = new System.Drawing.Point(260, 79);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(251, 70);
+            this.panel4.TabIndex = 2;
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.Location = new System.Drawing.Point(7, 22);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(131, 45);
+            this.richTextBox4.TabIndex = 1;
+            this.richTextBox4.Text = "";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(4, 8);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "label16";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.richTextBox5);
+            this.panel5.Controls.Add(this.label17);
+            this.panel5.Location = new System.Drawing.Point(3, 155);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(251, 70);
+            this.panel5.TabIndex = 3;
+            // 
+            // richTextBox5
+            // 
+            this.richTextBox5.Location = new System.Drawing.Point(7, 22);
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.Size = new System.Drawing.Size(131, 45);
+            this.richTextBox5.TabIndex = 1;
+            this.richTextBox5.Text = "";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(4, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(63, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "label17";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.richTextBox6);
+            this.panel6.Controls.Add(this.label18);
+            this.panel6.Location = new System.Drawing.Point(260, 155);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(251, 70);
+            this.panel6.TabIndex = 4;
+            // 
+            // richTextBox6
+            // 
+            this.richTextBox6.Location = new System.Drawing.Point(7, 22);
+            this.richTextBox6.Name = "richTextBox6";
+            this.richTextBox6.Size = new System.Drawing.Size(131, 45);
+            this.richTextBox6.TabIndex = 1;
+            this.richTextBox6.Text = "";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(4, 8);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(63, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "label18";
+            // 
             // panelLogInfo
             // 
-            this.panelLogInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.panelLogInfo.BackColor = System.Drawing.Color.Silver;
             this.panelLogInfo.Controls.Add(this.richTextBoxLogInfo);
             this.panelLogInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLogInfo.Location = new System.Drawing.Point(0, 289);
             this.panelLogInfo.Name = "panelLogInfo";
-            this.panelLogInfo.Padding = new System.Windows.Forms.Padding(5);
+            this.panelLogInfo.Padding = new System.Windows.Forms.Padding(3);
             this.panelLogInfo.Size = new System.Drawing.Size(744, 150);
             this.panelLogInfo.TabIndex = 1;
             // 
             // richTextBoxLogInfo
             // 
-            this.richTextBoxLogInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBoxLogInfo.BackColor = System.Drawing.Color.AliceBlue;
             this.richTextBoxLogInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxLogInfo.Location = new System.Drawing.Point(5, 5);
+            this.richTextBoxLogInfo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBoxLogInfo.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.richTextBoxLogInfo.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxLogInfo.Name = "richTextBoxLogInfo";
             this.richTextBoxLogInfo.ReadOnly = true;
-            this.richTextBoxLogInfo.Size = new System.Drawing.Size(734, 140);
+            this.richTextBoxLogInfo.Size = new System.Drawing.Size(738, 144);
             this.richTextBoxLogInfo.TabIndex = 0;
-            this.richTextBoxLogInfo.Text = "";
+            this.richTextBoxLogInfo.Text = " Тестовый текст №1\n Тестовый текст №1\n Тестовый текст №1";
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 439);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(744, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(132, 17);
-            this.toolStripStatusLabel1.Text = "Send Message Package:";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(139, 17);
-            this.toolStripStatusLabel2.Text = "00 00 00 00 00 00 00 00 00";
             // 
             // panelChildRight
             // 
@@ -176,7 +361,7 @@ namespace SerialPortComm
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.Font = new System.Drawing.Font("ITC Avant Garde Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(5, 255);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(190, 35);
@@ -187,7 +372,7 @@ namespace SerialPortComm
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button3.Font = new System.Drawing.Font("ITC Avant Garde Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(5, 351);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(190, 35);
@@ -198,7 +383,7 @@ namespace SerialPortComm
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button2.Font = new System.Drawing.Font("ITC Avant Garde Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(5, 386);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(190, 35);
@@ -209,7 +394,7 @@ namespace SerialPortComm
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Font = new System.Drawing.Font("ITC Avant Garde Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(5, 421);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(190, 35);
@@ -426,6 +611,25 @@ namespace SerialPortComm
             this.label7.TabIndex = 1;
             this.label7.Text = "-";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(142, 17);
+            this.toolStripStatusLabel1.Text = "Send Message Package:";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(139, 17);
+            this.toolStripStatusLabel2.Text = "00 00 00 00 00 00 00 00 00";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(95, 17);
+            this.toolStripStatusLabel3.Text = "Name Send Data";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,9 +645,21 @@ namespace SerialPortComm
             this.panelChildFill.ResumeLayout(false);
             this.panelChildFill.PerformLayout();
             this.panelData.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panelLogInfo.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.panelChildRight.ResumeLayout(false);
             this.groupBoxSettingCom.ResumeLayout(false);
             this.panelGroupBoxTop.ResumeLayout(false);
@@ -488,6 +704,26 @@ namespace SerialPortComm
         private System.Windows.Forms.RichTextBox richTextBoxLogInfo;
         private System.Windows.Forms.Panel panelData;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.RichTextBox richTextBox5;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.RichTextBox richTextBox6;
+        private System.Windows.Forms.Label label18;
     }
 }
 

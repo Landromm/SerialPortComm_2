@@ -79,5 +79,15 @@ namespace SerialPortComm.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] Upsilon {
+            get {
+                object obj = ResourceManager.GetObject("Upsilon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
