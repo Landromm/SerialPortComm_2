@@ -35,10 +35,10 @@ namespace SerialPortComm
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rchbDataValue1 = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.rchbDataValue2 = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
@@ -53,30 +53,30 @@ namespace SerialPortComm
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panelLogInfo = new System.Windows.Forms.Panel();
-            this.richTextBoxLogInfo = new System.Windows.Forms.RichTextBox();
+            this.rchbLogInfo = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panelChildRight = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.btnStartSend = new System.Windows.Forms.Button();
+            this.btnClosePort = new System.Windows.Forms.Button();
+            this.btnOpenPort = new System.Windows.Forms.Button();
             this.groupBoxSettingCom = new System.Windows.Forms.GroupBox();
             this.Separator = new System.Windows.Forms.Label();
             this.panelGroupBoxTop = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbInfoMode = new System.Windows.Forms.Label();
+            this.ldInfoDataBits = new System.Windows.Forms.Label();
+            this.lbInfoStopBits = new System.Windows.Forms.Label();
+            this.lbInfoPerity = new System.Windows.Forms.Label();
+            this.lbInfoBaudRate = new System.Windows.Forms.Label();
+            this.lbInfoPort = new System.Windows.Forms.Label();
             this.panelRigth = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbValueMode = new System.Windows.Forms.Label();
+            this.lbValueDataBits = new System.Windows.Forms.Label();
+            this.lbValueStopBits = new System.Windows.Forms.Label();
+            this.lbValueParity = new System.Windows.Forms.Label();
+            this.lbValueBaudRate = new System.Windows.Forms.Label();
+            this.lbValuePort = new System.Windows.Forms.Label();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -158,20 +158,20 @@ namespace SerialPortComm
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.rchbDataValue1);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(251, 70);
             this.panel1.TabIndex = 0;
             // 
-            // richTextBox1
+            // rchbDataValue1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 22);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(131, 45);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.rchbDataValue1.Location = new System.Drawing.Point(7, 22);
+            this.rchbDataValue1.Name = "rchbDataValue1";
+            this.rchbDataValue1.Size = new System.Drawing.Size(131, 45);
+            this.rchbDataValue1.TabIndex = 1;
+            this.rchbDataValue1.Text = "1115,0";
             // 
             // label13
             // 
@@ -184,20 +184,20 @@ namespace SerialPortComm
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.richTextBox2);
+            this.panel2.Controls.Add(this.rchbDataValue2);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Location = new System.Drawing.Point(260, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(251, 70);
             this.panel2.TabIndex = 2;
             // 
-            // richTextBox2
+            // rchbDataValue2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(7, 22);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(131, 45);
-            this.richTextBox2.TabIndex = 1;
-            this.richTextBox2.Text = "";
+            this.rchbDataValue2.Location = new System.Drawing.Point(7, 22);
+            this.rchbDataValue2.Name = "rchbDataValue2";
+            this.rchbDataValue2.Size = new System.Drawing.Size(131, 45);
+            this.rchbDataValue2.TabIndex = 1;
+            this.rchbDataValue2.Text = "";
             // 
             // label14
             // 
@@ -315,7 +315,7 @@ namespace SerialPortComm
             // panelLogInfo
             // 
             this.panelLogInfo.BackColor = System.Drawing.Color.Silver;
-            this.panelLogInfo.Controls.Add(this.richTextBoxLogInfo);
+            this.panelLogInfo.Controls.Add(this.rchbLogInfo);
             this.panelLogInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLogInfo.Location = new System.Drawing.Point(0, 289);
             this.panelLogInfo.Name = "panelLogInfo";
@@ -323,18 +323,18 @@ namespace SerialPortComm
             this.panelLogInfo.Size = new System.Drawing.Size(744, 150);
             this.panelLogInfo.TabIndex = 1;
             // 
-            // richTextBoxLogInfo
+            // rchbLogInfo
             // 
-            this.richTextBoxLogInfo.BackColor = System.Drawing.Color.AliceBlue;
-            this.richTextBoxLogInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxLogInfo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBoxLogInfo.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.richTextBoxLogInfo.Location = new System.Drawing.Point(3, 3);
-            this.richTextBoxLogInfo.Name = "richTextBoxLogInfo";
-            this.richTextBoxLogInfo.ReadOnly = true;
-            this.richTextBoxLogInfo.Size = new System.Drawing.Size(738, 144);
-            this.richTextBoxLogInfo.TabIndex = 0;
-            this.richTextBoxLogInfo.Text = " Тестовый текст №1\n Тестовый текст №1\n Тестовый текст №1";
+            this.rchbLogInfo.BackColor = System.Drawing.Color.AliceBlue;
+            this.rchbLogInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rchbLogInfo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rchbLogInfo.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.rchbLogInfo.Location = new System.Drawing.Point(3, 3);
+            this.rchbLogInfo.Name = "rchbLogInfo";
+            this.rchbLogInfo.ReadOnly = true;
+            this.rchbLogInfo.Size = new System.Drawing.Size(738, 144);
+            this.rchbLogInfo.TabIndex = 0;
+            this.rchbLogInfo.Text = " Тестовый текст №1";
             // 
             // statusStrip1
             // 
@@ -346,61 +346,62 @@ namespace SerialPortComm
             // 
             // panelChildRight
             // 
-            this.panelChildRight.Controls.Add(this.button4);
-            this.panelChildRight.Controls.Add(this.button3);
-            this.panelChildRight.Controls.Add(this.button2);
-            this.panelChildRight.Controls.Add(this.button1);
+            this.panelChildRight.Controls.Add(this.btnMenu);
+            this.panelChildRight.Controls.Add(this.btnStartSend);
+            this.panelChildRight.Controls.Add(this.btnClosePort);
+            this.panelChildRight.Controls.Add(this.btnOpenPort);
             this.panelChildRight.Controls.Add(this.groupBoxSettingCom);
             this.panelChildRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelChildRight.Location = new System.Drawing.Point(744, 0);
             this.panelChildRight.Name = "panelChildRight";
-            this.panelChildRight.Padding = new System.Windows.Forms.Padding(5);
+            this.panelChildRight.Padding = new System.Windows.Forms.Padding(5, 5, 5, 20);
             this.panelChildRight.Size = new System.Drawing.Size(200, 461);
             this.panelChildRight.TabIndex = 0;
             // 
-            // button4
+            // btnMenu
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(5, 255);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(190, 35);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Menu";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.Location = new System.Drawing.Point(5, 255);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(190, 35);
+            this.btnMenu.TabIndex = 4;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnStartSend
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(5, 351);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(190, 35);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Start Send";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnStartSend.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnStartSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartSend.Location = new System.Drawing.Point(5, 336);
+            this.btnStartSend.Name = "btnStartSend";
+            this.btnStartSend.Size = new System.Drawing.Size(190, 35);
+            this.btnStartSend.TabIndex = 3;
+            this.btnStartSend.Text = "Start Send";
+            this.btnStartSend.UseVisualStyleBackColor = true;
+            this.btnStartSend.Click += new System.EventHandler(this.BtnStartSend_Click);
             // 
-            // button2
+            // btnClosePort
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(5, 386);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 35);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Close Port";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnClosePort.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClosePort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClosePort.Location = new System.Drawing.Point(5, 371);
+            this.btnClosePort.Name = "btnClosePort";
+            this.btnClosePort.Size = new System.Drawing.Size(190, 35);
+            this.btnClosePort.TabIndex = 2;
+            this.btnClosePort.Text = "Close Port";
+            this.btnClosePort.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnOpenPort
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(5, 421);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 35);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Open Port";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOpenPort.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnOpenPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenPort.Location = new System.Drawing.Point(5, 406);
+            this.btnOpenPort.Name = "btnOpenPort";
+            this.btnOpenPort.Size = new System.Drawing.Size(190, 35);
+            this.btnOpenPort.TabIndex = 1;
+            this.btnOpenPort.Text = "Open Port";
+            this.btnOpenPort.UseVisualStyleBackColor = true;
             // 
             // groupBoxSettingCom
             // 
@@ -439,12 +440,12 @@ namespace SerialPortComm
             // 
             // panelLeft
             // 
-            this.panelLeft.Controls.Add(this.label6);
-            this.panelLeft.Controls.Add(this.label5);
-            this.panelLeft.Controls.Add(this.label4);
-            this.panelLeft.Controls.Add(this.label3);
-            this.panelLeft.Controls.Add(this.label2);
-            this.panelLeft.Controls.Add(this.label1);
+            this.panelLeft.Controls.Add(this.lbInfoMode);
+            this.panelLeft.Controls.Add(this.ldInfoDataBits);
+            this.panelLeft.Controls.Add(this.lbInfoStopBits);
+            this.panelLeft.Controls.Add(this.lbInfoPerity);
+            this.panelLeft.Controls.Add(this.lbInfoBaudRate);
+            this.panelLeft.Controls.Add(this.lbInfoPort);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
@@ -452,86 +453,86 @@ namespace SerialPortComm
             this.panelLeft.Size = new System.Drawing.Size(90, 160);
             this.panelLeft.TabIndex = 0;
             // 
-            // label6
+            // lbInfoMode
             // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(3, 118);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label6.Size = new System.Drawing.Size(47, 23);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Mode:";
+            this.lbInfoMode.AutoSize = true;
+            this.lbInfoMode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfoMode.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfoMode.Location = new System.Drawing.Point(3, 118);
+            this.lbInfoMode.Name = "lbInfoMode";
+            this.lbInfoMode.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lbInfoMode.Size = new System.Drawing.Size(47, 23);
+            this.lbInfoMode.TabIndex = 5;
+            this.lbInfoMode.Text = "Mode:";
             // 
-            // label5
+            // ldInfoDataBits
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(3, 95);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label5.Size = new System.Drawing.Size(87, 23);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Data Bits:";
+            this.ldInfoDataBits.AutoSize = true;
+            this.ldInfoDataBits.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ldInfoDataBits.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ldInfoDataBits.Location = new System.Drawing.Point(3, 95);
+            this.ldInfoDataBits.Name = "ldInfoDataBits";
+            this.ldInfoDataBits.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.ldInfoDataBits.Size = new System.Drawing.Size(87, 23);
+            this.ldInfoDataBits.TabIndex = 4;
+            this.ldInfoDataBits.Text = "Data Bits:";
             // 
-            // label4
+            // lbInfoStopBits
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(3, 72);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label4.Size = new System.Drawing.Size(87, 23);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Stop Bits:";
+            this.lbInfoStopBits.AutoSize = true;
+            this.lbInfoStopBits.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfoStopBits.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfoStopBits.Location = new System.Drawing.Point(3, 72);
+            this.lbInfoStopBits.Name = "lbInfoStopBits";
+            this.lbInfoStopBits.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lbInfoStopBits.Size = new System.Drawing.Size(87, 23);
+            this.lbInfoStopBits.TabIndex = 3;
+            this.lbInfoStopBits.Text = "Stop Bits:";
             // 
-            // label3
+            // lbInfoPerity
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(3, 49);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label3.Size = new System.Drawing.Size(63, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Parity:";
+            this.lbInfoPerity.AutoSize = true;
+            this.lbInfoPerity.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfoPerity.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfoPerity.Location = new System.Drawing.Point(3, 49);
+            this.lbInfoPerity.Name = "lbInfoPerity";
+            this.lbInfoPerity.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lbInfoPerity.Size = new System.Drawing.Size(63, 23);
+            this.lbInfoPerity.TabIndex = 2;
+            this.lbInfoPerity.Text = "Parity:";
             // 
-            // label2
+            // lbInfoBaudRate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(3, 26);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label2.Size = new System.Drawing.Size(87, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Baud Rate:";
+            this.lbInfoBaudRate.AutoSize = true;
+            this.lbInfoBaudRate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfoBaudRate.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfoBaudRate.Location = new System.Drawing.Point(3, 26);
+            this.lbInfoBaudRate.Name = "lbInfoBaudRate";
+            this.lbInfoBaudRate.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lbInfoBaudRate.Size = new System.Drawing.Size(87, 23);
+            this.lbInfoBaudRate.TabIndex = 1;
+            this.lbInfoBaudRate.Text = "Baud Rate:";
             // 
-            // label1
+            // lbInfoPort
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.label1.Size = new System.Drawing.Size(47, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Port:";
+            this.lbInfoPort.AutoSize = true;
+            this.lbInfoPort.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfoPort.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfoPort.Location = new System.Drawing.Point(3, 3);
+            this.lbInfoPort.Name = "lbInfoPort";
+            this.lbInfoPort.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lbInfoPort.Size = new System.Drawing.Size(47, 23);
+            this.lbInfoPort.TabIndex = 0;
+            this.lbInfoPort.Text = "Port:";
             // 
             // panelRigth
             // 
-            this.panelRigth.Controls.Add(this.label12);
-            this.panelRigth.Controls.Add(this.label11);
-            this.panelRigth.Controls.Add(this.label10);
-            this.panelRigth.Controls.Add(this.label9);
-            this.panelRigth.Controls.Add(this.label8);
-            this.panelRigth.Controls.Add(this.label7);
+            this.panelRigth.Controls.Add(this.lbValueMode);
+            this.panelRigth.Controls.Add(this.lbValueDataBits);
+            this.panelRigth.Controls.Add(this.lbValueStopBits);
+            this.panelRigth.Controls.Add(this.lbValueParity);
+            this.panelRigth.Controls.Add(this.lbValueBaudRate);
+            this.panelRigth.Controls.Add(this.lbValuePort);
             this.panelRigth.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelRigth.Location = new System.Drawing.Point(94, 0);
             this.panelRigth.Name = "panelRigth";
@@ -539,77 +540,77 @@ namespace SerialPortComm
             this.panelRigth.Size = new System.Drawing.Size(90, 160);
             this.panelRigth.TabIndex = 1;
             // 
-            // label12
+            // lbValueMode
             // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label12.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(5, 120);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label12.Size = new System.Drawing.Size(20, 23);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "-";
+            this.lbValueMode.AutoSize = true;
+            this.lbValueMode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbValueMode.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbValueMode.Location = new System.Drawing.Point(5, 120);
+            this.lbValueMode.Name = "lbValueMode";
+            this.lbValueMode.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbValueMode.Size = new System.Drawing.Size(36, 23);
+            this.lbValueMode.TabIndex = 6;
+            this.lbValueMode.Text = "hex";
             // 
-            // label11
+            // lbValueDataBits
             // 
-            this.label11.AutoSize = true;
-            this.label11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label11.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(5, 97);
-            this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label11.Size = new System.Drawing.Size(20, 23);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "-";
+            this.lbValueDataBits.AutoSize = true;
+            this.lbValueDataBits.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbValueDataBits.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbValueDataBits.Location = new System.Drawing.Point(5, 97);
+            this.lbValueDataBits.Name = "lbValueDataBits";
+            this.lbValueDataBits.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbValueDataBits.Size = new System.Drawing.Size(20, 23);
+            this.lbValueDataBits.TabIndex = 5;
+            this.lbValueDataBits.Text = "-";
             // 
-            // label10
+            // lbValueStopBits
             // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label10.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(5, 74);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label10.Size = new System.Drawing.Size(20, 23);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "-";
+            this.lbValueStopBits.AutoSize = true;
+            this.lbValueStopBits.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbValueStopBits.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbValueStopBits.Location = new System.Drawing.Point(5, 74);
+            this.lbValueStopBits.Name = "lbValueStopBits";
+            this.lbValueStopBits.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbValueStopBits.Size = new System.Drawing.Size(20, 23);
+            this.lbValueStopBits.TabIndex = 4;
+            this.lbValueStopBits.Text = "-";
             // 
-            // label9
+            // lbValueParity
             // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label9.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(5, 51);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label9.Size = new System.Drawing.Size(20, 23);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "-";
+            this.lbValueParity.AutoSize = true;
+            this.lbValueParity.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbValueParity.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbValueParity.Location = new System.Drawing.Point(5, 51);
+            this.lbValueParity.Name = "lbValueParity";
+            this.lbValueParity.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbValueParity.Size = new System.Drawing.Size(20, 23);
+            this.lbValueParity.TabIndex = 3;
+            this.lbValueParity.Text = "-";
             // 
-            // label8
+            // lbValueBaudRate
             // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(5, 28);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label8.Size = new System.Drawing.Size(20, 23);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "-";
+            this.lbValueBaudRate.AutoSize = true;
+            this.lbValueBaudRate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbValueBaudRate.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbValueBaudRate.Location = new System.Drawing.Point(5, 28);
+            this.lbValueBaudRate.Name = "lbValueBaudRate";
+            this.lbValueBaudRate.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbValueBaudRate.Size = new System.Drawing.Size(20, 23);
+            this.lbValueBaudRate.TabIndex = 2;
+            this.lbValueBaudRate.Text = "-";
             // 
-            // label7
+            // lbValuePort
             // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(5, 5);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label7.Size = new System.Drawing.Size(20, 23);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "-";
+            this.lbValuePort.AutoSize = true;
+            this.lbValuePort.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbValuePort.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbValuePort.Location = new System.Drawing.Point(5, 5);
+            this.lbValuePort.Name = "lbValuePort";
+            this.lbValuePort.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbValuePort.Size = new System.Drawing.Size(20, 23);
+            this.lbValuePort.TabIndex = 1;
+            this.lbValuePort.Text = "-";
             // 
             // toolStripStatusLabel1
             // 
@@ -675,45 +676,45 @@ namespace SerialPortComm
 
         private System.Windows.Forms.Panel PanelMain;
         private System.Windows.Forms.Panel panelChildRight;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOpenPort;
         private System.Windows.Forms.GroupBox groupBoxSettingCom;
         private System.Windows.Forms.Panel panelGroupBoxTop;
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbInfoMode;
+        private System.Windows.Forms.Label ldInfoDataBits;
+        private System.Windows.Forms.Label lbInfoStopBits;
+        private System.Windows.Forms.Label lbInfoPerity;
+        private System.Windows.Forms.Label lbInfoBaudRate;
+        private System.Windows.Forms.Label lbInfoPort;
         private System.Windows.Forms.Panel panelRigth;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbValueMode;
+        private System.Windows.Forms.Label lbValueDataBits;
+        private System.Windows.Forms.Label lbValueStopBits;
+        private System.Windows.Forms.Label lbValueParity;
+        private System.Windows.Forms.Label lbValueBaudRate;
+        private System.Windows.Forms.Label lbValuePort;
         private System.Windows.Forms.Label Separator;
         private System.Windows.Forms.Panel panelChildFill;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnStartSend;
+        private System.Windows.Forms.Button btnClosePort;
         private System.Windows.Forms.Panel panelLogInfo;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.RichTextBox richTextBoxLogInfo;
+        private System.Windows.Forms.RichTextBox rchbLogInfo;
         private System.Windows.Forms.Panel panelData;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rchbDataValue1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox rchbDataValue2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RichTextBox richTextBox3;

@@ -65,6 +65,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -113,6 +114,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Resources\Upsilon.ttf" />
+    <None Include="Resources\POCKC___.TTF" />
     <None Include="SerialPortComm_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -61,6 +61,16 @@ namespace SerialPortComm.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] POCKC___ {
+            get {
+                object obj = ResourceManager.GetObject("POCKC___", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Status_GREEN {
