@@ -171,7 +171,7 @@ namespace SerialPortComm
             this.rchbDataValue1.Name = "rchbDataValue1";
             this.rchbDataValue1.Size = new System.Drawing.Size(131, 45);
             this.rchbDataValue1.TabIndex = 1;
-            this.rchbDataValue1.Text = "1115,0";
+            this.rchbDataValue1.Text = "1773,0";
             // 
             // label13
             // 

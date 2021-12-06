@@ -45,10 +45,10 @@ namespace SerialPortComm
         private void frmMain_Load(object sender, EventArgs e)
         {
             PrivateFontCollection fontCollection = new PrivateFontCollection();
-            fontCollection.AddFontFile(@"..\..\Resources\Upsilon.ttf"); // файл шрифта
+            fontCollection.AddFontFile(@"..\..\Resources\digital-7.ttf"); // файл шрифта
             FontFamily family = fontCollection.Families[0];
             // Создаём шрифт и используем далее
-            Font font = new Font(family, 15);
+            Font font = new Font(family, 24);
             rchbDataValue1.Font = font;
         }
 

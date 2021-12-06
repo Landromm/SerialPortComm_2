@@ -114,6 +114,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Resources\Upsilon.ttf" />
+    <None Include="Resources\digital-7.ttf" />
     <None Include="Resources\POCKC___.TTF" />
     <None Include="SerialPortComm_TemporaryKey.pfx" />
   </ItemGroup>
