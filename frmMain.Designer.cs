@@ -34,24 +34,24 @@ namespace SerialPortComm
             this.panelData = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel_DozaNow = new System.Windows.Forms.Panel();
+            this.lbDataValue_DozaNow = new System.Windows.Forms.Label();
+            this.lbInfo_DozaNow = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rchbDataValue1 = new System.Windows.Forms.RichTextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbDataValue_VolumeFlow = new System.Windows.Forms.Label();
+            this.lbInfo_VolumeFlow = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rchbDataValue2 = new System.Windows.Forms.RichTextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbDataValue_Temperature = new System.Windows.Forms.Label();
+            this.lbInfo_Temperature = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelLogInfo = new System.Windows.Forms.Panel();
             this.rchbLogInfo = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -85,12 +85,12 @@ namespace SerialPortComm
             this.panelData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel_DozaNow.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panelLogInfo.SuspendLayout();
             this.panelChildRight.SuspendLayout();
             this.groupBoxSettingCom.SuspendLayout();
@@ -144,173 +144,263 @@ namespace SerialPortComm
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.panel_DozaNow);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
-            this.flowLayoutPanel1.Controls.Add(this.panel6);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(718, 232);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // panel_DozaNow
+            // 
+            this.panel_DozaNow.AutoSize = true;
+            this.panel_DozaNow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_DozaNow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_DozaNow.Controls.Add(this.lbDataValue_DozaNow);
+            this.panel_DozaNow.Controls.Add(this.lbInfo_DozaNow);
+            this.panel_DozaNow.Location = new System.Drawing.Point(3, 3);
+            this.panel_DozaNow.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_DozaNow.MinimumSize = new System.Drawing.Size(250, 70);
+            this.panel_DozaNow.Name = "panel_DozaNow";
+            this.panel_DozaNow.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_DozaNow.Size = new System.Drawing.Size(250, 70);
+            this.panel_DozaNow.TabIndex = 0;
+            // 
+            // lbDataValue_DozaNow
+            // 
+            this.lbDataValue_DozaNow.AutoSize = true;
+            this.lbDataValue_DozaNow.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_DozaNow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_DozaNow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_DozaNow.Location = new System.Drawing.Point(5, 35);
+            this.lbDataValue_DozaNow.Name = "lbDataValue_DozaNow";
+            this.lbDataValue_DozaNow.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_DozaNow.Size = new System.Drawing.Size(91, 25);
+            this.lbDataValue_DozaNow.TabIndex = 1;
+            this.lbDataValue_DozaNow.Text = "0000,0000";
+            // 
+            // lbInfo_DozaNow
+            // 
+            this.lbInfo_DozaNow.AutoSize = true;
+            this.lbInfo_DozaNow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_DozaNow.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo_DozaNow.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_DozaNow.Name = "lbInfo_DozaNow";
+            this.lbInfo_DozaNow.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_DozaNow.Size = new System.Drawing.Size(216, 30);
+            this.lbInfo_DozaNow.TabIndex = 0;
+            this.lbInfo_DozaNow.Text = "Текущее значение дозы:";
+            this.lbInfo_DozaNow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.rchbDataValue1);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.AutoSize = true;
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lbDataValue_VolumeFlow);
+            this.panel1.Controls.Add(this.lbInfo_VolumeFlow);
+            this.panel1.Location = new System.Drawing.Point(259, 3);
+            this.panel1.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel1.MinimumSize = new System.Drawing.Size(250, 70);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 70);
-            this.panel1.TabIndex = 0;
+            this.panel1.Padding = new System.Windows.Forms.Padding(5);
+            this.panel1.Size = new System.Drawing.Size(250, 70);
+            this.panel1.TabIndex = 1;
             // 
-            // rchbDataValue1
+            // lbDataValue_VolumeFlow
             // 
-            this.rchbDataValue1.Location = new System.Drawing.Point(7, 22);
-            this.rchbDataValue1.Name = "rchbDataValue1";
-            this.rchbDataValue1.Size = new System.Drawing.Size(131, 45);
-            this.rchbDataValue1.TabIndex = 1;
-            this.rchbDataValue1.Text = "1773,0";
+            this.lbDataValue_VolumeFlow.AutoSize = true;
+            this.lbDataValue_VolumeFlow.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_VolumeFlow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_VolumeFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_VolumeFlow.Location = new System.Drawing.Point(5, 35);
+            this.lbDataValue_VolumeFlow.Name = "lbDataValue_VolumeFlow";
+            this.lbDataValue_VolumeFlow.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_VolumeFlow.Size = new System.Drawing.Size(91, 25);
+            this.lbDataValue_VolumeFlow.TabIndex = 1;
+            this.lbDataValue_VolumeFlow.Text = "0000,0000";
             // 
-            // label13
+            // lbInfo_VolumeFlow
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 8);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "label13";
+            this.lbInfo_VolumeFlow.AutoSize = true;
+            this.lbInfo_VolumeFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_VolumeFlow.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo_VolumeFlow.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_VolumeFlow.Name = "lbInfo_VolumeFlow";
+            this.lbInfo_VolumeFlow.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_VolumeFlow.Size = new System.Drawing.Size(241, 30);
+            this.lbInfo_VolumeFlow.TabIndex = 0;
+            this.lbInfo_VolumeFlow.Text = "Текущий объёмный расход:";
+            this.lbInfo_VolumeFlow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.rchbDataValue2);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Location = new System.Drawing.Point(260, 3);
+            this.panel2.AutoSize = true;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.lbDataValue_Temperature);
+            this.panel2.Controls.Add(this.lbInfo_Temperature);
+            this.panel2.Location = new System.Drawing.Point(3, 79);
+            this.panel2.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel2.MinimumSize = new System.Drawing.Size(250, 70);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(251, 70);
+            this.panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel2.Size = new System.Drawing.Size(250, 70);
             this.panel2.TabIndex = 2;
             // 
-            // rchbDataValue2
+            // lbDataValue_Temperature
             // 
-            this.rchbDataValue2.Location = new System.Drawing.Point(7, 22);
-            this.rchbDataValue2.Name = "rchbDataValue2";
-            this.rchbDataValue2.Size = new System.Drawing.Size(131, 45);
-            this.rchbDataValue2.TabIndex = 1;
-            this.rchbDataValue2.Text = "";
+            this.lbDataValue_Temperature.AutoSize = true;
+            this.lbDataValue_Temperature.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_Temperature.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_Temperature.Location = new System.Drawing.Point(5, 35);
+            this.lbDataValue_Temperature.Name = "lbDataValue_Temperature";
+            this.lbDataValue_Temperature.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_Temperature.Size = new System.Drawing.Size(59, 25);
+            this.lbDataValue_Temperature.TabIndex = 1;
+            this.lbDataValue_Temperature.Text = "00,00";
             // 
-            // label14
+            // lbInfo_Temperature
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(4, 8);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "label14";
+            this.lbInfo_Temperature.AutoSize = true;
+            this.lbInfo_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_Temperature.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo_Temperature.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_Temperature.Name = "lbInfo_Temperature";
+            this.lbInfo_Temperature.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_Temperature.Size = new System.Drawing.Size(199, 30);
+            this.lbInfo_Temperature.TabIndex = 0;
+            this.lbInfo_Temperature.Text = "Текущее температура:";
+            this.lbInfo_Temperature.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.richTextBox3);
-            this.panel3.Controls.Add(this.label15);
-            this.panel3.Location = new System.Drawing.Point(3, 79);
+            this.panel3.AutoSize = true;
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(259, 79);
+            this.panel3.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel3.MinimumSize = new System.Drawing.Size(250, 70);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(251, 70);
-            this.panel3.TabIndex = 2;
+            this.panel3.Padding = new System.Windows.Forms.Padding(5);
+            this.panel3.Size = new System.Drawing.Size(250, 70);
+            this.panel3.TabIndex = 3;
             // 
-            // richTextBox3
+            // label1
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(7, 22);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(131, 45);
-            this.richTextBox3.TabIndex = 1;
-            this.richTextBox3.Text = "";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(5, 35);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(5);
+            this.label1.Size = new System.Drawing.Size(59, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "00,00";
             // 
-            // label15
+            // label2
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(4, 8);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "label15";
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(5, 5);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.label2.Size = new System.Drawing.Size(199, 30);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Текущее температура:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.richTextBox4);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Location = new System.Drawing.Point(260, 79);
+            this.panel4.AutoSize = true;
+            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Location = new System.Drawing.Point(3, 155);
+            this.panel4.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel4.MinimumSize = new System.Drawing.Size(250, 70);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(251, 70);
-            this.panel4.TabIndex = 2;
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.panel4.Size = new System.Drawing.Size(250, 70);
+            this.panel4.TabIndex = 4;
             // 
-            // richTextBox4
+            // label3
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(7, 22);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(131, 45);
-            this.richTextBox4.TabIndex = 1;
-            this.richTextBox4.Text = "";
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(5, 35);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(5);
+            this.label3.Size = new System.Drawing.Size(59, 25);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "00,00";
             // 
-            // label16
+            // label4
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 8);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(63, 13);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "label16";
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(5, 5);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.label4.Size = new System.Drawing.Size(199, 30);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Текущее температура:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.richTextBox5);
-            this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(3, 155);
+            this.panel5.AutoSize = true;
+            this.panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Location = new System.Drawing.Point(259, 155);
+            this.panel5.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel5.MinimumSize = new System.Drawing.Size(250, 70);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(251, 70);
-            this.panel5.TabIndex = 3;
+            this.panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.panel5.Size = new System.Drawing.Size(250, 70);
+            this.panel5.TabIndex = 5;
             // 
-            // richTextBox5
+            // label5
             // 
-            this.richTextBox5.Location = new System.Drawing.Point(7, 22);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(131, 45);
-            this.richTextBox5.TabIndex = 1;
-            this.richTextBox5.Text = "";
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Location = new System.Drawing.Point(5, 35);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(5);
+            this.label5.Size = new System.Drawing.Size(59, 25);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "00,00";
             // 
-            // label17
+            // label6
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(4, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(63, 13);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "label17";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.richTextBox6);
-            this.panel6.Controls.Add(this.label18);
-            this.panel6.Location = new System.Drawing.Point(260, 155);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(251, 70);
-            this.panel6.TabIndex = 4;
-            // 
-            // richTextBox6
-            // 
-            this.richTextBox6.Location = new System.Drawing.Point(7, 22);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(131, 45);
-            this.richTextBox6.TabIndex = 1;
-            this.richTextBox6.Text = "";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(4, 8);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(63, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "label18";
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(5, 5);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.label6.Size = new System.Drawing.Size(199, 30);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Текущее температура:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelLogInfo
             // 
@@ -637,7 +727,7 @@ namespace SerialPortComm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 461);
             this.Controls.Add(this.PanelMain);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serial Port Communication";
@@ -648,6 +738,9 @@ namespace SerialPortComm
             this.panelData.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.panel_DozaNow.ResumeLayout(false);
+            this.panel_DozaNow.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -658,8 +751,6 @@ namespace SerialPortComm
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panelLogInfo.ResumeLayout(false);
             this.panelChildRight.ResumeLayout(false);
             this.groupBoxSettingCom.ResumeLayout(false);
@@ -707,24 +798,24 @@ namespace SerialPortComm
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel_DozaNow;
+        private System.Windows.Forms.Label lbInfo_DozaNow;
+        private System.Windows.Forms.Label lbDataValue_DozaNow;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox rchbDataValue1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RichTextBox richTextBox4;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbDataValue_VolumeFlow;
+        private System.Windows.Forms.Label lbInfo_VolumeFlow;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RichTextBox rchbDataValue2;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbDataValue_Temperature;
+        private System.Windows.Forms.Label lbInfo_Temperature;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.RichTextBox richTextBox5;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.RichTextBox richTextBox6;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

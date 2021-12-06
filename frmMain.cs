@@ -14,42 +14,35 @@ namespace SerialPortComm
 {
     public partial class frmMain : Form
     {
-
-
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-
-        private PrivateFontCollection fonts = new PrivateFontCollection();
-
-        Font myFont;
+        PrivateFontCollection fontCollection = new PrivateFontCollection();
 
         public frmMain()
         {
             InitializeComponent();
 
-            byte[] fontData = Properties.Resources.digital_7__mono_;
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, Properties.Resources.digital_7__mono_.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.digital_7__mono_.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-
-            myFont = new Font(fonts.Families[0], 14.0F);
-
-            // Устанавливаем нужный шрифт
-
+            fontCollection.AddFontFile(@"..\..\Resources\digital-7.ttf"); // файл шрифта
+            fontCollection.AddFontFile(@"..\..\Resources\digital-7 (mono).ttf"); // файл шрифта
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //PrivateFontCollection fontCollection = new PrivateFontCollection();
-            //fontCollection.AddFontFile(@"..\..\Resources\digital-7.ttf"); // файл шрифта
-            //FontFamily family = fontCollection.Families[0];
-            //// Создаём шрифт и используем далее
-            //Font font = new Font(family, 12);
-            rchbDataValue1.Font = myFont;
+            //FontFamily family = fontCollection.Families[1];
+            lbDataValue_DozaNow.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_VolumeFlow.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_Temperature.Font = new Font(fontFamilySelected(1), 24);
+        }
+
+        private FontFamily fontFamilySelected(int index)
+        {
+            FontFamily family = fontCollection.Families[0];
+            FontFamily familyMono = fontCollection.Families[1];
+
+            if (index == 0)
+                return family;
+            else if (index == 1)
+                return familyMono;
+            else
+                return family;
         }
 
         private void BtnStartSend_Click(object sender, EventArgs e)
