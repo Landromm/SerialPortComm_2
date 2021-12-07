@@ -52,6 +52,7 @@ namespace SerialPortComm.Frames
             this.label5 = new System.Windows.Forms.Label();
             this.panelInfoView = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnSelectAll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,6 +77,7 @@ namespace SerialPortComm.Frames
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.btnSelectAll);
             this.panel8.Controls.Add(this.btnResetCheckBox);
             this.panel8.Controls.Add(this.btnSaveCheckBox);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -90,9 +92,10 @@ namespace SerialPortComm.Frames
             this.btnResetCheckBox.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnResetCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnResetCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetCheckBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnResetCheckBox.Location = new System.Drawing.Point(0, 0);
             this.btnResetCheckBox.Name = "btnResetCheckBox";
-            this.btnResetCheckBox.Size = new System.Drawing.Size(100, 50);
+            this.btnResetCheckBox.Size = new System.Drawing.Size(125, 50);
             this.btnResetCheckBox.TabIndex = 1;
             this.btnResetCheckBox.Text = "Сбросить";
             this.btnResetCheckBox.UseVisualStyleBackColor = true;
@@ -104,9 +107,10 @@ namespace SerialPortComm.Frames
             this.btnSaveCheckBox.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnSaveCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnSaveCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveCheckBox.Location = new System.Drawing.Point(434, 0);
+            this.btnSaveCheckBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveCheckBox.Location = new System.Drawing.Point(409, 0);
             this.btnSaveCheckBox.Name = "btnSaveCheckBox";
-            this.btnSaveCheckBox.Size = new System.Drawing.Size(100, 50);
+            this.btnSaveCheckBox.Size = new System.Drawing.Size(125, 50);
             this.btnSaveCheckBox.TabIndex = 0;
             this.btnSaveCheckBox.Text = "Сохранить";
             this.btnSaveCheckBox.UseVisualStyleBackColor = true;
@@ -336,6 +340,21 @@ namespace SerialPortComm.Frames
             this.richTextBox1.Text = "Выберите данные, которые будут отображаться на главном экране и записываться в фа" +
     "йл.";
             // 
+            // btnSelectAll
+            // 
+            this.btnSelectAll.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSelectAll.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnSelectAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectAll.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSelectAll.Location = new System.Drawing.Point(125, 0);
+            this.btnSelectAll.Name = "btnSelectAll";
+            this.btnSelectAll.Size = new System.Drawing.Size(125, 50);
+            this.btnSelectAll.TabIndex = 2;
+            this.btnSelectAll.Text = "Веделить все";
+            this.btnSelectAll.UseVisualStyleBackColor = true;
+            this.btnSelectAll.Click += new System.EventHandler(this.BtnSelectAll_Click);
+            // 
             // FormGeneralSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,5 +410,6 @@ namespace SerialPortComm.Frames
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnResetCheckBox;
         private System.Windows.Forms.Button btnSaveCheckBox;
+        private System.Windows.Forms.Button btnSelectAll;
     }
 }

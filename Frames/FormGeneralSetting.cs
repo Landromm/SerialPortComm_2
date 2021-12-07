@@ -34,6 +34,15 @@ namespace SerialPortComm.Frames
             chb_RoH2O.Checked = false;
         }
 
+        private void BtnSelectAll_Click(object sender, EventArgs e)
+        {
+            chb_DozaNow.Checked = true;
+            chb_MassFlow.Checked = true;
+            chb_VolumeFlow.Checked = true;
+            chb_Temperature.Checked = true;
+            chb_RoH2O.Checked = true;
+        }
+
         private void ChangedBackColorPanel(CheckBox checkBox, Panel panel)
         {
             if (checkBox.Checked)
@@ -114,5 +123,6 @@ namespace SerialPortComm.Frames
             if (tempBool)
                 checkBox.Checked = true;
         }
+
     }
 }
