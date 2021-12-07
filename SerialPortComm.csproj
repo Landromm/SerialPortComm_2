@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -82,19 +82,27 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassesControl\CommunicationManager.cs" />
-    <Compile Include="ClassesControl\ThemeColor.cs" />
+    <Compile Include="ClassesControl\CommunicationManager.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ClassesControl\ThemeColor.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Frames\FormComSettings.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Frames\FormComSettings.Designer.cs">
       <DependentUpon>FormComSettings.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Frames\FormGeneralSetting.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Frames\FormGeneralSetting.Designer.cs">
       <DependentUpon>FormGeneralSetting.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Frames\FormInfo.cs">
       <SubType>Form</SubType>
@@ -124,9 +132,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frames\FormComSettings.resx">
       <DependentUpon>FormComSettings.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Frames\FormGeneralSetting.resx">
       <DependentUpon>FormGeneralSetting.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Frames\FormInfo.resx">
       <DependentUpon>FormInfo.cs</DependentUpon>
@@ -150,6 +160,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Content Include="Config.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,8 +173,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Resources\Upsilon.ttf" />
-    <None Include="Resources\digital-7 %28mono%29.ttf" />
-    <None Include="Resources\digital-7.ttf" />
+    <None Include="Resources\digital-7 %28mono%29.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\digital-7.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\POCKC___.TTF" />
     <None Include="SerialPortComm_TemporaryKey.pfx" />
   </ItemGroup>
@@ -181,11 +198,23 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Status_RED.png" />
+    <EmbeddedResource Include="Resources\Status_RED.png" />
     <None Include="Resources\Status_GREEN.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="SerialPortComm.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
