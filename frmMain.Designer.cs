@@ -37,16 +37,16 @@ namespace SerialPortComm
             this.panel_DozaNow = new System.Windows.Forms.Panel();
             this.lbDataValue_DozaNow = new System.Windows.Forms.Label();
             this.lbInfo_DozaNow = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_VolumeFlow = new System.Windows.Forms.Panel();
             this.lbDataValue_VolumeFlow = new System.Windows.Forms.Label();
             this.lbInfo_VolumeFlow = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_Temperature = new System.Windows.Forms.Panel();
             this.lbDataValue_Temperature = new System.Windows.Forms.Label();
             this.lbInfo_Temperature = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel_MassFlow = new System.Windows.Forms.Panel();
             this.lbDataValue_MassFlow = new System.Windows.Forms.Label();
             this.lbInfo_MassFlow = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel_RoH2O = new System.Windows.Forms.Panel();
             this.lbDataValue_RoH2O = new System.Windows.Forms.Label();
             this.lbInfo_RoH2O = new System.Windows.Forms.Label();
             this.panelLogInfo = new System.Windows.Forms.Panel();
@@ -83,10 +83,10 @@ namespace SerialPortComm
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel_DozaNow.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel_VolumeFlow.SuspendLayout();
+            this.panel_Temperature.SuspendLayout();
+            this.panel_MassFlow.SuspendLayout();
+            this.panel_RoH2O.SuspendLayout();
             this.panelLogInfo.SuspendLayout();
             this.panelChildRight.SuspendLayout();
             this.groupBoxSettingCom.SuspendLayout();
@@ -143,10 +143,10 @@ namespace SerialPortComm
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.panel_DozaNow);
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Controls.Add(this.panel3);
-            this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Controls.Add(this.panel_VolumeFlow);
+            this.flowLayoutPanel1.Controls.Add(this.panel_Temperature);
+            this.flowLayoutPanel1.Controls.Add(this.panel_MassFlow);
+            this.flowLayoutPanel1.Controls.Add(this.panel_RoH2O);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -194,20 +194,20 @@ namespace SerialPortComm
             this.lbInfo_DozaNow.Text = "Текущее значение дозы (м³):";
             this.lbInfo_DozaNow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel1
+            // panel_VolumeFlow
             // 
-            this.panel1.AutoSize = true;
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.lbDataValue_VolumeFlow);
-            this.panel1.Controls.Add(this.lbInfo_VolumeFlow);
-            this.panel1.Location = new System.Drawing.Point(284, 3);
-            this.panel1.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel1.MinimumSize = new System.Drawing.Size(275, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(275, 70);
-            this.panel1.TabIndex = 1;
+            this.panel_VolumeFlow.AutoSize = true;
+            this.panel_VolumeFlow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_VolumeFlow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_VolumeFlow.Controls.Add(this.lbDataValue_VolumeFlow);
+            this.panel_VolumeFlow.Controls.Add(this.lbInfo_VolumeFlow);
+            this.panel_VolumeFlow.Location = new System.Drawing.Point(284, 3);
+            this.panel_VolumeFlow.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_VolumeFlow.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_VolumeFlow.Name = "panel_VolumeFlow";
+            this.panel_VolumeFlow.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_VolumeFlow.Size = new System.Drawing.Size(275, 70);
+            this.panel_VolumeFlow.TabIndex = 1;
             // 
             // lbDataValue_VolumeFlow
             // 
@@ -235,20 +235,20 @@ namespace SerialPortComm
             this.lbInfo_VolumeFlow.Text = "Текущий объёмный расход (м³/ч):";
             this.lbInfo_VolumeFlow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel2
+            // panel_Temperature
             // 
-            this.panel2.AutoSize = true;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.lbDataValue_Temperature);
-            this.panel2.Controls.Add(this.lbInfo_Temperature);
-            this.panel2.Location = new System.Drawing.Point(3, 79);
-            this.panel2.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel2.MinimumSize = new System.Drawing.Size(275, 70);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(275, 70);
-            this.panel2.TabIndex = 2;
+            this.panel_Temperature.AutoSize = true;
+            this.panel_Temperature.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_Temperature.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_Temperature.Controls.Add(this.lbDataValue_Temperature);
+            this.panel_Temperature.Controls.Add(this.lbInfo_Temperature);
+            this.panel_Temperature.Location = new System.Drawing.Point(3, 79);
+            this.panel_Temperature.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_Temperature.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_Temperature.Name = "panel_Temperature";
+            this.panel_Temperature.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_Temperature.Size = new System.Drawing.Size(275, 70);
+            this.panel_Temperature.TabIndex = 2;
             // 
             // lbDataValue_Temperature
             // 
@@ -276,20 +276,20 @@ namespace SerialPortComm
             this.lbInfo_Temperature.Text = "Текущее температура (℃):";
             this.lbInfo_Temperature.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel3
+            // panel_MassFlow
             // 
-            this.panel3.AutoSize = true;
-            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.lbDataValue_MassFlow);
-            this.panel3.Controls.Add(this.lbInfo_MassFlow);
-            this.panel3.Location = new System.Drawing.Point(284, 79);
-            this.panel3.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel3.MinimumSize = new System.Drawing.Size(275, 70);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.panel3.Size = new System.Drawing.Size(275, 70);
-            this.panel3.TabIndex = 3;
+            this.panel_MassFlow.AutoSize = true;
+            this.panel_MassFlow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_MassFlow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_MassFlow.Controls.Add(this.lbDataValue_MassFlow);
+            this.panel_MassFlow.Controls.Add(this.lbInfo_MassFlow);
+            this.panel_MassFlow.Location = new System.Drawing.Point(284, 79);
+            this.panel_MassFlow.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_MassFlow.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_MassFlow.Name = "panel_MassFlow";
+            this.panel_MassFlow.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_MassFlow.Size = new System.Drawing.Size(275, 70);
+            this.panel_MassFlow.TabIndex = 3;
             // 
             // lbDataValue_MassFlow
             // 
@@ -317,20 +317,20 @@ namespace SerialPortComm
             this.lbInfo_MassFlow.Text = "Текущий массовый расход (т/ч):";
             this.lbInfo_MassFlow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel4
+            // panel_RoH2O
             // 
-            this.panel4.AutoSize = true;
-            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.lbDataValue_RoH2O);
-            this.panel4.Controls.Add(this.lbInfo_RoH2O);
-            this.panel4.Location = new System.Drawing.Point(3, 155);
-            this.panel4.MaximumSize = new System.Drawing.Size(300, 150);
-            this.panel4.MinimumSize = new System.Drawing.Size(275, 70);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(5);
-            this.panel4.Size = new System.Drawing.Size(275, 70);
-            this.panel4.TabIndex = 4;
+            this.panel_RoH2O.AutoSize = true;
+            this.panel_RoH2O.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_RoH2O.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_RoH2O.Controls.Add(this.lbDataValue_RoH2O);
+            this.panel_RoH2O.Controls.Add(this.lbInfo_RoH2O);
+            this.panel_RoH2O.Location = new System.Drawing.Point(3, 155);
+            this.panel_RoH2O.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_RoH2O.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_RoH2O.Name = "panel_RoH2O";
+            this.panel_RoH2O.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_RoH2O.Size = new System.Drawing.Size(275, 70);
+            this.panel_RoH2O.TabIndex = 4;
             // 
             // lbDataValue_RoH2O
             // 
@@ -690,6 +690,7 @@ namespace SerialPortComm
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serial Port Communication";
+            this.Activated += new System.EventHandler(this.frmMain_Activated);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.PanelMain.ResumeLayout(false);
             this.panelChildFill.ResumeLayout(false);
@@ -700,14 +701,14 @@ namespace SerialPortComm
             this.flowLayoutPanel1.PerformLayout();
             this.panel_DozaNow.ResumeLayout(false);
             this.panel_DozaNow.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panel_VolumeFlow.ResumeLayout(false);
+            this.panel_VolumeFlow.PerformLayout();
+            this.panel_Temperature.ResumeLayout(false);
+            this.panel_Temperature.PerformLayout();
+            this.panel_MassFlow.ResumeLayout(false);
+            this.panel_MassFlow.PerformLayout();
+            this.panel_RoH2O.ResumeLayout(false);
+            this.panel_RoH2O.PerformLayout();
             this.panelLogInfo.ResumeLayout(false);
             this.panelChildRight.ResumeLayout(false);
             this.groupBoxSettingCom.ResumeLayout(false);
@@ -758,16 +759,16 @@ namespace SerialPortComm
         private System.Windows.Forms.Panel panel_DozaNow;
         private System.Windows.Forms.Label lbInfo_DozaNow;
         private System.Windows.Forms.Label lbDataValue_DozaNow;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_VolumeFlow;
         private System.Windows.Forms.Label lbDataValue_VolumeFlow;
         private System.Windows.Forms.Label lbInfo_VolumeFlow;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel_Temperature;
         private System.Windows.Forms.Label lbDataValue_Temperature;
         private System.Windows.Forms.Label lbInfo_Temperature;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel_MassFlow;
         private System.Windows.Forms.Label lbDataValue_MassFlow;
         private System.Windows.Forms.Label lbInfo_MassFlow;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel_RoH2O;
         private System.Windows.Forms.Label lbDataValue_RoH2O;
         private System.Windows.Forms.Label lbInfo_RoH2O;
     }

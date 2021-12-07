@@ -35,7 +35,7 @@ namespace SerialPortComm.Frames
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.NavajoWhite;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(206)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FormSendSettings";
             this.Text = "FormSendSettings";
