@@ -29,3 +29,33 @@
         }
 
     }
+
+
+
+        PrivateFontCollection fontCollection = new PrivateFontCollection();
+
+         private void frmMain_Load(object sender, EventArgs e)
+        {
+            Присвоение шрифта для цифровых данных.
+            lbDataValue_DozaNow.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_VolumeFlow.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_Temperature.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_MassFlow.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_RoH2O.Font = new Font(fontFamilySelected(1), 24);
+        }
+
+        // Инициализация шррифта для цифровых значений.
+        private FontFamily fontFamilySelected(int index)
+        {
+            fontCollection.AddFontFile(@"..\..\Resources\digital-7.ttf"); // файл шрифта
+            fontCollection.AddFontFile(@"..\..\Resources\digital-7 (mono).ttf"); // файл шрифта
+            FontFamily family = fontCollection.Families[0];
+            FontFamily familyMono = fontCollection.Families[1];
+
+            if (index == 0)
+                return family;
+            else if (index == 1)
+                return familyMono;
+            else
+                return family;
+        }

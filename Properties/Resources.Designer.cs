@@ -61,6 +61,23 @@ namespace SerialPortComm.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ; Состояния отображения данных
+        ///[CheckedViewDataValue]
+        ///hex_DozaNow=False;
+        ///hex_MassFlow=False;
+        ///hex_VolumeFlow=False;
+        ///Temperature=False;
+        ///RoH2O=False;
+        ///
+        ///.
+        /// </summary>
+        internal static string Config {
+            get {
+                return ResourceManager.GetString("Config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
         internal static byte[] digital_7 {
@@ -76,16 +93,6 @@ namespace SerialPortComm.Properties {
         internal static byte[] digital_7__mono_ {
             get {
                 object obj = ResourceManager.GetObject("digital_7__mono_", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        internal static byte[] POCKC___ {
-            get {
-                object obj = ResourceManager.GetObject("POCKC___", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -107,16 +114,6 @@ namespace SerialPortComm.Properties {
             get {
                 object obj = ResourceManager.GetObject("Status_RED", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        internal static byte[] Upsilon {
-            get {
-                object obj = ResourceManager.GetObject("Upsilon", resourceCulture);
-                return ((byte[])(obj));
             }
         }
     }

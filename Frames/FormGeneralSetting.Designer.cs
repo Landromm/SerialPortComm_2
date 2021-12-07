@@ -31,37 +31,37 @@ namespace SerialPortComm.Frames
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnResetCheckBox = new System.Windows.Forms.Button();
+            this.btnSaveCheckBox = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.flowLtPanelSelectView = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel_DozaNow = new System.Windows.Forms.Panel();
+            this.chb_DozaNow = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.panel_Temperature = new System.Windows.Forms.Panel();
+            this.chb_Temperature = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.panel_VolumeFlow = new System.Windows.Forms.Panel();
+            this.chb_VolumeFlow = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.panel_RoH2O = new System.Windows.Forms.Panel();
+            this.chb_RoH2O = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.panel_MassFlow = new System.Windows.Forms.Panel();
+            this.chb_MassFlow = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelInfoView = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.flowLtPanelSelectView.SuspendLayout();
+            this.panel_DozaNow.SuspendLayout();
+            this.panel_Temperature.SuspendLayout();
+            this.panel_VolumeFlow.SuspendLayout();
+            this.panel_RoH2O.SuspendLayout();
+            this.panel_MassFlow.SuspendLayout();
+            this.panelInfoView.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,42 +76,46 @@ namespace SerialPortComm.Frames
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.button2);
-            this.panel8.Controls.Add(this.button1);
+            this.panel8.Controls.Add(this.btnResetCheckBox);
+            this.panel8.Controls.Add(this.btnSaveCheckBox);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(0, 261);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(534, 50);
             this.panel8.TabIndex = 1;
             // 
-            // button2
+            // btnResetCheckBox
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 50);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Сбросить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnResetCheckBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnResetCheckBox.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnResetCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnResetCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetCheckBox.Location = new System.Drawing.Point(0, 0);
+            this.btnResetCheckBox.Name = "btnResetCheckBox";
+            this.btnResetCheckBox.Size = new System.Drawing.Size(100, 50);
+            this.btnResetCheckBox.TabIndex = 1;
+            this.btnResetCheckBox.Text = "Сбросить";
+            this.btnResetCheckBox.UseVisualStyleBackColor = true;
+            this.btnResetCheckBox.Click += new System.EventHandler(this.BtnResetCheckBox_Click);
             // 
-            // button1
+            // btnSaveCheckBox
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(434, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveCheckBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSaveCheckBox.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnSaveCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSaveCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveCheckBox.Location = new System.Drawing.Point(434, 0);
+            this.btnSaveCheckBox.Name = "btnSaveCheckBox";
+            this.btnSaveCheckBox.Size = new System.Drawing.Size(100, 50);
+            this.btnSaveCheckBox.TabIndex = 0;
+            this.btnSaveCheckBox.Text = "Сохранить";
+            this.btnSaveCheckBox.UseVisualStyleBackColor = true;
+            this.btnSaveCheckBox.Click += new System.EventHandler(this.BtnSaveCheckBox_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.flowLtPanelSelectView);
+            this.groupBox1.Controls.Add(this.panelInfoView);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -120,41 +124,42 @@ namespace SerialPortComm.Frames
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Просмотр";
             // 
-            // flowLayoutPanel1
+            // flowLtPanelSelectView
             // 
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Controls.Add(this.panel3);
-            this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Controls.Add(this.panel5);
-            this.flowLayoutPanel1.Controls.Add(this.panel7);
-            this.flowLayoutPanel1.Controls.Add(this.panel6);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(163, 16);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(368, 153);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLtPanelSelectView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flowLtPanelSelectView.Controls.Add(this.panel_DozaNow);
+            this.flowLtPanelSelectView.Controls.Add(this.panel_Temperature);
+            this.flowLtPanelSelectView.Controls.Add(this.panel_VolumeFlow);
+            this.flowLtPanelSelectView.Controls.Add(this.panel_RoH2O);
+            this.flowLtPanelSelectView.Controls.Add(this.panel_MassFlow);
+            this.flowLtPanelSelectView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLtPanelSelectView.Location = new System.Drawing.Point(163, 16);
+            this.flowLtPanelSelectView.Name = "flowLtPanelSelectView";
+            this.flowLtPanelSelectView.Size = new System.Drawing.Size(368, 153);
+            this.flowLtPanelSelectView.TabIndex = 1;
             // 
-            // panel3
+            // panel_DozaNow
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.checkBox1);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(187, 43);
-            this.panel3.TabIndex = 0;
+            this.panel_DozaNow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_DozaNow.Controls.Add(this.chb_DozaNow);
+            this.panel_DozaNow.Controls.Add(this.label1);
+            this.panel_DozaNow.Location = new System.Drawing.Point(3, 3);
+            this.panel_DozaNow.Name = "panel_DozaNow";
+            this.panel_DozaNow.Size = new System.Drawing.Size(187, 43);
+            this.panel_DozaNow.TabIndex = 0;
             // 
-            // checkBox1
+            // chb_DozaNow
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox1.Location = new System.Drawing.Point(0, 16);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
-            this.checkBox1.Size = new System.Drawing.Size(185, 20);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Включить";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chb_DozaNow.AutoSize = true;
+            this.chb_DozaNow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chb_DozaNow.Location = new System.Drawing.Point(0, 19);
+            this.chb_DozaNow.Name = "chb_DozaNow";
+            this.chb_DozaNow.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
+            this.chb_DozaNow.Size = new System.Drawing.Size(185, 20);
+            this.chb_DozaNow.TabIndex = 2;
+            this.chb_DozaNow.Text = "Включить";
+            this.chb_DozaNow.UseVisualStyleBackColor = true;
+            this.chb_DozaNow.CheckedChanged += new System.EventHandler(this.Chb_DozaNow_CheckedChanged);
             // 
             // label1
             // 
@@ -162,33 +167,34 @@ namespace SerialPortComm.Frames
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.label1.Size = new System.Drawing.Size(160, 16);
+            this.label1.Padding = new System.Windows.Forms.Padding(3);
+            this.label1.Size = new System.Drawing.Size(160, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Текущее значение дозы (м³):";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel4
+            // panel_Temperature
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.checkBox2);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(196, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(164, 43);
-            this.panel4.TabIndex = 1;
+            this.panel_Temperature.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Temperature.Controls.Add(this.chb_Temperature);
+            this.panel_Temperature.Controls.Add(this.label3);
+            this.panel_Temperature.Location = new System.Drawing.Point(196, 3);
+            this.panel_Temperature.Name = "panel_Temperature";
+            this.panel_Temperature.Size = new System.Drawing.Size(164, 43);
+            this.panel_Temperature.TabIndex = 1;
             // 
-            // checkBox2
+            // chb_Temperature
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox2.Location = new System.Drawing.Point(0, 16);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
-            this.checkBox2.Size = new System.Drawing.Size(162, 20);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "Включить";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chb_Temperature.AutoSize = true;
+            this.chb_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chb_Temperature.Location = new System.Drawing.Point(0, 19);
+            this.chb_Temperature.Name = "chb_Temperature";
+            this.chb_Temperature.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
+            this.chb_Temperature.Size = new System.Drawing.Size(162, 20);
+            this.chb_Temperature.TabIndex = 2;
+            this.chb_Temperature.Text = "Включить";
+            this.chb_Temperature.UseVisualStyleBackColor = true;
+            this.chb_Temperature.CheckedChanged += new System.EventHandler(this.Chb_Temperature_CheckedChanged);
             // 
             // label3
             // 
@@ -196,33 +202,34 @@ namespace SerialPortComm.Frames
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.label3.Size = new System.Drawing.Size(149, 16);
+            this.label3.Padding = new System.Windows.Forms.Padding(3);
+            this.label3.Size = new System.Drawing.Size(149, 19);
             this.label3.TabIndex = 1;
             this.label3.Text = "Текущее температура (℃):";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel5
+            // panel_VolumeFlow
             // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.checkBox3);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(3, 52);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(186, 43);
-            this.panel5.TabIndex = 2;
+            this.panel_VolumeFlow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_VolumeFlow.Controls.Add(this.chb_VolumeFlow);
+            this.panel_VolumeFlow.Controls.Add(this.label4);
+            this.panel_VolumeFlow.Location = new System.Drawing.Point(3, 52);
+            this.panel_VolumeFlow.Name = "panel_VolumeFlow";
+            this.panel_VolumeFlow.Size = new System.Drawing.Size(186, 43);
+            this.panel_VolumeFlow.TabIndex = 2;
             // 
-            // checkBox3
+            // chb_VolumeFlow
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox3.Location = new System.Drawing.Point(0, 16);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
-            this.checkBox3.Size = new System.Drawing.Size(184, 20);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Включить";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chb_VolumeFlow.AutoSize = true;
+            this.chb_VolumeFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chb_VolumeFlow.Location = new System.Drawing.Point(0, 19);
+            this.chb_VolumeFlow.Name = "chb_VolumeFlow";
+            this.chb_VolumeFlow.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
+            this.chb_VolumeFlow.Size = new System.Drawing.Size(184, 20);
+            this.chb_VolumeFlow.TabIndex = 2;
+            this.chb_VolumeFlow.Text = "Включить";
+            this.chb_VolumeFlow.UseVisualStyleBackColor = true;
+            this.chb_VolumeFlow.CheckedChanged += new System.EventHandler(this.Chb_VolumeFlow_CheckedChanged);
             // 
             // label4
             // 
@@ -230,33 +237,34 @@ namespace SerialPortComm.Frames
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.label4.Size = new System.Drawing.Size(185, 16);
+            this.label4.Padding = new System.Windows.Forms.Padding(3);
+            this.label4.Size = new System.Drawing.Size(185, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "Текущий объёмный расход (м³/ч):";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel7
+            // panel_RoH2O
             // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.checkBox5);
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Location = new System.Drawing.Point(195, 52);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(164, 43);
-            this.panel7.TabIndex = 4;
+            this.panel_RoH2O.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_RoH2O.Controls.Add(this.chb_RoH2O);
+            this.panel_RoH2O.Controls.Add(this.label6);
+            this.panel_RoH2O.Location = new System.Drawing.Point(195, 52);
+            this.panel_RoH2O.Name = "panel_RoH2O";
+            this.panel_RoH2O.Size = new System.Drawing.Size(164, 43);
+            this.panel_RoH2O.TabIndex = 4;
             // 
-            // checkBox5
+            // chb_RoH2O
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox5.Location = new System.Drawing.Point(0, 16);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
-            this.checkBox5.Size = new System.Drawing.Size(162, 20);
-            this.checkBox5.TabIndex = 2;
-            this.checkBox5.Text = "Включить";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chb_RoH2O.AutoSize = true;
+            this.chb_RoH2O.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chb_RoH2O.Location = new System.Drawing.Point(0, 19);
+            this.chb_RoH2O.Name = "chb_RoH2O";
+            this.chb_RoH2O.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
+            this.chb_RoH2O.Size = new System.Drawing.Size(162, 20);
+            this.chb_RoH2O.TabIndex = 2;
+            this.chb_RoH2O.Text = "Включить";
+            this.chb_RoH2O.UseVisualStyleBackColor = true;
+            this.chb_RoH2O.CheckedChanged += new System.EventHandler(this.Chb_RoH2O_CheckedChanged);
             // 
             // label6
             // 
@@ -264,33 +272,34 @@ namespace SerialPortComm.Frames
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.label6.Size = new System.Drawing.Size(146, 16);
+            this.label6.Padding = new System.Windows.Forms.Padding(3);
+            this.label6.Size = new System.Drawing.Size(146, 19);
             this.label6.TabIndex = 1;
             this.label6.Text = "Текущая плотность (т/м³):";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel6
+            // panel_MassFlow
             // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.checkBox4);
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(3, 101);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(186, 43);
-            this.panel6.TabIndex = 3;
+            this.panel_MassFlow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_MassFlow.Controls.Add(this.chb_MassFlow);
+            this.panel_MassFlow.Controls.Add(this.label5);
+            this.panel_MassFlow.Location = new System.Drawing.Point(3, 101);
+            this.panel_MassFlow.Name = "panel_MassFlow";
+            this.panel_MassFlow.Size = new System.Drawing.Size(186, 43);
+            this.panel_MassFlow.TabIndex = 3;
             // 
-            // checkBox4
+            // chb_MassFlow
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox4.Location = new System.Drawing.Point(0, 16);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
-            this.checkBox4.Size = new System.Drawing.Size(184, 20);
-            this.checkBox4.TabIndex = 2;
-            this.checkBox4.Text = "Включить";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chb_MassFlow.AutoSize = true;
+            this.chb_MassFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chb_MassFlow.Location = new System.Drawing.Point(0, 19);
+            this.chb_MassFlow.Name = "chb_MassFlow";
+            this.chb_MassFlow.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
+            this.chb_MassFlow.Size = new System.Drawing.Size(184, 20);
+            this.chb_MassFlow.TabIndex = 2;
+            this.chb_MassFlow.Text = "Включить";
+            this.chb_MassFlow.UseVisualStyleBackColor = true;
+            this.chb_MassFlow.CheckedChanged += new System.EventHandler(this.Chb_MassFlow_CheckedChanged);
             // 
             // label5
             // 
@@ -298,22 +307,22 @@ namespace SerialPortComm.Frames
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.label5.Size = new System.Drawing.Size(178, 16);
+            this.label5.Padding = new System.Windows.Forms.Padding(3);
+            this.label5.Size = new System.Drawing.Size(178, 19);
             this.label5.TabIndex = 1;
             this.label5.Text = "Текущий массовый расход (т/ч):";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel2
+            // panelInfoView
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.richTextBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(3, 16);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(160, 153);
-            this.panel2.TabIndex = 0;
+            this.panelInfoView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelInfoView.Controls.Add(this.richTextBox1);
+            this.panelInfoView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelInfoView.Location = new System.Drawing.Point(3, 16);
+            this.panelInfoView.Name = "panelInfoView";
+            this.panelInfoView.Padding = new System.Windows.Forms.Padding(5);
+            this.panelInfoView.Size = new System.Drawing.Size(160, 153);
+            this.panelInfoView.TabIndex = 0;
             // 
             // richTextBox1
             // 
@@ -337,21 +346,22 @@ namespace SerialPortComm.Frames
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormGeneralSetting";
             this.Text = "FormGeneralSetting";
+            this.Load += new System.EventHandler(this.FormGeneralSetting_Load);
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.flowLtPanelSelectView.ResumeLayout(false);
+            this.panel_DozaNow.ResumeLayout(false);
+            this.panel_DozaNow.PerformLayout();
+            this.panel_Temperature.ResumeLayout(false);
+            this.panel_Temperature.PerformLayout();
+            this.panel_VolumeFlow.ResumeLayout(false);
+            this.panel_VolumeFlow.PerformLayout();
+            this.panel_RoH2O.ResumeLayout(false);
+            this.panel_RoH2O.PerformLayout();
+            this.panel_MassFlow.ResumeLayout(false);
+            this.panel_MassFlow.PerformLayout();
+            this.panelInfoView.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -360,26 +370,26 @@ namespace SerialPortComm.Frames
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chb_DozaNow;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Panel panelInfoView;
+        private System.Windows.Forms.FlowLayoutPanel flowLtPanelSelectView;
+        private System.Windows.Forms.Panel panel_DozaNow;
+        private System.Windows.Forms.Panel panel_Temperature;
+        private System.Windows.Forms.CheckBox chb_Temperature;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Panel panel_VolumeFlow;
+        private System.Windows.Forms.CheckBox chb_VolumeFlow;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.Panel panel_RoH2O;
+        private System.Windows.Forms.CheckBox chb_RoH2O;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Panel panel_MassFlow;
+        private System.Windows.Forms.CheckBox chb_MassFlow;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnResetCheckBox;
+        private System.Windows.Forms.Button btnSaveCheckBox;
     }
 }
