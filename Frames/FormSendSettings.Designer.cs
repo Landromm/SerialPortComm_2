@@ -29,91 +29,208 @@ namespace SerialPortComm.Frames
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.panelSplitCenter = new System.Windows.Forms.Panel();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.tb_MassFlow = new System.Windows.Forms.TextBox();
+            this.lb_MassFlow = new System.Windows.Forms.Label();
+            this.tb_VolumeFlow = new System.Windows.Forms.TextBox();
+            this.lb_VolumeFlow = new System.Windows.Forms.Label();
+            this.tb_DozaNow = new System.Windows.Forms.TextBox();
+            this.lb_DozaNow = new System.Windows.Forms.Label();
+            this.tb_RoH2O = new System.Windows.Forms.TextBox();
+            this.lb_RoH2O = new System.Windows.Forms.Label();
+            this.tb_Temperature = new System.Windows.Forms.TextBox();
+            this.lb_Temperature = new System.Windows.Forms.Label();
+            this.panelInfo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.panelButton = new System.Windows.Forms.Panel();
+            this.btnResetTextBox = new System.Windows.Forms.Button();
+            this.btnSaveTextBox = new System.Windows.Forms.Button();
+            this.panelMain.SuspendLayout();
+            this.panelSplitCenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.Panel2.SuspendLayout();
+            this.splitContainer.SuspendLayout();
+            this.panelInfo.SuspendLayout();
+            this.panelButton.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelMain
             // 
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(534, 261);
-            this.panel1.TabIndex = 2;
+            this.panelMain.Controls.Add(this.panelSplitCenter);
+            this.panelMain.Controls.Add(this.panelInfo);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(534, 261);
+            this.panelMain.TabIndex = 2;
             // 
-            // panel2
+            // panelSplitCenter
             // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 261);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(534, 50);
-            this.panel2.TabIndex = 3;
+            this.panelSplitCenter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelSplitCenter.Controls.Add(this.splitContainer);
+            this.panelSplitCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSplitCenter.Location = new System.Drawing.Point(0, 50);
+            this.panelSplitCenter.Name = "panelSplitCenter";
+            this.panelSplitCenter.Size = new System.Drawing.Size(534, 211);
+            this.panelSplitCenter.TabIndex = 1;
             // 
-            // button1
+            // splitContainer
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(409, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer.Name = "splitContainer";
             // 
-            // button2
+            // splitContainer.Panel1
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 50);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Сбросить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.splitContainer.Panel1.Controls.Add(this.tb_MassFlow);
+            this.splitContainer.Panel1.Controls.Add(this.lb_MassFlow);
+            this.splitContainer.Panel1.Controls.Add(this.tb_VolumeFlow);
+            this.splitContainer.Panel1.Controls.Add(this.lb_VolumeFlow);
+            this.splitContainer.Panel1.Controls.Add(this.tb_DozaNow);
+            this.splitContainer.Panel1.Controls.Add(this.lb_DozaNow);
+            this.splitContainer.Panel1.Padding = new System.Windows.Forms.Padding(5);
             // 
-            // panel3
+            // splitContainer.Panel2
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(534, 50);
-            this.panel3.TabIndex = 0;
+            this.splitContainer.Panel2.Controls.Add(this.tb_RoH2O);
+            this.splitContainer.Panel2.Controls.Add(this.lb_RoH2O);
+            this.splitContainer.Panel2.Controls.Add(this.tb_Temperature);
+            this.splitContainer.Panel2.Controls.Add(this.lb_Temperature);
+            this.splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.splitContainer.Size = new System.Drawing.Size(530, 207);
+            this.splitContainer.SplitterDistance = 265;
+            this.splitContainer.TabIndex = 0;
+            // 
+            // tb_MassFlow
+            // 
+            this.tb_MassFlow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
+            this.tb_MassFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_MassFlow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_MassFlow.Location = new System.Drawing.Point(5, 140);
+            this.tb_MassFlow.Name = "tb_MassFlow";
+            this.tb_MassFlow.Size = new System.Drawing.Size(255, 22);
+            this.tb_MassFlow.TabIndex = 5;
+            this.tb_MassFlow.Text = "AA SS DD FF GG 11 23";
+            // 
+            // lb_MassFlow
+            // 
+            this.lb_MassFlow.AutoSize = true;
+            this.lb_MassFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_MassFlow.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_MassFlow.Location = new System.Drawing.Point(5, 108);
+            this.lb_MassFlow.Name = "lb_MassFlow";
+            this.lb_MassFlow.Padding = new System.Windows.Forms.Padding(0, 10, 5, 5);
+            this.lb_MassFlow.Size = new System.Drawing.Size(232, 32);
+            this.lb_MassFlow.TabIndex = 4;
+            this.lb_MassFlow.Text = "Текущий массовый расход (т/ч):";
+            // 
+            // tb_VolumeFlow
+            // 
+            this.tb_VolumeFlow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
+            this.tb_VolumeFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_VolumeFlow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_VolumeFlow.Location = new System.Drawing.Point(5, 86);
+            this.tb_VolumeFlow.Name = "tb_VolumeFlow";
+            this.tb_VolumeFlow.Size = new System.Drawing.Size(255, 22);
+            this.tb_VolumeFlow.TabIndex = 3;
+            this.tb_VolumeFlow.Text = "AA SS DD FF GG 11 23";
+            // 
+            // lb_VolumeFlow
+            // 
+            this.lb_VolumeFlow.AutoSize = true;
+            this.lb_VolumeFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_VolumeFlow.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_VolumeFlow.Location = new System.Drawing.Point(5, 54);
+            this.lb_VolumeFlow.Name = "lb_VolumeFlow";
+            this.lb_VolumeFlow.Padding = new System.Windows.Forms.Padding(0, 10, 5, 5);
+            this.lb_VolumeFlow.Size = new System.Drawing.Size(242, 32);
+            this.lb_VolumeFlow.TabIndex = 2;
+            this.lb_VolumeFlow.Text = "Текущий объёмный расход (м³/ч):";
+            // 
+            // tb_DozaNow
+            // 
+            this.tb_DozaNow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
+            this.tb_DozaNow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_DozaNow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_DozaNow.Location = new System.Drawing.Point(5, 32);
+            this.tb_DozaNow.Margin = new System.Windows.Forms.Padding(5);
+            this.tb_DozaNow.Name = "tb_DozaNow";
+            this.tb_DozaNow.Size = new System.Drawing.Size(255, 22);
+            this.tb_DozaNow.TabIndex = 1;
+            this.tb_DozaNow.Text = "AA SS DD FF GG 11 23";
+            // 
+            // lb_DozaNow
+            // 
+            this.lb_DozaNow.AutoSize = true;
+            this.lb_DozaNow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_DozaNow.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_DozaNow.Location = new System.Drawing.Point(5, 5);
+            this.lb_DozaNow.Name = "lb_DozaNow";
+            this.lb_DozaNow.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lb_DozaNow.Size = new System.Drawing.Size(209, 27);
+            this.lb_DozaNow.TabIndex = 0;
+            this.lb_DozaNow.Text = "Текущее значение дозы (м³):";
+            // 
+            // tb_RoH2O
+            // 
+            this.tb_RoH2O.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
+            this.tb_RoH2O.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_RoH2O.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_RoH2O.Location = new System.Drawing.Point(5, 86);
+            this.tb_RoH2O.Margin = new System.Windows.Forms.Padding(5);
+            this.tb_RoH2O.Name = "tb_RoH2O";
+            this.tb_RoH2O.Size = new System.Drawing.Size(251, 22);
+            this.tb_RoH2O.TabIndex = 5;
+            this.tb_RoH2O.Text = "AA SS DD FF GG 11 23";
+            // 
+            // lb_RoH2O
+            // 
+            this.lb_RoH2O.AutoSize = true;
+            this.lb_RoH2O.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_RoH2O.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_RoH2O.Location = new System.Drawing.Point(5, 54);
+            this.lb_RoH2O.Name = "lb_RoH2O";
+            this.lb_RoH2O.Padding = new System.Windows.Forms.Padding(0, 10, 5, 5);
+            this.lb_RoH2O.Size = new System.Drawing.Size(188, 32);
+            this.lb_RoH2O.TabIndex = 4;
+            this.lb_RoH2O.Text = "Текущая плотность (т/м³):";
+            // 
+            // tb_Temperature
+            // 
+            this.tb_Temperature.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
+            this.tb_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_Temperature.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_Temperature.Location = new System.Drawing.Point(5, 32);
+            this.tb_Temperature.Margin = new System.Windows.Forms.Padding(5);
+            this.tb_Temperature.Name = "tb_Temperature";
+            this.tb_Temperature.Size = new System.Drawing.Size(251, 22);
+            this.tb_Temperature.TabIndex = 3;
+            this.tb_Temperature.Text = "AA SS DD FF GG 11 23";
+            // 
+            // lb_Temperature
+            // 
+            this.lb_Temperature.AutoSize = true;
+            this.lb_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_Temperature.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_Temperature.Location = new System.Drawing.Point(5, 5);
+            this.lb_Temperature.Name = "lb_Temperature";
+            this.lb_Temperature.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lb_Temperature.Size = new System.Drawing.Size(191, 27);
+            this.lb_Temperature.TabIndex = 2;
+            this.lb_Temperature.Text = "Текущее температура (℃):";
+            // 
+            // panelInfo
+            // 
+            this.panelInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelInfo.Controls.Add(this.label1);
+            this.panelInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelInfo.Location = new System.Drawing.Point(0, 0);
+            this.panelInfo.Name = "panelInfo";
+            this.panelInfo.Size = new System.Drawing.Size(534, 50);
+            this.panelInfo.TabIndex = 0;
             // 
             // label1
             // 
@@ -126,160 +243,45 @@ namespace SerialPortComm.Frames
             this.label1.Text = "Введите запросы к счётчику для необходимых параметров, \r\nв формате \"hex\".";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
+            // panelButton
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.splitContainer1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 50);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(534, 211);
-            this.panel4.TabIndex = 1;
+            this.panelButton.Controls.Add(this.btnResetTextBox);
+            this.panelButton.Controls.Add(this.btnSaveTextBox);
+            this.panelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelButton.Location = new System.Drawing.Point(0, 261);
+            this.panelButton.Name = "panelButton";
+            this.panelButton.Size = new System.Drawing.Size(534, 50);
+            this.panelButton.TabIndex = 3;
             // 
-            // splitContainer1
+            // btnResetTextBox
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
+            this.btnResetTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnResetTextBox.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnResetTextBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnResetTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetTextBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnResetTextBox.Location = new System.Drawing.Point(0, 0);
+            this.btnResetTextBox.Name = "btnResetTextBox";
+            this.btnResetTextBox.Size = new System.Drawing.Size(125, 50);
+            this.btnResetTextBox.TabIndex = 1;
+            this.btnResetTextBox.Text = "Сбросить";
+            this.btnResetTextBox.UseVisualStyleBackColor = true;
+            this.btnResetTextBox.Click += new System.EventHandler(this.BtnResetTextBox_Click);
             // 
-            // splitContainer1.Panel1
+            // btnSaveTextBox
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.textBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(5);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.textBox5);
-            this.splitContainer1.Panel2.Controls.Add(this.label6);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox4);
-            this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.splitContainer1.Size = new System.Drawing.Size(530, 207);
-            this.splitContainer1.SplitterDistance = 265;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(5, 5);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label2.Size = new System.Drawing.Size(209, 27);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Текущее значение дозы (м³):";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(5, 32);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "AA SS DD FF GG 11 23";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(5, 54);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 5, 5);
-            this.label3.Size = new System.Drawing.Size(242, 32);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Текущий объёмный расход (м³/ч):";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(5, 86);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(255, 22);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "AA SS DD FF GG 11 23";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(5, 108);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 5, 5);
-            this.label4.Size = new System.Drawing.Size(232, 32);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Текущий массовый расход (т/ч):";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(5, 140);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(255, 22);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.Text = "AA SS DD FF GG 11 23";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(5, 32);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(251, 22);
-            this.textBox4.TabIndex = 3;
-            this.textBox4.Text = "AA SS DD FF GG 11 23";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(5, 5);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label5.Size = new System.Drawing.Size(191, 27);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Текущее температура (℃):";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(5, 86);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(251, 22);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.Text = "AA SS DD FF GG 11 23";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(5, 54);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 10, 5, 5);
-            this.label6.Size = new System.Drawing.Size(188, 32);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Текущая плотность (т/м³):";
+            this.btnSaveTextBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSaveTextBox.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnSaveTextBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSaveTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveTextBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveTextBox.Location = new System.Drawing.Point(409, 0);
+            this.btnSaveTextBox.Name = "btnSaveTextBox";
+            this.btnSaveTextBox.Size = new System.Drawing.Size(125, 50);
+            this.btnSaveTextBox.TabIndex = 0;
+            this.btnSaveTextBox.Text = "Сохранить";
+            this.btnSaveTextBox.UseVisualStyleBackColor = true;
+            this.btnSaveTextBox.Click += new System.EventHandler(this.BtnSaveTextBox_Click);
             // 
             // FormSendSettings
             // 
@@ -287,45 +289,46 @@ namespace SerialPortComm.Frames
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(206)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(534, 311);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelButton);
+            this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSendSettings";
             this.Text = "FormSendSettings";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.FormSendSettings_Load);
+            this.panelMain.ResumeLayout(false);
+            this.panelSplitCenter.ResumeLayout(false);
+            this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel1.PerformLayout();
+            this.splitContainer.Panel2.ResumeLayout(false);
+            this.splitContainer.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
+            this.panelInfo.ResumeLayout(false);
+            this.panelInfo.PerformLayout();
+            this.panelButton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Panel panelButton;
+        private System.Windows.Forms.Button btnSaveTextBox;
+        private System.Windows.Forms.Button btnResetTextBox;
+        private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panelSplitCenter;
+        private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.TextBox tb_MassFlow;
+        private System.Windows.Forms.Label lb_MassFlow;
+        private System.Windows.Forms.TextBox tb_VolumeFlow;
+        private System.Windows.Forms.Label lb_VolumeFlow;
+        private System.Windows.Forms.TextBox tb_DozaNow;
+        private System.Windows.Forms.Label lb_DozaNow;
+        private System.Windows.Forms.TextBox tb_RoH2O;
+        private System.Windows.Forms.Label lb_RoH2O;
+        private System.Windows.Forms.TextBox tb_Temperature;
+        private System.Windows.Forms.Label lb_Temperature;
     }
 }
