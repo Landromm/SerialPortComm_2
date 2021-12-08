@@ -30,7 +30,7 @@ namespace SerialPortComm.Frames
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panelSplitCenter = new System.Windows.Forms.Panel();
+            this.panelSplitCentre = new System.Windows.Forms.Panel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tb_MassFlow = new System.Windows.Forms.TextBox();
             this.lb_MassFlow = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@ namespace SerialPortComm.Frames
             this.btnResetTextBox = new System.Windows.Forms.Button();
             this.btnSaveTextBox = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
-            this.panelSplitCenter.SuspendLayout();
+            this.panelSplitCentre.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -59,7 +59,7 @@ namespace SerialPortComm.Frames
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.panelSplitCenter);
+            this.panelMain.Controls.Add(this.panelSplitCentre);
             this.panelMain.Controls.Add(this.panelInfo);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
@@ -67,15 +67,14 @@ namespace SerialPortComm.Frames
             this.panelMain.Size = new System.Drawing.Size(534, 261);
             this.panelMain.TabIndex = 2;
             // 
-            // panelSplitCenter
+            // panelSplitCentre
             // 
-            this.panelSplitCenter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelSplitCenter.Controls.Add(this.splitContainer);
-            this.panelSplitCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSplitCenter.Location = new System.Drawing.Point(0, 50);
-            this.panelSplitCenter.Name = "panelSplitCenter";
-            this.panelSplitCenter.Size = new System.Drawing.Size(534, 211);
-            this.panelSplitCenter.TabIndex = 1;
+            this.panelSplitCentre.Controls.Add(this.splitContainer);
+            this.panelSplitCentre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSplitCentre.Location = new System.Drawing.Point(0, 50);
+            this.panelSplitCentre.Name = "panelSplitCentre";
+            this.panelSplitCentre.Size = new System.Drawing.Size(534, 211);
+            this.panelSplitCentre.TabIndex = 1;
             // 
             // splitContainer
             // 
@@ -100,8 +99,8 @@ namespace SerialPortComm.Frames
             this.splitContainer.Panel2.Controls.Add(this.tb_Temperature);
             this.splitContainer.Panel2.Controls.Add(this.lb_Temperature);
             this.splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.splitContainer.Size = new System.Drawing.Size(530, 207);
-            this.splitContainer.SplitterDistance = 265;
+            this.splitContainer.Size = new System.Drawing.Size(534, 211);
+            this.splitContainer.SplitterDistance = 267;
             this.splitContainer.TabIndex = 0;
             // 
             // tb_MassFlow
@@ -111,7 +110,7 @@ namespace SerialPortComm.Frames
             this.tb_MassFlow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_MassFlow.Location = new System.Drawing.Point(5, 140);
             this.tb_MassFlow.Name = "tb_MassFlow";
-            this.tb_MassFlow.Size = new System.Drawing.Size(255, 22);
+            this.tb_MassFlow.Size = new System.Drawing.Size(257, 22);
             this.tb_MassFlow.TabIndex = 5;
             this.tb_MassFlow.Text = "AA SS DD FF GG 11 23";
             // 
@@ -134,7 +133,7 @@ namespace SerialPortComm.Frames
             this.tb_VolumeFlow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_VolumeFlow.Location = new System.Drawing.Point(5, 86);
             this.tb_VolumeFlow.Name = "tb_VolumeFlow";
-            this.tb_VolumeFlow.Size = new System.Drawing.Size(255, 22);
+            this.tb_VolumeFlow.Size = new System.Drawing.Size(257, 22);
             this.tb_VolumeFlow.TabIndex = 3;
             this.tb_VolumeFlow.Text = "AA SS DD FF GG 11 23";
             // 
@@ -158,7 +157,7 @@ namespace SerialPortComm.Frames
             this.tb_DozaNow.Location = new System.Drawing.Point(5, 32);
             this.tb_DozaNow.Margin = new System.Windows.Forms.Padding(5);
             this.tb_DozaNow.Name = "tb_DozaNow";
-            this.tb_DozaNow.Size = new System.Drawing.Size(255, 22);
+            this.tb_DozaNow.Size = new System.Drawing.Size(257, 22);
             this.tb_DozaNow.TabIndex = 1;
             this.tb_DozaNow.Text = "AA SS DD FF GG 11 23";
             // 
@@ -182,7 +181,7 @@ namespace SerialPortComm.Frames
             this.tb_RoH2O.Location = new System.Drawing.Point(5, 86);
             this.tb_RoH2O.Margin = new System.Windows.Forms.Padding(5);
             this.tb_RoH2O.Name = "tb_RoH2O";
-            this.tb_RoH2O.Size = new System.Drawing.Size(251, 22);
+            this.tb_RoH2O.Size = new System.Drawing.Size(253, 22);
             this.tb_RoH2O.TabIndex = 5;
             this.tb_RoH2O.Text = "AA SS DD FF GG 11 23";
             // 
@@ -206,7 +205,7 @@ namespace SerialPortComm.Frames
             this.tb_Temperature.Location = new System.Drawing.Point(5, 32);
             this.tb_Temperature.Margin = new System.Windows.Forms.Padding(5);
             this.tb_Temperature.Name = "tb_Temperature";
-            this.tb_Temperature.Size = new System.Drawing.Size(251, 22);
+            this.tb_Temperature.Size = new System.Drawing.Size(253, 22);
             this.tb_Temperature.TabIndex = 3;
             this.tb_Temperature.Text = "AA SS DD FF GG 11 23";
             // 
@@ -247,7 +246,7 @@ namespace SerialPortComm.Frames
             // 
             this.panelButton.Controls.Add(this.btnResetTextBox);
             this.panelButton.Controls.Add(this.btnSaveTextBox);
-            this.panelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelButton.Location = new System.Drawing.Point(0, 261);
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(534, 50);
@@ -296,7 +295,7 @@ namespace SerialPortComm.Frames
             this.Text = "FormSendSettings";
             this.Load += new System.EventHandler(this.FormSendSettings_Load);
             this.panelMain.ResumeLayout(false);
-            this.panelSplitCenter.ResumeLayout(false);
+            this.panelSplitCentre.ResumeLayout(false);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
@@ -318,7 +317,7 @@ namespace SerialPortComm.Frames
         private System.Windows.Forms.Button btnResetTextBox;
         private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelSplitCenter;
+        private System.Windows.Forms.Panel panelSplitCentre;
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.TextBox tb_MassFlow;
         private System.Windows.Forms.Label lb_MassFlow;

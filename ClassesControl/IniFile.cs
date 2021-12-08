@@ -18,6 +18,8 @@ namespace SerialPortComm.ClassesControl
         [DllImport("kernel32", CharSet = CharSet.Unicode)] // Еще раз подключаем kernel32.dll, а теперь описываем функцию GetPrivateProfileString
         static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
 
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        static extern uint GetPrivateProfileSection(string lpAppName, IntPtr lpReturnedString, uint nSize, string lpFileName);
 
 
         // С помощью конструктора записываем путь до файла и его имя.

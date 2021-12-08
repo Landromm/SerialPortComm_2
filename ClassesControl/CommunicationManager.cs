@@ -42,7 +42,41 @@ namespace SerialPortComm.ClassesControl
         /// enumeration to hold our message types
         /// </summary>
         public enum MessageType { Incoming, Outgoing, Normal, Warning, Error };
+
+        /// <summary>
+        ///  Указывает число стоповых битов.
+        /// </summary>
+        public enum StopBitsUsers
+        {
+            //  Стоповые биты не используются. Это значение не поддерживается свойством System.IO.Ports.SerialPort.StopBits.
+            Нет = 0,
+            //  Используется один стоповый бит.
+            Один = 1,
+            //  Используются два стоповых бита.
+            Два = 2,
+            //  Используется 1,5 стоповых бита.
+            Полтора = 3
+        }
+
+        /// <summary>
+        ///  Задает бит четности для объекта System.IO.Ports.SerialPort.
+        /// </summary>
+        public enum ParityUsers
+        {            
+            //  Контроль четности не осуществляется.
+            Нет = 0,            
+            //  Устанавливает бит четности так, чтобы число установленных битов всегда было нечетным.
+            Один = 1,            
+            //  Устанавливает бит четности так, чтобы число установленных битов всегда было четным.
+            Два = 2,            
+            //  Оставляет бит четности равным 1.
+            Маркер = 3,
+            //  Оставляет бит четности равным 0.
+            Пробел = 4
+        }
         #endregion
+
+
 
         #region Manager Variables
         //property variables
@@ -348,7 +382,7 @@ namespace SerialPortComm.ClassesControl
         #region SetParityValues
         public void SetParityValues(object obj)
         {
-            foreach (string str in Enum.GetNames(typeof(Parity)))
+            foreach (string str in Enum.GetNames(typeof(ParityUsers)))
             {
                 ((ComboBox)obj).Items.Add(str);
             }
@@ -358,7 +392,7 @@ namespace SerialPortComm.ClassesControl
         #region SetStopBitValues
         public void SetStopBitValues(object obj)
         {
-            foreach (string str in Enum.GetNames(typeof(StopBits)))
+            foreach (string str in Enum.GetNames(typeof(StopBitsUsers)))
             {
                 ((ComboBox)obj).Items.Add(str);
             }
