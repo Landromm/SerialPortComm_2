@@ -56,7 +56,7 @@ namespace SerialPortComm
             this.btnMenu = new System.Windows.Forms.Button();
             this.btnStartSend = new System.Windows.Forms.Button();
             this.btnClosePort = new System.Windows.Forms.Button();
-            this.btnOpenPort = new System.Windows.Forms.Button();
+            this.BtnOpenPort = new System.Windows.Forms.Button();
             this.groupBoxSettingCom = new System.Windows.Forms.GroupBox();
             this.Separator = new System.Windows.Forms.Label();
             this.panelGroupBoxTop = new System.Windows.Forms.Panel();
@@ -64,7 +64,7 @@ namespace SerialPortComm
             this.lbInfoMode = new System.Windows.Forms.Label();
             this.ldInfoDataBits = new System.Windows.Forms.Label();
             this.lbInfoStopBits = new System.Windows.Forms.Label();
-            this.lbInfoPerity = new System.Windows.Forms.Label();
+            this.lbInfoParity = new System.Windows.Forms.Label();
             this.lbInfoBaudRate = new System.Windows.Forms.Label();
             this.lbInfoPort = new System.Windows.Forms.Label();
             this.panelRigth = new System.Windows.Forms.Panel();
@@ -77,6 +77,8 @@ namespace SerialPortComm
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tbAnswerData = new System.Windows.Forms.TextBox();
+            this.tbSendHex = new System.Windows.Forms.TextBox();
             this.PanelMain.SuspendLayout();
             this.panelChildFill.SuspendLayout();
             this.panelData.SuspendLayout();
@@ -118,6 +120,8 @@ namespace SerialPortComm
             // 
             // panelData
             // 
+            this.panelData.Controls.Add(this.tbSendHex);
+            this.panelData.Controls.Add(this.tbAnswerData);
             this.panelData.Controls.Add(this.groupBox1);
             this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelData.Location = new System.Drawing.Point(0, 0);
@@ -396,7 +400,7 @@ namespace SerialPortComm
             this.panelChildRight.Controls.Add(this.btnMenu);
             this.panelChildRight.Controls.Add(this.btnStartSend);
             this.panelChildRight.Controls.Add(this.btnClosePort);
-            this.panelChildRight.Controls.Add(this.btnOpenPort);
+            this.panelChildRight.Controls.Add(this.BtnOpenPort);
             this.panelChildRight.Controls.Add(this.groupBoxSettingCom);
             this.panelChildRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelChildRight.Location = new System.Drawing.Point(764, 0);
@@ -439,17 +443,19 @@ namespace SerialPortComm
             this.btnClosePort.TabIndex = 2;
             this.btnClosePort.Text = "Close Port";
             this.btnClosePort.UseVisualStyleBackColor = true;
+            this.btnClosePort.Click += new System.EventHandler(this.BtnClosePort_Click);
             // 
-            // btnOpenPort
+            // BtnOpenPort
             // 
-            this.btnOpenPort.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnOpenPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenPort.Location = new System.Drawing.Point(5, 506);
-            this.btnOpenPort.Name = "btnOpenPort";
-            this.btnOpenPort.Size = new System.Drawing.Size(190, 35);
-            this.btnOpenPort.TabIndex = 1;
-            this.btnOpenPort.Text = "Open Port";
-            this.btnOpenPort.UseVisualStyleBackColor = true;
+            this.BtnOpenPort.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnOpenPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnOpenPort.Location = new System.Drawing.Point(5, 506);
+            this.BtnOpenPort.Name = "BtnOpenPort";
+            this.BtnOpenPort.Size = new System.Drawing.Size(190, 35);
+            this.BtnOpenPort.TabIndex = 1;
+            this.BtnOpenPort.Text = "Open Port";
+            this.BtnOpenPort.UseVisualStyleBackColor = true;
+            this.BtnOpenPort.Click += new System.EventHandler(this.BtnOpenPort_Click);
             // 
             // groupBoxSettingCom
             // 
@@ -491,7 +497,7 @@ namespace SerialPortComm
             this.panelLeft.Controls.Add(this.lbInfoMode);
             this.panelLeft.Controls.Add(this.ldInfoDataBits);
             this.panelLeft.Controls.Add(this.lbInfoStopBits);
-            this.panelLeft.Controls.Add(this.lbInfoPerity);
+            this.panelLeft.Controls.Add(this.lbInfoParity);
             this.panelLeft.Controls.Add(this.lbInfoBaudRate);
             this.panelLeft.Controls.Add(this.lbInfoPort);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -537,17 +543,17 @@ namespace SerialPortComm
             this.lbInfoStopBits.TabIndex = 3;
             this.lbInfoStopBits.Text = "Stop Bits:";
             // 
-            // lbInfoPerity
+            // lbInfoParity
             // 
-            this.lbInfoPerity.AutoSize = true;
-            this.lbInfoPerity.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbInfoPerity.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbInfoPerity.Location = new System.Drawing.Point(3, 49);
-            this.lbInfoPerity.Name = "lbInfoPerity";
-            this.lbInfoPerity.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lbInfoPerity.Size = new System.Drawing.Size(63, 23);
-            this.lbInfoPerity.TabIndex = 2;
-            this.lbInfoPerity.Text = "Parity:";
+            this.lbInfoParity.AutoSize = true;
+            this.lbInfoParity.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfoParity.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfoParity.Location = new System.Drawing.Point(3, 49);
+            this.lbInfoParity.Name = "lbInfoParity";
+            this.lbInfoParity.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lbInfoParity.Size = new System.Drawing.Size(63, 23);
+            this.lbInfoParity.TabIndex = 2;
+            this.lbInfoParity.Text = "Parity:";
             // 
             // lbInfoBaudRate
             // 
@@ -679,6 +685,23 @@ namespace SerialPortComm
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(95, 17);
             this.toolStripStatusLabel3.Text = "Name Send Data";
             // 
+            // tbAnswerData
+            // 
+            this.tbAnswerData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbAnswerData.Location = new System.Drawing.Point(10, 336);
+            this.tbAnswerData.Name = "tbAnswerData";
+            this.tbAnswerData.Size = new System.Drawing.Size(744, 20);
+            this.tbAnswerData.TabIndex = 5;
+            this.tbAnswerData.TextChanged += new System.EventHandler(this.TbAnswerData_TextChanged);
+            // 
+            // tbSendHex
+            // 
+            this.tbSendHex.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbSendHex.Location = new System.Drawing.Point(10, 316);
+            this.tbSendHex.Name = "tbSendHex";
+            this.tbSendHex.Size = new System.Drawing.Size(744, 20);
+            this.tbSendHex.TabIndex = 6;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -696,6 +719,7 @@ namespace SerialPortComm
             this.panelChildFill.ResumeLayout(false);
             this.panelChildFill.PerformLayout();
             this.panelData.ResumeLayout(false);
+            this.panelData.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -725,14 +749,14 @@ namespace SerialPortComm
 
         private System.Windows.Forms.Panel PanelMain;
         private System.Windows.Forms.Panel panelChildRight;
-        private System.Windows.Forms.Button btnOpenPort;
+        private System.Windows.Forms.Button BtnOpenPort;
         private System.Windows.Forms.GroupBox groupBoxSettingCom;
         private System.Windows.Forms.Panel panelGroupBoxTop;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Label lbInfoMode;
         private System.Windows.Forms.Label ldInfoDataBits;
         private System.Windows.Forms.Label lbInfoStopBits;
-        private System.Windows.Forms.Label lbInfoPerity;
+        private System.Windows.Forms.Label lbInfoParity;
         private System.Windows.Forms.Label lbInfoBaudRate;
         private System.Windows.Forms.Label lbInfoPort;
         private System.Windows.Forms.Panel panelRigth;
@@ -771,6 +795,8 @@ namespace SerialPortComm
         private System.Windows.Forms.Panel panel_RoH2O;
         private System.Windows.Forms.Label lbDataValue_RoH2O;
         private System.Windows.Forms.Label lbInfo_RoH2O;
+        private System.Windows.Forms.TextBox tbAnswerData;
+        private System.Windows.Forms.TextBox tbSendHex;
     }
 }
 

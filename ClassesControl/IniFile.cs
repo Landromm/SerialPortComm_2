@@ -11,17 +11,8 @@ namespace SerialPortComm.ClassesControl
 {
     class IniFile
     {
-        string Path; //Имя файла.
-
-        //[DllImport("kernel32", CharSet = CharSet.Unicode)] // Подключаем kernel32.dll и описываем его функцию WritePrivateProfilesString
-        //static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
-
-        //[DllImport("kernel32", CharSet = CharSet.Unicode)] // Еще раз подключаем kernel32.dll, а теперь описываем функцию GetPrivateProfileString
-        //static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
-
-        //[DllImport("kernel32.dll", CharSet = CharSet.Auto)]
-        //static extern uint GetPrivateProfileSection(string lpAppName, IntPtr lpReturnedString, uint nSize, string lpFileName);
-
+        // Путь файла.
+        string Path; 
 
         // С помощью конструктора записываем путь до файла и его имя.
         public IniFile(string IniPath)
@@ -68,33 +59,5 @@ namespace SerialPortComm.ClassesControl
             return SplitNullTerminatedStrings(value);
         }
 
-        ////Читаем ini-файл и возвращаем значение указного ключа из заданной секции.
-        //public string ReadINI(string Section, string Key)
-        //{
-        //    var RetVal = new StringBuilder(255);
-        //    GetPrivateProfileString(Section, Key, "", RetVal, 255, Path);
-        //    return RetVal.ToString();
-        //}
-        ////Записываем в ini-файл. Запись происходит в выбранную секцию в выбранный ключ.
-        //public void WriteINI(string Section, string Key, string Value)
-        //{
-        //    WritePrivateProfileString(Section, Key, Value, Path);
-        //}
-
-        ////Удаляем ключ из выбранной секции.
-        //public void DeleteKey(string Key, string Section = null)
-        //{
-        //    WriteINI(Section, Key, null);
-        //}
-        ////Удаляем выбранную секцию
-        //public void DeleteSection(string Section = null)
-        //{
-        //    WriteINI(Section, null, null);
-        //}
-        ////Проверяем, есть ли такой ключ, в этой секции
-        //public bool KeyExists(string Key, string Section = null)
-        //{
-        //    return ReadINI(Section, Key).Length > 0;
-        //}
     }
 }

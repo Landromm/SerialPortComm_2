@@ -3,30 +3,6 @@ using System.Text;
 using System.IO.Ports;
 using System.Windows.Forms;
 
-//*****************************************************************************************
-//                           LICENSE INFORMATION
-//*****************************************************************************************
-//   PCCom.SerialCommunication Version 1.0.0.0
-//   Class file for managing serial port communication
-//
-//   Copyright (C) 2007  
-//   Richard L. McCutchen 
-//   Email: richard@psychocoder.net
-//   Created: 20OCT07
-//
-//   This program is free software: you can redistribute it and/or modify
-//   it under the terms of the GNU General Public License as published by
-//   the Free Software Foundation, either version 3 of the License, or
-//   (at your option) any later version.
-//
-//   This program is distributed in the hope that it will be useful,
-//   but WITHOUT ANY WARRANTY; without even the implied warranty of
-//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//   GNU General Public License for more details.
-//
-//   You should have received a copy of the GNU General Public License
-//   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//*****************************************************************************************
 
 namespace SerialPortComm.ClassesControl
 {
@@ -38,10 +14,10 @@ namespace SerialPortComm.ClassesControl
         /// </summary>
         public enum TransmissionType { Text, Hex }
 
-        /// <summary>
-        /// enumeration to hold our message types
-        /// </summary>
-        public enum MessageType { Incoming, Outgoing, Normal, Warning, Error };
+        ///// <summary>
+        ///// enumeration to hold our message types
+        ///// </summary>
+        //public enum MessageType { Incoming, Outgoing, Normal, Warning, Error };
 
         ///// <summary>
         /////  Указывает число стоповых битов.
@@ -86,8 +62,9 @@ namespace SerialPortComm.ClassesControl
         private string _dataBits = string.Empty;
         private string _portName = string.Empty;
         private TransmissionType _transType;
-        private RichTextBox _displayWindow;
-        private RichTextBox _displayWindow_Two;
+        private RichTextBox _displayWindow_Rch;
+        private TextBox _displayWindow_Tb;
+        private TextBox _displayWindow_Tb_Send;
         //global manager variables
         //private Color[] MessageColor = { Color.Blue, Color.Green, Color.Black, Color.Orange, Color.Red };
         private SerialPort comPort = new SerialPort();
@@ -158,15 +135,20 @@ namespace SerialPortComm.ClassesControl
         /// property to hold our display window
         /// value
         /// </summary>
-        public RichTextBox DisplayWindow
+        public RichTextBox DisplayWindow_Rch
         {
-            get { return _displayWindow; }
-            set { _displayWindow = value; }
+            get { return _displayWindow_Rch; }
+            set { _displayWindow_Rch = value; }
         }
-        public RichTextBox DisplayWindow_Two
+        public TextBox DisplayWindow_Tb
         {
-            get { return _displayWindow_Two; }
-            set { _displayWindow_Two = value; }
+            get { return _displayWindow_Tb; }
+            set { _displayWindow_Tb = value; }
+        }
+        public TextBox DisplayWindow_TbSend
+        {
+            get { return _displayWindow_Tb_Send; }
+            set { _displayWindow_Tb_Send = value; }
         }
         #endregion
 
@@ -179,15 +161,16 @@ namespace SerialPortComm.ClassesControl
         /// <param name="sBits">Desired StopBits</param>
         /// <param name="dBits">Desired DataBits</param>
         /// <param name="name">Desired PortName</param>
-        public CommunicationManager(string baud, string par, string sBits, string dBits, string name, RichTextBox rtb, RichTextBox rtb_2)
+        public CommunicationManager(string baud, string par, string sBits, string dBits, string name, RichTextBox rtb, TextBox tb, TextBox tbSend)
         {
             _baudRate = baud;
             _parity = par;
             _stopBits = sBits;
             _dataBits = dBits;
             _portName = name;
-            _displayWindow = rtb;
-            _displayWindow_Two = rtb_2;
+            _displayWindow_Rch = rtb;
+            _displayWindow_Tb = tb;
+            _displayWindow_Tb_Send = tbSend;
             //now add an event handler
             comPort.DataReceived += new SerialDataReceivedEventHandler(comPort_DataReceived);
         }
@@ -203,8 +186,9 @@ namespace SerialPortComm.ClassesControl
             _stopBits = string.Empty;
             _dataBits = string.Empty;
             _portName = "COM1";
-            _displayWindow = null;
-            _displayWindow_Two = null;
+            _displayWindow_Rch = null;
+            _displayWindow_Tb = null;
+            _displayWindow_Tb_Send = null;
             //add event handler
             comPort.DataReceived += new SerialDataReceivedEventHandler(comPort_DataReceived);
         }
@@ -222,7 +206,7 @@ namespace SerialPortComm.ClassesControl
                     //send the message to the port
                     comPort.Write(msg);
                     //display the message
-                    DisplayData_Two(MessageType.Outgoing, msg + "\n");
+                    //DisplayData_Rch(msg + "\n");
                     break;
                 case TransmissionType.Hex:
                     try
@@ -232,16 +216,23 @@ namespace SerialPortComm.ClassesControl
                         //send the message to the port
                         comPort.Write(newMsg, 0, newMsg.Length);
                         //convert back to hex and display
-                        DisplayData_Two(MessageType.Outgoing, ByteToHex(newMsg) + "\n");
+                        //DisplayData_Rch(ByteToHex(newMsg) + "\n");
+                        DisplayData_Tb_Send(msg);
                     }
                     catch (FormatException ex)
                     {
                         //display error message
-                        DisplayData_Two(MessageType.Error, ex.Message);
+                        DisplayData_Rch(ex.Message);
+                        //convert the message to byte array
+                        byte[] newMsg = HexToByte(msg);
+                        //send the message to the port
+                        comPort.Write(newMsg, 0, newMsg.Length);
+                        //convert back to hex and display
+                        //DisplayData_Rch(ByteToHex(newMsg) + "\n");
                     }
                     finally
                     {
-                        _displayWindow_Two.SelectAll();
+                        _displayWindow_Tb.SelectAll();
                     }
                     break;
                 default:
@@ -251,7 +242,7 @@ namespace SerialPortComm.ClassesControl
                     //send the message to the port
                     comPort.Write(msg);
                     //display the message
-                    DisplayData_Two(MessageType.Outgoing, msg + "\n");
+                    //DisplayData_Rch(msg + "\n");
                     break;
             }
         }
@@ -307,27 +298,40 @@ namespace SerialPortComm.ClassesControl
         /// <param name="type">MessageType of the message</param>
         /// <param name="msg">Message to display</param>
         [STAThread]
-        private void DisplayData(MessageType type, string msg)
+        private void DisplayData_Rch(string msg)
         {
-            _displayWindow.Invoke(new EventHandler(delegate
+            _displayWindow_Rch.Invoke(new EventHandler(delegate
             {
                 //_displayWindow.SelectedText = string.Empty;
                 //_displayWindow.SelectionFont = new Font(_displayWindow.SelectionFont, FontStyle.Bold);
                 //_displayWindow.SelectionColor = MessageColor[(int)type];
-                _displayWindow.Text = msg;
-                _displayWindow.ScrollToCaret();
+                _displayWindow_Rch.Text = msg;
+                _displayWindow_Rch.ScrollToCaret();
+            }));
+        }
+
+        [STAThread]
+        private void DisplayData_Tb(string msg)
+        {
+            _displayWindow_Tb.Invoke(new EventHandler(delegate
+            {
+                //_displayWindow.SelectedText = string.Empty;
+                //_displayWindow.SelectionFont = new Font(_displayWindow.SelectionFont, FontStyle.Bold);
+                //_displayWindow.SelectionColor = MessageColor[(int)type];
+                _displayWindow_Tb.Text = msg;
+                _displayWindow_Tb.ScrollToCaret();
             }));
         }
         [STAThread]
-        private void DisplayData_Two(MessageType type, string msg)
+        private void DisplayData_Tb_Send(string msg)
         {
-            _displayWindow_Two.Invoke(new EventHandler(delegate
+            _displayWindow_Tb_Send.Invoke(new EventHandler(delegate
             {
-                //_displayWindow_Two.SelectedText = string.Empty;
-                //_displayWindow_Two.SelectionFont = new Font(_displayWindow_Two.SelectionFont, FontStyle.Bold);
-                //_displayWindow_Two.SelectionColor = MessageColor[(int)type];
-                _displayWindow_Two.Text = msg;
-                _displayWindow_Two.ScrollToCaret();
+                //_displayWindow.SelectedText = string.Empty;
+                //_displayWindow.SelectionFont = new Font(_displayWindow.SelectionFont, FontStyle.Bold);
+                //_displayWindow.SelectionColor = MessageColor[(int)type];
+                _displayWindow_Tb_Send.Text = msg;
+                _displayWindow_Tb_Send.ScrollToCaret();
             }));
         }
         #endregion
@@ -347,16 +351,17 @@ namespace SerialPortComm.ClassesControl
                 comPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), _stopBits);    //StopBits
                 comPort.Parity = (Parity)Enum.Parse(typeof(Parity), _parity);    //Parity
                 comPort.PortName = _portName;   //PortName
+                //comPort.ReadTimeout = 500;
                 //now open the port
                 comPort.Open();
                 //display message
-                //DisplayData(MessageType.Normal, "Port opened at " + DateTime.Now + "\n");
+                DisplayData_Rch("Port opened at " + DateTime.Now + "\n");
                 //return true
                 return true;
             }
             catch (Exception ex)
             {
-                DisplayData(MessageType.Error, ex.Message);
+                DisplayData_Rch(ex.Message);
                 return false;
             }
         }
@@ -368,13 +373,13 @@ namespace SerialPortComm.ClassesControl
             {
                 if (comPort.IsOpen == true)
                     comPort.Close();
-                DisplayData_Two(MessageType.Normal, "Port closed at " + DateTime.Now + "\n");
+                DisplayData_Rch("Port closed at " + DateTime.Now + "\n");
                 //return true
                 return true;
             }
             catch (Exception ex)
             {
-                DisplayData_Two(MessageType.Error, ex.Message);
+                DisplayData_Rch(ex.Message);
                 return false;
             }
         }
@@ -426,7 +431,7 @@ namespace SerialPortComm.ClassesControl
                     //read data waiting in the buffer
                     string msg = comPort.ReadExisting();
                     //display the data to the user
-                    DisplayData(MessageType.Incoming, msg + "\n");
+                    DisplayData_Tb(msg + "\n");
                     break;
                 //user chose binary
                 case TransmissionType.Hex:
@@ -437,13 +442,13 @@ namespace SerialPortComm.ClassesControl
                     //read the data and store it
                     comPort.Read(comBuffer, 0, bytes);
                     //display the data to the user
-                    DisplayData(MessageType.Incoming, ByteToHex(comBuffer) + "\n");
+                    DisplayData_Tb(ByteToHex(comBuffer) + "\n");
                     break;
                 default:
                     //read data waiting in the buffer
                     string str = comPort.ReadExisting();
                     //display the data to the user
-                    DisplayData(MessageType.Incoming, str + "\n");
+                    DisplayData_Tb(str + "\n");
                     break;
             }
         }
