@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationRevision>29</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="ClassesControl\CommunicationManager.cs" />
     <Compile Include="ClassesControl\IniFile.cs" />
+    <Compile Include="ClassesControl\NativeMethods.cs" />
     <Compile Include="ClassesControl\ThemeColor.cs" />
     <Compile Include="Frames\FormComSettings.cs">
       <SubType>Form</SubType>

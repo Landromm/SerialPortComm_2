@@ -281,7 +281,7 @@ namespace SerialPortComm.Frames
             this.btnResetTextBox.Name = "btnResetTextBox";
             this.btnResetTextBox.Size = new System.Drawing.Size(125, 50);
             this.btnResetTextBox.TabIndex = 1;
-            this.btnResetTextBox.Text = "Сбросить";
+            this.btnResetTextBox.Text = "По умолчанию";
             this.btnResetTextBox.UseVisualStyleBackColor = true;
             // 
             // btnSaveTextBox
@@ -297,6 +297,7 @@ namespace SerialPortComm.Frames
             this.btnSaveTextBox.TabIndex = 0;
             this.btnSaveTextBox.Text = "Сохранить";
             this.btnSaveTextBox.UseVisualStyleBackColor = true;
+            this.btnSaveTextBox.Click += new System.EventHandler(this.BtnSaveTextBox_Click);
             // 
             // panelInfo
             // 

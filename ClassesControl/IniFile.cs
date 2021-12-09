@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -12,14 +13,14 @@ namespace SerialPortComm.ClassesControl
     {
         string Path; //Имя файла.
 
-        [DllImport("kernel32", CharSet = CharSet.Unicode)] // Подключаем kernel32.dll и описываем его функцию WritePrivateProfilesString
-        static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
+        //[DllImport("kernel32", CharSet = CharSet.Unicode)] // Подключаем kernel32.dll и описываем его функцию WritePrivateProfilesString
+        //static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
 
-        [DllImport("kernel32", CharSet = CharSet.Unicode)] // Еще раз подключаем kernel32.dll, а теперь описываем функцию GetPrivateProfileString
-        static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+        //[DllImport("kernel32", CharSet = CharSet.Unicode)] // Еще раз подключаем kernel32.dll, а теперь описываем функцию GetPrivateProfileString
+        //static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
 
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
-        static extern uint GetPrivateProfileSection(string lpAppName, IntPtr lpReturnedString, uint nSize, string lpFileName);
+        //[DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        //static extern uint GetPrivateProfileSection(string lpAppName, IntPtr lpReturnedString, uint nSize, string lpFileName);
 
 
         // С помощью конструктора записываем путь до файла и его имя.
@@ -28,33 +29,72 @@ namespace SerialPortComm.ClassesControl
             Path = new FileInfo(IniPath).FullName.ToString();
         }
 
-        //Читаем ini-файл и возвращаем значение указного ключа из заданной секции.
-        public string ReadINI(string Section, string Key)
+        public void WriteINI(string section, string key, string value)
         {
-            var RetVal = new StringBuilder(255);
-            GetPrivateProfileString(Section, Key, "", RetVal, 255, Path);
-            return RetVal.ToString();
-        }
-        //Записываем в ini-файл. Запись происходит в выбранную секцию в выбранный ключ.
-        public void WriteINI(string Section, string Key, string Value)
-        {
-            WritePrivateProfileString(Section, Key, Value, Path);
+            if (NativeMethods.WritePrivateProfileString(section, key, value, Path) == false)
+            {
+                throw new Win32Exception(Marshal.GetLastWin32Error());
+            }
         }
 
-        //Удаляем ключ из выбранной секции.
-        public void DeleteKey(string Key, string Section = null)
+        public string ReadINI(string section, string key)
         {
-            WriteINI(Section, Key, null);
+            uint maxLength = 32;
+            string value = new string(' ', (int)maxLength);
+            NativeMethods.GetPrivateProfileString(section, key, "", value, maxLength, Path);
+            return value.Split('\0')[0];
         }
-        //Удаляем выбранную секцию
-        public void DeleteSection(string Section = null)
+
+        public string[] ReadSections()
         {
-            WriteINI(Section, null, null);
+            string value = new string(' ', 65535);
+            NativeMethods.GetPrivateProfileString(null, null, "\0", value, 65535, Path);
+            return SplitNullTerminatedStrings(value);
         }
-        //Проверяем, есть ли такой ключ, в этой секции
-        public bool KeyExists(string Key, string Section = null)
+
+        private static string[] SplitNullTerminatedStrings(string value)
         {
-            return ReadINI(Section, Key).Length > 0;
+            string[] raw = value.Split('\0');
+            int itemCount = raw.Length - 2;
+            string[] items = new string[itemCount];
+            Array.Copy(raw, items, itemCount);
+            return items;
         }
+
+        public string[] ReadKeysInSection(string section)
+        {
+            string value = new string(' ', 65535);
+            NativeMethods.GetPrivateProfileString(section, null, "\0", value, 65535, Path);
+            return SplitNullTerminatedStrings(value);
+        }
+
+        ////Читаем ini-файл и возвращаем значение указного ключа из заданной секции.
+        //public string ReadINI(string Section, string Key)
+        //{
+        //    var RetVal = new StringBuilder(255);
+        //    GetPrivateProfileString(Section, Key, "", RetVal, 255, Path);
+        //    return RetVal.ToString();
+        //}
+        ////Записываем в ini-файл. Запись происходит в выбранную секцию в выбранный ключ.
+        //public void WriteINI(string Section, string Key, string Value)
+        //{
+        //    WritePrivateProfileString(Section, Key, Value, Path);
+        //}
+
+        ////Удаляем ключ из выбранной секции.
+        //public void DeleteKey(string Key, string Section = null)
+        //{
+        //    WriteINI(Section, Key, null);
+        //}
+        ////Удаляем выбранную секцию
+        //public void DeleteSection(string Section = null)
+        //{
+        //    WriteINI(Section, null, null);
+        //}
+        ////Проверяем, есть ли такой ключ, в этой секции
+        //public bool KeyExists(string Key, string Section = null)
+        //{
+        //    return ReadINI(Section, Key).Length > 0;
+        //}
     }
 }

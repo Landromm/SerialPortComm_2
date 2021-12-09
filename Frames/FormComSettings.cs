@@ -63,5 +63,24 @@ namespace SerialPortComm.Frames
                     comboBox.SelectedItem = "";
             }
         }
+
+        private void BtnSaveTextBox_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
+                INI.WriteINI("COMportSettings", "PortName", cbPortName.SelectedItem.ToString());
+                INI.WriteINI("COMportSettings", "BaudRate", cbBaudRate.SelectedItem.ToString());
+                INI.WriteINI("COMportSettings", "Parity", cbParity.SelectedItem.ToString());
+                INI.WriteINI("COMportSettings", "StopBits", cbStopBits.SelectedItem.ToString());
+                INI.WriteINI("COMportSettings", "DataBits", cbDataBits.SelectedItem.ToString());
+                INI.WriteINI("COMportSettings", "Timeout", tbTimeout.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения config.ini файла, при записи!\n" + ex,
+                                "Ошибка !");
+            }
+        }
     }
 }
