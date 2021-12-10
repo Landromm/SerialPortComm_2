@@ -428,52 +428,72 @@ namespace SerialPortComm
             // 
             // btnMenu
             // 
+            this.btnMenu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenu.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.Location = new System.Drawing.Point(5, 255);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(190, 35);
             this.btnMenu.TabIndex = 4;
             this.btnMenu.Text = "Menu";
-            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnStartSend
             // 
+            this.btnStartSend.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnStartSend.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnStartSend.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnStartSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnStartSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnStartSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartSend.Location = new System.Drawing.Point(5, 436);
             this.btnStartSend.Name = "btnStartSend";
             this.btnStartSend.Size = new System.Drawing.Size(190, 35);
             this.btnStartSend.TabIndex = 3;
             this.btnStartSend.Text = "Start Send";
-            this.btnStartSend.UseVisualStyleBackColor = true;
+            this.btnStartSend.UseVisualStyleBackColor = false;
             this.btnStartSend.Visible = false;
             this.btnStartSend.Click += new System.EventHandler(this.BtnStartSend_Click);
             // 
             // btnClosePort
             // 
+            this.btnClosePort.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnClosePort.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClosePort.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnClosePort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnClosePort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnClosePort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosePort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClosePort.Location = new System.Drawing.Point(5, 471);
             this.btnClosePort.Name = "btnClosePort";
             this.btnClosePort.Size = new System.Drawing.Size(190, 35);
             this.btnClosePort.TabIndex = 2;
             this.btnClosePort.Text = "Close Port";
-            this.btnClosePort.UseVisualStyleBackColor = true;
+            this.btnClosePort.UseVisualStyleBackColor = false;
             this.btnClosePort.Visible = false;
             this.btnClosePort.Click += new System.EventHandler(this.BtnClosePort_Click);
             // 
             // BtnOpenPort
             // 
+            this.BtnOpenPort.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BtnOpenPort.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnOpenPort.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.BtnOpenPort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.BtnOpenPort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnOpenPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnOpenPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnOpenPort.Location = new System.Drawing.Point(5, 506);
             this.BtnOpenPort.Name = "BtnOpenPort";
             this.BtnOpenPort.Size = new System.Drawing.Size(190, 35);
             this.BtnOpenPort.TabIndex = 1;
             this.BtnOpenPort.Text = "Open Port";
-            this.BtnOpenPort.UseVisualStyleBackColor = true;
+            this.BtnOpenPort.UseVisualStyleBackColor = false;
             this.BtnOpenPort.Click += new System.EventHandler(this.BtnOpenPort_Click);
             // 
             // groupBoxSettingCom
