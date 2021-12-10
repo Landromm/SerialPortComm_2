@@ -40,6 +40,8 @@ namespace SerialPortComm
         string tempHex_VolumeFlow;
         string tempHex_RoH2O;
 
+        int coutData = 1;
+
         bool timeOut = true;
 
         public frmMain()
@@ -178,14 +180,14 @@ namespace SerialPortComm
             if (strTempHex.Contains("AA01FE0C0104") && (strTempHex.Length == 22))
             {
                 strTempHex = strTempHex.Replace("AA01FE0C0104", "");
-                Console.WriteLine(strTempHex);
+                //Console.WriteLine(strTempHex);
 
-                Console.WriteLine(new string('-', 15));
-                Console.WriteLine(strTempHex.Substring(0, 2));
-                Console.WriteLine(strTempHex.Substring(2, 2));
-                Console.WriteLine(strTempHex.Substring(4, 2));
-                Console.WriteLine(strTempHex.Substring(6, 2));
-                Console.WriteLine(new string('-', 15));
+                //Console.WriteLine(new string('-', 15));
+                //Console.WriteLine(strTempHex.Substring(0, 2));
+                //Console.WriteLine(strTempHex.Substring(2, 2));
+                //Console.WriteLine(strTempHex.Substring(4, 2));
+                //Console.WriteLine(strTempHex.Substring(6, 2));
+                //Console.WriteLine(new string('-', 15));
 
                 int j = 3;
                 byte[] byteOrigin = ToByteArray(strTempHex.Substring(0, 8));
@@ -197,7 +199,7 @@ namespace SerialPortComm
                     j--;
                 }
 
-                Console.WriteLine(BitConverter.ToSingle(byteReverce, 0));
+                //Console.WriteLine(BitConverter.ToSingle(byteReverce, 0));
                 labelResult.Text = BitConverter.ToSingle(byteReverce, 0).ToString();
             }
         }
@@ -223,16 +225,13 @@ namespace SerialPortComm
         {
             ExecuteWait(() => Thread.Sleep(interval));
         }
-        public static void ExecuteWait(System.Action action)
+        public static void ExecuteWait(Action action)
         {
             var waitFrame = new DispatcherFrame();
-
             // Use callback to "pop" dispatcher frame
             IAsyncResult op = action.BeginInvoke(dummy => waitFrame.Continue = false, null);
-
             // this method will block here but window messages are pumped
             Dispatcher.PushFrame(waitFrame);
-
             // this method may throw if the action threw. caller responsibility to handle.
             action.EndInvoke(op);
         }
@@ -240,6 +239,7 @@ namespace SerialPortComm
 
         private void BtnOpenPort_Click(object sender, EventArgs e)
         {
+            timeOut = true;
             comm.Parity = temp_Parity;
             comm.StopBits = temp_StopBits;
             comm.DataBits = temp_DataBits;
@@ -247,14 +247,20 @@ namespace SerialPortComm
             comm.PortName = temp_PortName;
             comm.CurrentTransmissionType = CommunicationManager.TransmissionType.Hex;
             comm.DisplayWindow_Rch = rchbLogInfo;
-            comm.DisplayWindow_Tb = tbAnswerData;
+            comm.DisplayWindow_Tb_Answer = tbAnswerData;
             comm.DisplayWindow_TbSend = tbSendHex;
+            BtnOpenPort.Visible = false;
+            btnStartSend.Visible = true;
+            btnClosePort.Visible = true;
             comm.OpenPort();
         }
 
         private void BtnClosePort_Click(object sender, EventArgs e)
         {
             timeOut = false;
+            BtnOpenPort.Visible = true;
+            btnStartSend.Visible = false;
+            btnClosePort.Visible = false;
             comm.ClosePort();
         }
 
@@ -263,20 +269,46 @@ namespace SerialPortComm
         {
             while (timeOut)
             {
-                comm.WriteData(tempHex_Temperature);
-                Wait(500);
-
-                comm.WriteData(tempHex_DozaNow);
-                Wait(500);
-
-                comm.WriteData(tempHex_MassFlow);
-                Wait(500);
-
-                comm.WriteData(tempHex_VolumeFlow);
-                Wait(500);
-
-                comm.WriteData(tempHex_RoH2O);
-                Wait(500);
+                if (timeOut)
+                {
+                    comm.WriteData(tempHex_Temperature);
+                    Wait(1000);
+                    Console.Write(coutData + ". Температура: " + lbDataValue_Temperature.Text + " Package: " + tbAnswerData.Text);
+                    rchbLogInfo.AppendText(coutData + ". Температура: " + lbDataValue_Temperature.Text + " Package: " + tbAnswerData.Text);
+                    coutData++;
+                }
+                if (timeOut)
+                {
+                    comm.WriteData(tempHex_DozaNow);
+                    Wait(1000);
+                    Console.Write(coutData + ". Доза: " + lbDataValue_DozaNow.Text + " Package: " + tbAnswerData.Text);
+                    rchbLogInfo.AppendText(coutData + ". Доза: " + lbDataValue_DozaNow.Text + " Package: " + tbAnswerData.Text);
+                    coutData++;
+                }
+                if (timeOut)
+                {
+                    comm.WriteData(tempHex_MassFlow);
+                    Wait(1000);
+                    Console.Write(coutData + ". Массовый расход: " + lbDataValue_MassFlow.Text + " Package: " + tbAnswerData.Text);
+                    rchbLogInfo.AppendText(coutData + ". Массовый расход: " + lbDataValue_MassFlow.Text + " Package: " + tbAnswerData.Text);
+                    coutData++;
+                }
+                if (timeOut)
+                {
+                    comm.WriteData(tempHex_VolumeFlow);
+                    Wait(1000);
+                    Console.Write(coutData + ". Объемный расход: " + lbDataValue_VolumeFlow.Text + " Package: " + tbAnswerData.Text);
+                    rchbLogInfo.AppendText(coutData + ". Объемный расход: " + lbDataValue_VolumeFlow.Text + " Package: " + tbAnswerData.Text);
+                    coutData++;
+                }
+                if (timeOut)
+                {
+                    comm.WriteData(tempHex_RoH2O);
+                    Wait(1000);
+                    Console.Write(coutData + ". Плотность: " + lbDataValue_RoH2O.Text + " Package: " + tbAnswerData.Text);
+                    rchbLogInfo.AppendText(coutData + ". Плотность: " + lbDataValue_RoH2O.Text + " Package: " + tbAnswerData.Text);
+                    coutData++;
+                }
             }
         }
 

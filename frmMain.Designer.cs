@@ -32,6 +32,8 @@ namespace SerialPortComm
             this.PanelMain = new System.Windows.Forms.Panel();
             this.panelChildFill = new System.Windows.Forms.Panel();
             this.panelData = new System.Windows.Forms.Panel();
+            this.tbSendHex = new System.Windows.Forms.TextBox();
+            this.tbAnswerData = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_DozaNow = new System.Windows.Forms.Panel();
@@ -77,8 +79,6 @@ namespace SerialPortComm
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tbAnswerData = new System.Windows.Forms.TextBox();
-            this.tbSendHex = new System.Windows.Forms.TextBox();
             this.PanelMain.SuspendLayout();
             this.panelChildFill.SuspendLayout();
             this.panelData.SuspendLayout();
@@ -129,6 +129,23 @@ namespace SerialPortComm
             this.panelData.Padding = new System.Windows.Forms.Padding(10, 5, 10, 33);
             this.panelData.Size = new System.Drawing.Size(764, 389);
             this.panelData.TabIndex = 2;
+            // 
+            // tbSendHex
+            // 
+            this.tbSendHex.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbSendHex.Location = new System.Drawing.Point(10, 316);
+            this.tbSendHex.Name = "tbSendHex";
+            this.tbSendHex.Size = new System.Drawing.Size(744, 20);
+            this.tbSendHex.TabIndex = 6;
+            // 
+            // tbAnswerData
+            // 
+            this.tbAnswerData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbAnswerData.Location = new System.Drawing.Point(10, 336);
+            this.tbAnswerData.Name = "tbAnswerData";
+            this.tbAnswerData.Size = new System.Drawing.Size(744, 20);
+            this.tbAnswerData.TabIndex = 5;
+            this.tbAnswerData.TextChanged += new System.EventHandler(this.TbAnswerData_TextChanged);
             // 
             // groupBox1
             // 
@@ -431,6 +448,7 @@ namespace SerialPortComm
             this.btnStartSend.TabIndex = 3;
             this.btnStartSend.Text = "Start Send";
             this.btnStartSend.UseVisualStyleBackColor = true;
+            this.btnStartSend.Visible = false;
             this.btnStartSend.Click += new System.EventHandler(this.BtnStartSend_Click);
             // 
             // btnClosePort
@@ -443,6 +461,7 @@ namespace SerialPortComm
             this.btnClosePort.TabIndex = 2;
             this.btnClosePort.Text = "Close Port";
             this.btnClosePort.UseVisualStyleBackColor = true;
+            this.btnClosePort.Visible = false;
             this.btnClosePort.Click += new System.EventHandler(this.BtnClosePort_Click);
             // 
             // BtnOpenPort
@@ -684,23 +703,6 @@ namespace SerialPortComm
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(95, 17);
             this.toolStripStatusLabel3.Text = "Name Send Data";
-            // 
-            // tbAnswerData
-            // 
-            this.tbAnswerData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbAnswerData.Location = new System.Drawing.Point(10, 336);
-            this.tbAnswerData.Name = "tbAnswerData";
-            this.tbAnswerData.Size = new System.Drawing.Size(744, 20);
-            this.tbAnswerData.TabIndex = 5;
-            this.tbAnswerData.TextChanged += new System.EventHandler(this.TbAnswerData_TextChanged);
-            // 
-            // tbSendHex
-            // 
-            this.tbSendHex.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbSendHex.Location = new System.Drawing.Point(10, 316);
-            this.tbSendHex.Name = "tbSendHex";
-            this.tbSendHex.Size = new System.Drawing.Size(744, 20);
-            this.tbSendHex.TabIndex = 6;
             // 
             // frmMain
             // 

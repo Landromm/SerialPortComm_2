@@ -226,7 +226,7 @@ namespace SerialPortComm.Frames
             "28800",
             "36000",
             "57600",
-            "115000"});
+            "115200"});
             this.cbBaudRate.Location = new System.Drawing.Point(13, 79);
             this.cbBaudRate.Name = "cbBaudRate";
             this.cbBaudRate.Size = new System.Drawing.Size(121, 21);

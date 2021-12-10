@@ -63,7 +63,7 @@ namespace SerialPortComm.ClassesControl
         private string _portName = string.Empty;
         private TransmissionType _transType;
         private RichTextBox _displayWindow_Rch;
-        private TextBox _displayWindow_Tb;
+        private TextBox _displayWindow_Tb_Answer;
         private TextBox _displayWindow_Tb_Send;
         //global manager variables
         //private Color[] MessageColor = { Color.Blue, Color.Green, Color.Black, Color.Orange, Color.Red };
@@ -140,10 +140,10 @@ namespace SerialPortComm.ClassesControl
             get { return _displayWindow_Rch; }
             set { _displayWindow_Rch = value; }
         }
-        public TextBox DisplayWindow_Tb
+        public TextBox DisplayWindow_Tb_Answer
         {
-            get { return _displayWindow_Tb; }
-            set { _displayWindow_Tb = value; }
+            get { return _displayWindow_Tb_Answer; }
+            set { _displayWindow_Tb_Answer = value; }
         }
         public TextBox DisplayWindow_TbSend
         {
@@ -161,7 +161,7 @@ namespace SerialPortComm.ClassesControl
         /// <param name="sBits">Desired StopBits</param>
         /// <param name="dBits">Desired DataBits</param>
         /// <param name="name">Desired PortName</param>
-        public CommunicationManager(string baud, string par, string sBits, string dBits, string name, RichTextBox rtb, TextBox tb, TextBox tbSend)
+        public CommunicationManager(string baud, string par, string sBits, string dBits, string name, RichTextBox rtb, TextBox tbAnswer, TextBox tbSend)
         {
             _baudRate = baud;
             _parity = par;
@@ -169,7 +169,7 @@ namespace SerialPortComm.ClassesControl
             _dataBits = dBits;
             _portName = name;
             _displayWindow_Rch = rtb;
-            _displayWindow_Tb = tb;
+            _displayWindow_Tb_Answer = tbAnswer;
             _displayWindow_Tb_Send = tbSend;
             //now add an event handler
             comPort.DataReceived += new SerialDataReceivedEventHandler(comPort_DataReceived);
@@ -187,7 +187,7 @@ namespace SerialPortComm.ClassesControl
             _dataBits = string.Empty;
             _portName = "COM1";
             _displayWindow_Rch = null;
-            _displayWindow_Tb = null;
+            _displayWindow_Tb_Answer = null;
             _displayWindow_Tb_Send = null;
             //add event handler
             comPort.DataReceived += new SerialDataReceivedEventHandler(comPort_DataReceived);
@@ -232,7 +232,7 @@ namespace SerialPortComm.ClassesControl
                     }
                     finally
                     {
-                        _displayWindow_Tb.SelectAll();
+                        _displayWindow_Tb_Answer.SelectAll();
                     }
                     break;
                 default:
@@ -313,13 +313,13 @@ namespace SerialPortComm.ClassesControl
         [STAThread]
         private void DisplayData_Tb(string msg)
         {
-            _displayWindow_Tb.Invoke(new EventHandler(delegate
+            _displayWindow_Tb_Answer.Invoke(new EventHandler(delegate
             {
                 //_displayWindow.SelectedText = string.Empty;
                 //_displayWindow.SelectionFont = new Font(_displayWindow.SelectionFont, FontStyle.Bold);
                 //_displayWindow.SelectionColor = MessageColor[(int)type];
-                _displayWindow_Tb.Text = msg;
-                _displayWindow_Tb.ScrollToCaret();
+                _displayWindow_Tb_Answer.Text = msg;
+                _displayWindow_Tb_Answer.ScrollToCaret();
             }));
         }
         [STAThread]
@@ -428,26 +428,18 @@ namespace SerialPortComm.ClassesControl
             {
                 //user chose string
                 case TransmissionType.Text:
-                    //read data waiting in the buffer
                     string msg = comPort.ReadExisting();
-                    //display the data to the user
                     DisplayData_Tb(msg + "\n");
                     break;
                 //user chose binary
                 case TransmissionType.Hex:
-                    //retrieve number of bytes in the buffer
                     int bytes = comPort.BytesToRead;
-                    //create a byte array to hold the awaiting data
                     byte[] comBuffer = new byte[bytes];
-                    //read the data and store it
                     comPort.Read(comBuffer, 0, bytes);
-                    //display the data to the user
                     DisplayData_Tb(ByteToHex(comBuffer) + "\n");
                     break;
                 default:
-                    //read data waiting in the buffer
                     string str = comPort.ReadExisting();
-                    //display the data to the user
                     DisplayData_Tb(str + "\n");
                     break;
             }
