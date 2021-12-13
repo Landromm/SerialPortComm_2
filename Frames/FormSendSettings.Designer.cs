@@ -107,7 +107,7 @@ namespace SerialPortComm.Frames
             // 
             this.tb_MassFlow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
             this.tb_MassFlow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tb_MassFlow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_MassFlow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_MassFlow.Location = new System.Drawing.Point(5, 140);
             this.tb_MassFlow.Name = "tb_MassFlow";
             this.tb_MassFlow.Size = new System.Drawing.Size(257, 22);
@@ -130,7 +130,7 @@ namespace SerialPortComm.Frames
             // 
             this.tb_VolumeFlow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
             this.tb_VolumeFlow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tb_VolumeFlow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_VolumeFlow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_VolumeFlow.Location = new System.Drawing.Point(5, 86);
             this.tb_VolumeFlow.Name = "tb_VolumeFlow";
             this.tb_VolumeFlow.Size = new System.Drawing.Size(257, 22);
@@ -153,7 +153,7 @@ namespace SerialPortComm.Frames
             // 
             this.tb_DozaNow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
             this.tb_DozaNow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tb_DozaNow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_DozaNow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_DozaNow.Location = new System.Drawing.Point(5, 32);
             this.tb_DozaNow.Margin = new System.Windows.Forms.Padding(5);
             this.tb_DozaNow.Name = "tb_DozaNow";
@@ -177,7 +177,7 @@ namespace SerialPortComm.Frames
             // 
             this.tb_RoH2O.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
             this.tb_RoH2O.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tb_RoH2O.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_RoH2O.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_RoH2O.Location = new System.Drawing.Point(5, 86);
             this.tb_RoH2O.Margin = new System.Windows.Forms.Padding(5);
             this.tb_RoH2O.Name = "tb_RoH2O";
@@ -201,7 +201,7 @@ namespace SerialPortComm.Frames
             // 
             this.tb_Temperature.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
             this.tb_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tb_Temperature.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_Temperature.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_Temperature.Location = new System.Drawing.Point(5, 32);
             this.tb_Temperature.Margin = new System.Windows.Forms.Padding(5);
             this.tb_Temperature.Name = "tb_Temperature";

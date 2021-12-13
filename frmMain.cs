@@ -33,13 +33,14 @@ namespace SerialPortComm
         string temp_Parity;
         string temp_StopBits;
         string temp_DataBits;
-        string temp_Timeout;
         string tempHex_Temperature;
         string tempHex_DozaNow;
         string tempHex_MassFlow;
         string tempHex_VolumeFlow;
         string tempHex_RoH2O;
 
+
+        int temp_Timeout = 500; 
         int coutData = 1;
 
         bool timeOut = true;
@@ -95,12 +96,12 @@ namespace SerialPortComm
                 temp_Parity = INI.ReadINI("COMportSettings", "Parity");
                 temp_StopBits = INI.ReadINI("COMportSettings", "StopBits");
                 temp_DataBits = INI.ReadINI("COMportSettings", "DataBits");
-                temp_Timeout = INI.ReadINI("COMportSettings", "Timeout");
+                temp_Timeout = int.Parse(INI.ReadINI("COMportSettings", "Timeout"));
                 tempHex_Temperature = INI.ReadINI("HexStringToSend", "hex_Temperature");
-                tempHex_DozaNow = INI.ReadINI("HexStringToSend", "hex_DozaNow"); ;
-                tempHex_MassFlow = INI.ReadINI("HexStringToSend", "hex_MassFlow"); ;
-                tempHex_VolumeFlow = INI.ReadINI("HexStringToSend", "hex_VolumeFlow"); ;
-                tempHex_RoH2O = INI.ReadINI("HexStringToSend", "hex_RoH2O"); ;
+                tempHex_DozaNow = INI.ReadINI("HexStringToSend", "hex_DozaNow"); 
+                tempHex_MassFlow = INI.ReadINI("HexStringToSend", "hex_MassFlow"); 
+                tempHex_VolumeFlow = INI.ReadINI("HexStringToSend", "hex_VolumeFlow"); 
+                tempHex_RoH2O = INI.ReadINI("HexStringToSend", "hex_RoH2O"); 
             }
             catch (Exception ex)
             {
@@ -159,12 +160,12 @@ namespace SerialPortComm
         }
 
         #region ConverterToFlout
+
         // Метод считывания текста с поля вывода результата
         private string FilterString(String text)
         {
             string result = "";
-            //if (testTextFromDisplay.TextLength != 0)
-            //    testTextFromDisplay.Clear();
+
             if (text.Contains("AA01FE0C0104") && text.Length <= 23)
                 return result = text.Trim()
                                     .Replace(".", "")
@@ -173,6 +174,7 @@ namespace SerialPortComm
             else
                 return result = string.Empty;
         }
+
         // Метод конвертации полученного ответа из COM-порта (4 байта) в значение с плавающей запятой.
         private void FloutConverter(string str, Label labelResult)
         {
@@ -180,14 +182,6 @@ namespace SerialPortComm
             if (strTempHex.Contains("AA01FE0C0104") && (strTempHex.Length == 22))
             {
                 strTempHex = strTempHex.Replace("AA01FE0C0104", "");
-                //Console.WriteLine(strTempHex);
-
-                //Console.WriteLine(new string('-', 15));
-                //Console.WriteLine(strTempHex.Substring(0, 2));
-                //Console.WriteLine(strTempHex.Substring(2, 2));
-                //Console.WriteLine(strTempHex.Substring(4, 2));
-                //Console.WriteLine(strTempHex.Substring(6, 2));
-                //Console.WriteLine(new string('-', 15));
 
                 int j = 3;
                 byte[] byteOrigin = ToByteArray(strTempHex.Substring(0, 8));
@@ -199,7 +193,6 @@ namespace SerialPortComm
                     j--;
                 }
 
-                //Console.WriteLine(BitConverter.ToSingle(byteReverce, 0));
                 labelResult.Text = BitConverter.ToSingle(byteReverce, 0).ToString();
             }
         }
@@ -267,49 +260,60 @@ namespace SerialPortComm
         // Метод кнопки "Start Send".
         private void BtnStartSend_Click(object sender, EventArgs e)
         {
-            while (timeOut)
+            try
             {
-                if (timeOut)
+                while (timeOut)
                 {
-                    comm.WriteData(tempHex_Temperature);
-                    Wait(1000);
-                    Console.Write(coutData + ". Температура: " + lbDataValue_Temperature.Text + " Package: " + tbAnswerData.Text);
-                    rchbLogInfo.AppendText(coutData + ". Температура: " + lbDataValue_Temperature.Text + " Package: " + tbAnswerData.Text);
-                    coutData++;
-                }
-                if (timeOut)
-                {
-                    comm.WriteData(tempHex_DozaNow);
-                    Wait(1000);
-                    Console.Write(coutData + ". Доза: " + lbDataValue_DozaNow.Text + " Package: " + tbAnswerData.Text);
-                    rchbLogInfo.AppendText(coutData + ". Доза: " + lbDataValue_DozaNow.Text + " Package: " + tbAnswerData.Text);
-                    coutData++;
-                }
-                if (timeOut)
-                {
-                    comm.WriteData(tempHex_MassFlow);
-                    Wait(1000);
-                    Console.Write(coutData + ". Массовый расход: " + lbDataValue_MassFlow.Text + " Package: " + tbAnswerData.Text);
-                    rchbLogInfo.AppendText(coutData + ". Массовый расход: " + lbDataValue_MassFlow.Text + " Package: " + tbAnswerData.Text);
-                    coutData++;
-                }
-                if (timeOut)
-                {
-                    comm.WriteData(tempHex_VolumeFlow);
-                    Wait(1000);
-                    Console.Write(coutData + ". Объемный расход: " + lbDataValue_VolumeFlow.Text + " Package: " + tbAnswerData.Text);
-                    rchbLogInfo.AppendText(coutData + ". Объемный расход: " + lbDataValue_VolumeFlow.Text + " Package: " + tbAnswerData.Text);
-                    coutData++;
-                }
-                if (timeOut)
-                {
-                    comm.WriteData(tempHex_RoH2O);
-                    Wait(1000);
-                    Console.Write(coutData + ". Плотность: " + lbDataValue_RoH2O.Text + " Package: " + tbAnswerData.Text);
-                    rchbLogInfo.AppendText(coutData + ". Плотность: " + lbDataValue_RoH2O.Text + " Package: " + tbAnswerData.Text);
-                    coutData++;
+                    if (timeOut && comm.ComPortIsOpen())
+                    {
+                        comm.WriteData(tempHex_Temperature);
+                        Wait(temp_Timeout);
+                        Console.Write(coutData + ". Температура: " + lbDataValue_Temperature.Text + " Package: " + tbAnswerData.Text);
+                        rchbLogInfo.AppendText(coutData + ". Температура: " + lbDataValue_Temperature.Text + " Package: " + tbAnswerData.Text);
+                        coutData++;
+                    }
+                    if (timeOut && comm.ComPortIsOpen())
+                    {
+                        comm.WriteData(tempHex_DozaNow);
+                        Wait(temp_Timeout);
+                        Console.Write(coutData + ". Доза: " + lbDataValue_DozaNow.Text + " Package: " + tbAnswerData.Text);
+                        rchbLogInfo.AppendText(coutData + ". Доза: " + lbDataValue_DozaNow.Text + " Package: " + tbAnswerData.Text);
+                        coutData++;
+                    }
+                    if (timeOut && comm.ComPortIsOpen())
+                    {
+                        comm.WriteData(tempHex_MassFlow);
+                        Wait(temp_Timeout);
+                        Console.Write(coutData + ". Массовый расход: " + lbDataValue_MassFlow.Text + " Package: " + tbAnswerData.Text);
+                        rchbLogInfo.AppendText(coutData + ". Массовый расход: " + lbDataValue_MassFlow.Text + " Package: " + tbAnswerData.Text);
+                        coutData++;
+                    }
+                    if (timeOut && comm.ComPortIsOpen())
+                    {
+                        comm.WriteData(tempHex_VolumeFlow);
+                        Wait(temp_Timeout);
+                        Console.Write(coutData + ". Объемный расход: " + lbDataValue_VolumeFlow.Text + " Package: " + tbAnswerData.Text);
+                        rchbLogInfo.AppendText(coutData + ". Объемный расход: " + lbDataValue_VolumeFlow.Text + " Package: " + tbAnswerData.Text);
+                        coutData++;
+                    }
+                    if (timeOut && comm.ComPortIsOpen())
+                    {
+                        comm.WriteData(tempHex_RoH2O);
+                        Wait(temp_Timeout);
+                        Console.Write(coutData + ". Плотность: " + lbDataValue_RoH2O.Text + " Package: " + tbAnswerData.Text);
+                        rchbLogInfo.AppendText(coutData + ". Плотность: " + lbDataValue_RoH2O.Text + " Package: " + tbAnswerData.Text);
+                        coutData++;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                rchbLogInfo.AppendText("Связь с COM портом потеряна!\n");
+                MessageBox.Show("Связь с COM портом потеряна!\n" + ex,
+                "Ошибка !");
+            }
+
+
         }
 
         private void TbAnswerData_TextChanged(object sender, EventArgs e)

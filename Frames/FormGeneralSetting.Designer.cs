@@ -30,6 +30,9 @@ namespace SerialPortComm.Frames
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnFolderBrowserDialog = new System.Windows.Forms.Button();
+            this.tbPathFileSaveData = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnSelectAll = new System.Windows.Forms.Button();
             this.btnResetCheckBox = new System.Windows.Forms.Button();
@@ -67,6 +70,9 @@ namespace SerialPortComm.Frames
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnFolderBrowserDialog);
+            this.panel1.Controls.Add(this.tbPathFileSaveData);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -74,6 +80,36 @@ namespace SerialPortComm.Frames
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(534, 311);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 180);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Путь к файлу записи данных";
+            // 
+            // btnFolderBrowserDialog
+            // 
+            this.btnFolderBrowserDialog.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFolderBrowserDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFolderBrowserDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnFolderBrowserDialog.Location = new System.Drawing.Point(409, 196);
+            this.btnFolderBrowserDialog.Name = "btnFolderBrowserDialog";
+            this.btnFolderBrowserDialog.Size = new System.Drawing.Size(121, 23);
+            this.btnFolderBrowserDialog.TabIndex = 3;
+            this.btnFolderBrowserDialog.Text = "Обзор...";
+            this.btnFolderBrowserDialog.UseVisualStyleBackColor = true;
+            this.btnFolderBrowserDialog.Click += new System.EventHandler(this.BtnFolderBrowserDialog_Click);
+            // 
+            // tbPathFileSaveData
+            // 
+            this.tbPathFileSaveData.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbPathFileSaveData.Location = new System.Drawing.Point(4, 199);
+            this.tbPathFileSaveData.Name = "tbPathFileSaveData";
+            this.tbPathFileSaveData.Size = new System.Drawing.Size(400, 20);
+            this.tbPathFileSaveData.TabIndex = 2;
             // 
             // panel8
             // 
@@ -129,7 +165,7 @@ namespace SerialPortComm.Frames
             this.btnSaveCheckBox.TabIndex = 0;
             this.btnSaveCheckBox.Text = "Сохранить";
             this.btnSaveCheckBox.UseVisualStyleBackColor = true;
-            this.btnSaveCheckBox.Click += new System.EventHandler(this.BtnSaveCheckBox_Click);
+            this.btnSaveCheckBox.Click += new System.EventHandler(this.BtnSaveAll_Click);
             // 
             // groupBox1
             // 
@@ -367,6 +403,7 @@ namespace SerialPortComm.Frames
             this.Text = "FormGeneralSetting";
             this.Load += new System.EventHandler(this.FormGeneralSetting_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.flowLtPanelSelectView.ResumeLayout(false);
@@ -411,5 +448,8 @@ namespace SerialPortComm.Frames
         private System.Windows.Forms.Button btnResetCheckBox;
         private System.Windows.Forms.Button btnSaveCheckBox;
         private System.Windows.Forms.Button btnSelectAll;
+        private System.Windows.Forms.Button btnFolderBrowserDialog;
+        private System.Windows.Forms.TextBox tbPathFileSaveData;
+        private System.Windows.Forms.Label label1;
     }
 }

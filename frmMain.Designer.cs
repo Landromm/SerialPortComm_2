@@ -437,7 +437,7 @@ namespace SerialPortComm
             this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.Location = new System.Drawing.Point(5, 255);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(190, 35);
+            this.btnMenu.Size = new System.Drawing.Size(190, 40);
             this.btnMenu.TabIndex = 4;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = false;
@@ -452,9 +452,9 @@ namespace SerialPortComm
             this.btnStartSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnStartSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartSend.Location = new System.Drawing.Point(5, 436);
+            this.btnStartSend.Location = new System.Drawing.Point(5, 421);
             this.btnStartSend.Name = "btnStartSend";
-            this.btnStartSend.Size = new System.Drawing.Size(190, 35);
+            this.btnStartSend.Size = new System.Drawing.Size(190, 40);
             this.btnStartSend.TabIndex = 3;
             this.btnStartSend.Text = "Start Send";
             this.btnStartSend.UseVisualStyleBackColor = false;
@@ -470,9 +470,9 @@ namespace SerialPortComm
             this.btnClosePort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnClosePort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosePort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClosePort.Location = new System.Drawing.Point(5, 471);
+            this.btnClosePort.Location = new System.Drawing.Point(5, 461);
             this.btnClosePort.Name = "btnClosePort";
-            this.btnClosePort.Size = new System.Drawing.Size(190, 35);
+            this.btnClosePort.Size = new System.Drawing.Size(190, 40);
             this.btnClosePort.TabIndex = 2;
             this.btnClosePort.Text = "Close Port";
             this.btnClosePort.UseVisualStyleBackColor = false;
@@ -488,9 +488,9 @@ namespace SerialPortComm
             this.BtnOpenPort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.BtnOpenPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnOpenPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOpenPort.Location = new System.Drawing.Point(5, 506);
+            this.BtnOpenPort.Location = new System.Drawing.Point(5, 501);
             this.BtnOpenPort.Name = "BtnOpenPort";
-            this.BtnOpenPort.Size = new System.Drawing.Size(190, 35);
+            this.BtnOpenPort.Size = new System.Drawing.Size(190, 40);
             this.BtnOpenPort.TabIndex = 1;
             this.BtnOpenPort.Text = "Open Port";
             this.BtnOpenPort.UseVisualStyleBackColor = false;

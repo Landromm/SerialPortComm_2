@@ -76,7 +76,7 @@ namespace SerialPortComm.Frames
             ChangedBackColorPanel(chb_MassFlow, panel_MassFlow);
         }
 
-        private void BtnSaveCheckBox_Click(object sender, EventArgs e)
+        private void BtnSaveAll_Click(object sender, EventArgs e)
         {
             try
             {
@@ -92,6 +92,19 @@ namespace SerialPortComm.Frames
                 MessageBox.Show("Ошибка чтения config.ini файла, при записи!\n" + ex,
                                 "Ошибка !");
             }
+
+            if (!string.IsNullOrEmpty(tbPathFileSaveData.Text))
+            {
+                IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
+                INI.WriteINI("PathFolderSaveData", "pathFolder", tbPathFileSaveData.Text);
+            }
+            else 
+            {
+                MessageBox.Show("Вы не указали путь к папке для записи данных.",
+                                 "Внимание!",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Exclamation);
+            }
         }
 
         private void FormGeneralSetting_Load(object sender, EventArgs e)
@@ -104,6 +117,7 @@ namespace SerialPortComm.Frames
                 tempBoolVolumeFlow = bool.Parse(INI.ReadINI("CheckedViewDataValue", "VolumeFlow"));
                 tempBoolTemperature = bool.Parse(INI.ReadINI("CheckedViewDataValue", "Temperature"));
                 tempBoolRoH2O = bool.Parse(INI.ReadINI("CheckedViewDataValue", "RoH2O"));
+                tbPathFileSaveData.Text = INI.ReadINI("PathFolderSaveData", "pathFolder");
             }
             catch (Exception ex)
             {
@@ -123,6 +137,19 @@ namespace SerialPortComm.Frames
             if (tempBool)
                 checkBox.Checked = true;
         }
+
+        private void BtnFolderBrowserDialog_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog DirDialog = new FolderBrowserDialog();
+            DirDialog.Description = "Выбор директории";
+            DirDialog.SelectedPath = @"C:\";
+
+            if (DirDialog.ShowDialog() == DialogResult.OK)
+            {
+                tbPathFileSaveData.Text = DirDialog.SelectedPath;
+            }
+        }
+
 
     }
 }

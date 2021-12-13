@@ -194,6 +194,14 @@ namespace SerialPortComm.ClassesControl
         }
         #endregion
 
+        public bool ComPortIsOpen()
+        {
+            if (comPort.IsOpen)
+                return true;
+            else
+                return false;
+        }
+
         #region WriteData
         public void WriteData(string msg)
         {
