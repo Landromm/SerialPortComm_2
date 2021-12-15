@@ -201,6 +201,7 @@ namespace SerialPortComm
             this.lbDataValue_DozaNow.Size = new System.Drawing.Size(91, 25);
             this.lbDataValue_DozaNow.TabIndex = 1;
             this.lbDataValue_DozaNow.Text = "0000,0000";
+            this.lbDataValue_DozaNow.TextChanged += new System.EventHandler(this.LbDataValue_DozaNow_TextChanged);
             // 
             // lbInfo_DozaNow
             // 

@@ -30,7 +30,7 @@ namespace SerialPortComm.Frames
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbFolderBrowserDialogInfo = new System.Windows.Forms.Label();
             this.btnFolderBrowserDialog = new System.Windows.Forms.Button();
             this.tbPathFileSaveData = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -56,6 +56,9 @@ namespace SerialPortComm.Frames
             this.lb_MassFlow = new System.Windows.Forms.Label();
             this.panelInfoView = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.tbTimeRestartApp = new System.Windows.Forms.TextBox();
+            this.Separator = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +73,10 @@ namespace SerialPortComm.Frames
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.Separator);
+            this.panel1.Controls.Add(this.tbTimeRestartApp);
+            this.panel1.Controls.Add(this.richTextBox2);
+            this.panel1.Controls.Add(this.lbFolderBrowserDialogInfo);
             this.panel1.Controls.Add(this.btnFolderBrowserDialog);
             this.panel1.Controls.Add(this.tbPathFileSaveData);
             this.panel1.Controls.Add(this.panel8);
@@ -81,14 +87,14 @@ namespace SerialPortComm.Frames
             this.panel1.Size = new System.Drawing.Size(534, 311);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // lbFolderBrowserDialogInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 180);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Путь к файлу записи данных";
+            this.lbFolderBrowserDialogInfo.AutoSize = true;
+            this.lbFolderBrowserDialogInfo.Location = new System.Drawing.Point(4, 199);
+            this.lbFolderBrowserDialogInfo.Name = "lbFolderBrowserDialogInfo";
+            this.lbFolderBrowserDialogInfo.Size = new System.Drawing.Size(153, 13);
+            this.lbFolderBrowserDialogInfo.TabIndex = 4;
+            this.lbFolderBrowserDialogInfo.Text = "Путь к файлу записи данных";
             // 
             // btnFolderBrowserDialog
             // 
@@ -106,9 +112,9 @@ namespace SerialPortComm.Frames
             // tbPathFileSaveData
             // 
             this.tbPathFileSaveData.BackColor = System.Drawing.SystemColors.Menu;
-            this.tbPathFileSaveData.Location = new System.Drawing.Point(4, 199);
+            this.tbPathFileSaveData.Location = new System.Drawing.Point(172, 199);
             this.tbPathFileSaveData.Name = "tbPathFileSaveData";
-            this.tbPathFileSaveData.Size = new System.Drawing.Size(400, 20);
+            this.tbPathFileSaveData.Size = new System.Drawing.Size(232, 20);
             this.tbPathFileSaveData.TabIndex = 2;
             // 
             // panel8
@@ -391,6 +397,33 @@ namespace SerialPortComm.Frames
             this.richTextBox1.Text = "Выберите данные, которые будут отображаться на главном экране и записываться в фа" +
     "йл.";
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Location = new System.Drawing.Point(7, 224);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(159, 31);
+            this.richTextBox2.TabIndex = 5;
+            this.richTextBox2.Text = "Время \"рестарта\" программы после критического сбоя, мс.";
+            // 
+            // tbTimeRestartApp
+            // 
+            this.tbTimeRestartApp.Location = new System.Drawing.Point(172, 225);
+            this.tbTimeRestartApp.Name = "tbTimeRestartApp";
+            this.tbTimeRestartApp.Size = new System.Drawing.Size(78, 20);
+            this.tbTimeRestartApp.TabIndex = 6;
+            this.tbTimeRestartApp.Text = "10000";
+            // 
+            // Separator
+            // 
+            this.Separator.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Separator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Separator.Location = new System.Drawing.Point(3, 220);
+            this.Separator.Name = "Separator";
+            this.Separator.Size = new System.Drawing.Size(160, 2);
+            this.Separator.TabIndex = 7;
+            // 
             // FormGeneralSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +483,9 @@ namespace SerialPortComm.Frames
         private System.Windows.Forms.Button btnSelectAll;
         private System.Windows.Forms.Button btnFolderBrowserDialog;
         private System.Windows.Forms.TextBox tbPathFileSaveData;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbFolderBrowserDialogInfo;
+        private System.Windows.Forms.TextBox tbTimeRestartApp;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label Separator;
     }
 }

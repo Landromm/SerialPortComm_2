@@ -86,6 +86,7 @@ namespace SerialPortComm.Frames
                 INI.WriteINI("CheckedViewDataValue", "VolumeFlow", chb_VolumeFlow.Checked.ToString());
                 INI.WriteINI("CheckedViewDataValue", "Temperature", chb_Temperature.Checked.ToString());
                 INI.WriteINI("CheckedViewDataValue", "RoH2O", chb_RoH2O.Checked.ToString());
+                INI.WriteINI("RestartFlag", "timeOutRestart", tbTimeRestartApp.Text);
             }
             catch (Exception ex)
             {
@@ -118,6 +119,7 @@ namespace SerialPortComm.Frames
                 tempBoolTemperature = bool.Parse(INI.ReadINI("CheckedViewDataValue", "Temperature"));
                 tempBoolRoH2O = bool.Parse(INI.ReadINI("CheckedViewDataValue", "RoH2O"));
                 tbPathFileSaveData.Text = INI.ReadINI("PathFolderSaveData", "pathFolder");
+                tbTimeRestartApp.Text = INI.ReadINI("RestartFlag", "timeOutRestart");
             }
             catch (Exception ex)
             {
