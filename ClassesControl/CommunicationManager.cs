@@ -14,45 +14,7 @@ namespace SerialPortComm.ClassesControl
         /// </summary>
         public enum TransmissionType { Text, Hex }
 
-        ///// <summary>
-        ///// enumeration to hold our message types
-        ///// </summary>
-        //public enum MessageType { Incoming, Outgoing, Normal, Warning, Error };
-
-        ///// <summary>
-        /////  Указывает число стоповых битов.
-        ///// </summary>
-        //public enum StopBitsUsers
-        //{
-        //    //  Стоповые биты не используются. Это значение не поддерживается свойством System.IO.Ports.SerialPort.StopBits.
-        //    Нет = 0,
-        //    //  Используется один стоповый бит.
-        //    Один = 1,
-        //    //  Используются два стоповых бита.
-        //    Два = 2,
-        //    //  Используется 1,5 стоповых бита.
-        //    Полтора = 3
-        //}
-
-        ///// <summary>
-        /////  Задает бит четности для объекта System.IO.Ports.SerialPort.
-        ///// </summary>
-        //public enum ParityUsers
-        //{            
-        //    //  Контроль четности не осуществляется.
-        //    Нет = 0,            
-        //    //  Устанавливает бит четности так, чтобы число установленных битов всегда было нечетным.
-        //    Один = 1,            
-        //    //  Устанавливает бит четности так, чтобы число установленных битов всегда было четным.
-        //    Два = 2,            
-        //    //  Оставляет бит четности равным 1.
-        //    Маркер = 3,
-        //    //  Оставляет бит четности равным 0.
-        //    Пробел = 4
-        //}
         #endregion
-
-
 
         #region Manager Variables
         //property variables
@@ -196,65 +158,11 @@ namespace SerialPortComm.ClassesControl
 
         public bool ComPortIsOpen()
         {
-            if (comPort.IsOpen)
+            if (comPort.IsOpen && !comPort.BreakState)
                 return true;
             else
                 return false;
         }
-
-        #region WriteData
-        public void WriteData(string msg)
-        {
-            switch (CurrentTransmissionType)
-            {
-                case TransmissionType.Text:
-                    //first make sure the port is open
-                    //if its not open then open it
-                    if (!(comPort.IsOpen == true)) comPort.Open();
-                    //send the message to the port
-                    comPort.Write(msg);
-                    //display the message
-                    //DisplayData_Rch(msg + "\n");
-                    break;
-                case TransmissionType.Hex:
-                    try
-                    {
-                        //convert the message to byte array
-                        byte[] newMsg = HexToByte(msg);
-                        //send the message to the port
-                        comPort.Write(newMsg, 0, newMsg.Length);
-                        //convert back to hex and display
-                        //DisplayData_Rch(ByteToHex(newMsg) + "\n");
-                        DisplayData_Tb_Send(msg);
-                    }
-                    catch (FormatException ex)
-                    {
-                        //display error message
-                        DisplayData_Rch(ex.Message);
-                        //convert the message to byte array
-                        byte[] newMsg = HexToByte(msg);
-                        //send the message to the port
-                        comPort.Write(newMsg, 0, newMsg.Length);
-                        //convert back to hex and display
-                        //DisplayData_Rch(ByteToHex(newMsg) + "\n");
-                    }
-                    finally
-                    {
-                        _displayWindow_Tb_Answer.SelectAll();
-                    }
-                    break;
-                default:
-                    //first make sure the port is open
-                    //if its not open then open it
-                    if (!(comPort.IsOpen == true)) comPort.Open();
-                    //send the message to the port
-                    comPort.Write(msg);
-                    //display the message
-                    //DisplayData_Rch(msg + "\n");
-                    break;
-            }
-        }
-        #endregion
 
         #region HexToByte
         /// <summary>
@@ -264,17 +172,10 @@ namespace SerialPortComm.ClassesControl
         /// <returns>a byte array</returns>
         private byte[] HexToByte(string msg)
         {
-            //remove any spaces from the string
             msg = msg.Replace(" ", "");
-            //create a byte array the length of the
-            //divided by 2 (Hex is 2 characters in length)
             byte[] comBuffer = new byte[msg.Length / 2];
-            //loop through the length of the provided string
             for (int i = 0; i < msg.Length; i += 2)
-                //convert each set of 2 characters to a byte
-                //and add to the array
                 comBuffer[i / 2] = (byte)Convert.ToByte(msg.Substring(i, 2), 16);
-            //return the array
             return comBuffer;
         }
         #endregion
@@ -310,10 +211,7 @@ namespace SerialPortComm.ClassesControl
         {
             _displayWindow_Rch.Invoke(new EventHandler(delegate
             {
-                //_displayWindow.SelectedText = string.Empty;
-                //_displayWindow.SelectionFont = new Font(_displayWindow.SelectionFont, FontStyle.Bold);
-                //_displayWindow.SelectionColor = MessageColor[(int)type];
-                _displayWindow_Rch.Text = msg;
+                _displayWindow_Rch.AppendText(msg);
                 _displayWindow_Rch.ScrollToCaret();
             }));
         }
@@ -323,9 +221,6 @@ namespace SerialPortComm.ClassesControl
         {
             _displayWindow_Tb_Answer.Invoke(new EventHandler(delegate
             {
-                //_displayWindow.SelectedText = string.Empty;
-                //_displayWindow.SelectionFont = new Font(_displayWindow.SelectionFont, FontStyle.Bold);
-                //_displayWindow.SelectionColor = MessageColor[(int)type];
                 _displayWindow_Tb_Answer.Text = msg;
                 _displayWindow_Tb_Answer.ScrollToCaret();
             }));
@@ -335,41 +230,37 @@ namespace SerialPortComm.ClassesControl
         {
             _displayWindow_Tb_Send.Invoke(new EventHandler(delegate
             {
-                //_displayWindow.SelectedText = string.Empty;
-                //_displayWindow.SelectionFont = new Font(_displayWindow.SelectionFont, FontStyle.Bold);
-                //_displayWindow.SelectionColor = MessageColor[(int)type];
                 _displayWindow_Tb_Send.Text = msg;
                 _displayWindow_Tb_Send.ScrollToCaret();
             }));
         }
         #endregion
 
+        public string ErrorBreakState()
+        {
+            return comPort.BreakState.ToString();
+        }
+
         #region OpenPort
         public bool OpenPort()
         {
             try
-            {
-                //first check if the port is already open
-                //if its open then close it
-                if (comPort.IsOpen == true) comPort.Close();
-
-                //set the properties of our SerialPort Object
+            {                
+                if (comPort.IsOpen) comPort.Close();
                 comPort.BaudRate = int.Parse(_baudRate);    //BaudRate
                 comPort.DataBits = int.Parse(_dataBits);    //DataBits
                 comPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), _stopBits);    //StopBits
                 comPort.Parity = (Parity)Enum.Parse(typeof(Parity), _parity);    //Parity
                 comPort.PortName = _portName;   //PortName
-                //comPort.ReadTimeout = 500;
-                //now open the port
+                comPort.ReadTimeout = 500;
                 comPort.Open();
-                //display message
-                DisplayData_Rch("Port opened at " + DateTime.Now + "\n");
-                //return true
+
+                DisplayData_Rch("COM-порт открыт в |" + DateTime.Now + "|\n");
                 return true;
             }
             catch (Exception ex)
             {
-                DisplayData_Rch(ex.Message);
+                DisplayData_Rch(ex.Message + "\n");
                 return false;
             }
         }
@@ -379,15 +270,18 @@ namespace SerialPortComm.ClassesControl
         {
             try
             {
-                if (comPort.IsOpen == true)
+                if (comPort.IsOpen == true || comPort.BreakState)
+                {
+                    comPort.BreakState = false;
                     comPort.Close();
-                DisplayData_Rch("Port closed at " + DateTime.Now + "\n");
+                }
+                DisplayData_Rch("COM-порт закрыт в |" + DateTime.Now + "|\n");
                 //return true
                 return true;
             }
             catch (Exception ex)
             {
-                DisplayData_Rch(ex.Message);
+                DisplayData_Rch(ex.Message + "\n");
                 return false;
             }
         }
@@ -423,6 +317,44 @@ namespace SerialPortComm.ClassesControl
         }
         #endregion
 
+        #region WriteData
+        public void WriteData(string msg)
+        {
+            switch (CurrentTransmissionType)
+            {
+                case TransmissionType.Text:
+                    if (!(comPort.IsOpen == true)) comPort.Open();
+                    comPort.Write(msg);
+                    DisplayData_Rch(msg + "\n");
+                    break;
+                case TransmissionType.Hex:
+                    try
+                    {  
+                        if (!(comPort.IsOpen == true)) comPort.Open();
+                        byte[] newMsg = HexToByte(msg);
+                        comPort.Write(newMsg, 0, newMsg.Length);
+                        DisplayData_Tb_Send(msg);
+                    }
+                    catch (FormatException ex)
+                    {
+                        DisplayData_Rch(ex.Message);
+                        byte[] newMsg = HexToByte(msg);
+                        DisplayData_Rch(ByteToHex(newMsg) + "\n");
+                    }
+                    break;
+                default:
+                    //first make sure the port is open
+                    //if its not open then open it
+                    if (!(comPort.IsOpen == true)) comPort.Open();
+                    //send the message to the port
+                    comPort.Write(msg);
+                    //display the message
+                    //DisplayData_Rch(msg + "\n");
+                    break;
+            }
+        }
+        #endregion
+
         #region comPort_DataReceived
         /// <summary>
         /// method that will be called when theres data waiting in the buffer
@@ -437,22 +369,24 @@ namespace SerialPortComm.ClassesControl
                 //user chose string
                 case TransmissionType.Text:
                     string msg = comPort.ReadExisting();
-                    DisplayData_Tb(msg + "\n");
+                    DisplayData_Tb(msg);
                     break;
                 //user chose binary
                 case TransmissionType.Hex:
-                    int bytes = comPort.BytesToRead;
-                    byte[] comBuffer = new byte[bytes];
-                    comPort.Read(comBuffer, 0, bytes);
-                    DisplayData_Tb(ByteToHex(comBuffer) + "\n");
+                    if (!comPort.BreakState)
+                    {
+                        int bytes = comPort.BytesToRead;
+                        byte[] comBuffer = new byte[bytes];
+                        comPort.Read(comBuffer, 0, bytes);
+                        DisplayData_Tb(ByteToHex(comBuffer) + "\n");
+                    }
                     break;
                 default:
                     string str = comPort.ReadExisting();
-                    DisplayData_Tb(str + "\n");
+                    DisplayData_Tb(str);
                     break;
             }
         }
         #endregion
-
     }
 }

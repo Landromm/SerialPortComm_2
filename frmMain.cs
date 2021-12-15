@@ -27,6 +27,7 @@ namespace SerialPortComm
         bool checkedViewVolumeFlow;
         bool checkedViewTemperature;
         bool checkedViewRoH2O;
+        bool timeOut = true;
 
         string temp_PortName;
         string temp_BaudRate;
@@ -39,16 +40,12 @@ namespace SerialPortComm
         string tempHex_VolumeFlow;
         string tempHex_RoH2O;
 
-
         int temp_Timeout = 500; 
         int coutData = 1;
-
-        bool timeOut = true;
 
         public frmMain()
         {
             InitializeComponent();
-
             try
             {
                 fontCollection.AddFontFile(@ConfigurationManager.AppSettings["digital-7"]); // файл шрифта
@@ -61,15 +58,7 @@ namespace SerialPortComm
             }
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            // Присвоение шрифта для "цифровых" значений.
-            lbDataValue_DozaNow.Font = new Font(fontFamilySelected(1), 24);
-            lbDataValue_VolumeFlow.Font = new Font(fontFamilySelected(1), 24);
-            lbDataValue_Temperature.Font = new Font(fontFamilySelected(1), 24);
-            lbDataValue_MassFlow.Font = new Font(fontFamilySelected(1), 24);
-            lbDataValue_RoH2O.Font = new Font(fontFamilySelected(1), 24);
-        }
+        #region All Method's (Методы формы)
 
         // Инициализация шррифта для "цифровых" значений.
         private FontFamily fontFamilySelected(int index)
@@ -98,10 +87,10 @@ namespace SerialPortComm
                 temp_DataBits = INI.ReadINI("COMportSettings", "DataBits");
                 temp_Timeout = int.Parse(INI.ReadINI("COMportSettings", "Timeout"));
                 tempHex_Temperature = INI.ReadINI("HexStringToSend", "hex_Temperature");
-                tempHex_DozaNow = INI.ReadINI("HexStringToSend", "hex_DozaNow"); 
-                tempHex_MassFlow = INI.ReadINI("HexStringToSend", "hex_MassFlow"); 
-                tempHex_VolumeFlow = INI.ReadINI("HexStringToSend", "hex_VolumeFlow"); 
-                tempHex_RoH2O = INI.ReadINI("HexStringToSend", "hex_RoH2O"); 
+                tempHex_DozaNow = INI.ReadINI("HexStringToSend", "hex_DozaNow");
+                tempHex_MassFlow = INI.ReadINI("HexStringToSend", "hex_MassFlow");
+                tempHex_VolumeFlow = INI.ReadINI("HexStringToSend", "hex_VolumeFlow");
+                tempHex_RoH2O = INI.ReadINI("HexStringToSend", "hex_RoH2O");
             }
             catch (Exception ex)
             {
@@ -110,71 +99,45 @@ namespace SerialPortComm
             }
         }
 
-        // Метод кнопки "Menu".
-        private void btnMenu_Click(object sender, EventArgs e)
+        #region FlafRestartApp
+        /// <summary>
+        /// Метод определения флага рестарта программы.
+        /// </summary>
+        private bool FlagRestartBool()
         {
-            MainForm mainForm = new MainForm();
-            mainForm.ShowDialog();
+            IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
+            return bool.Parse(INI.ReadINI("RestartFlag", "flag"));
         }
-
-        private void frmMain_Activated(object sender, EventArgs e)
+        /// <summary>
+        /// Метод чтение флага рестарта программы.
+        /// </summary>
+        private void FlagRestartON()
         {
-            ParamFromConfiguration_Load();
-
-            lbValuePort.Text = temp_PortName;
-            lbValueBaudRate.Text = temp_BaudRate;
-            lbValueParity.Text = temp_Parity;
-            lbValueStopBits.Text = temp_StopBits;
-            lbValueDataBits.Text = temp_DataBits;
-
-            try
-            {
-                IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
-                checkedViewDozaNow = bool.Parse(INI.ReadINI("CheckedViewDataValue", "DozaNow"));
-                checkedViewMassFlow = bool.Parse(INI.ReadINI("CheckedViewDataValue", "MassFlow"));
-                checkedViewVolumeFlow = bool.Parse(INI.ReadINI("CheckedViewDataValue", "VolumeFlow"));
-                checkedViewTemperature = bool.Parse(INI.ReadINI("CheckedViewDataValue", "Temperature"));
-                checkedViewRoH2O = bool.Parse(INI.ReadINI("CheckedViewDataValue", "RoH2O"));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка чтения config.ini файла!\n" + ex,
-                                "Ошибка !");
-            }
-
-            LoadCheckedViewData(checkedViewDozaNow, panel_DozaNow);
-            LoadCheckedViewData(checkedViewMassFlow, panel_MassFlow);
-            LoadCheckedViewData(checkedViewVolumeFlow, panel_VolumeFlow);
-            LoadCheckedViewData(checkedViewTemperature, panel_Temperature);
-            LoadCheckedViewData(checkedViewRoH2O, panel_RoH2O);
-
-            Console.WriteLine("Обновление главного экрана!");
+            IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
+            INI.WriteINI("RestartFlag", "flag", "true");
         }
-
-        private void LoadCheckedViewData(bool tempBool, Panel panel)
+        /// <summary>
+        /// Метод записи флага рестарта программы.
+        /// </summary>
+        private void FlagRestartOFF()
         {
-            if (tempBool)
-                panel.Visible = true;
-            else
-                panel.Visible = false;
+            IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
+            INI.WriteINI("RestartFlag", "flag", "false");
         }
+        #endregion
 
         #region ConverterToFlout
-
         // Метод считывания текста с поля вывода результата
         private string FilterString(String text)
         {
-            string result = "";
-
             if (text.Contains("AA01FE0C0104") && text.Length <= 23)
-                return result = text.Trim()
-                                    .Replace(".", "")
-                                    .Replace("\n", "")
-                                    .Replace(" ", "");
+                return text.Trim()
+                            .Replace(".", "")
+                            .Replace("\n", "")
+                            .Replace(" ", "");
             else
-                return result = string.Empty;
+                return string.Empty;
         }
-
         // Метод конвертации полученного ответа из COM-порта (4 байта) в значение с плавающей запятой.
         private void FloutConverter(string str, Label labelResult)
         {
@@ -182,7 +145,6 @@ namespace SerialPortComm
             if (strTempHex.Contains("AA01FE0C0104") && (strTempHex.Length == 22))
             {
                 strTempHex = strTempHex.Replace("AA01FE0C0104", "");
-
                 int j = 3;
                 byte[] byteOrigin = ToByteArray(strTempHex.Substring(0, 8));
                 byte[] byteReverce = new byte[4];
@@ -192,7 +154,6 @@ namespace SerialPortComm
                     byteReverce[i] = byteOrigin[j];
                     j--;
                 }
-
                 labelResult.Text = BitConverter.ToSingle(byteReverce, 0).ToString();
             }
         }
@@ -230,7 +191,51 @@ namespace SerialPortComm
         }
         #endregion
 
-        private void BtnOpenPort_Click(object sender, EventArgs e)
+        // Метод инициализации элементов на форме.
+        private void AutoActivate()
+        {
+            ParamFromConfiguration_Load();
+
+            lbValuePort.Text = temp_PortName;
+            lbValueBaudRate.Text = temp_BaudRate;
+            lbValueParity.Text = temp_Parity;
+            lbValueStopBits.Text = temp_StopBits;
+            lbValueDataBits.Text = temp_DataBits;
+
+            try
+            {
+                IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
+                checkedViewDozaNow = bool.Parse(INI.ReadINI("CheckedViewDataValue", "DozaNow"));
+                checkedViewMassFlow = bool.Parse(INI.ReadINI("CheckedViewDataValue", "MassFlow"));
+                checkedViewVolumeFlow = bool.Parse(INI.ReadINI("CheckedViewDataValue", "VolumeFlow"));
+                checkedViewTemperature = bool.Parse(INI.ReadINI("CheckedViewDataValue", "Temperature"));
+                checkedViewRoH2O = bool.Parse(INI.ReadINI("CheckedViewDataValue", "RoH2O"));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения config.ini файла!\n" + ex,
+                                "Ошибка !");
+            }
+            LoadCheckedViewData(checkedViewDozaNow, panel_DozaNow);
+            LoadCheckedViewData(checkedViewMassFlow, panel_MassFlow);
+            LoadCheckedViewData(checkedViewVolumeFlow, panel_VolumeFlow);
+            LoadCheckedViewData(checkedViewTemperature, panel_Temperature);
+            LoadCheckedViewData(checkedViewRoH2O, panel_RoH2O);
+
+            Console.WriteLine("Обновление главного экрана!");
+        }
+
+        // Метод проверки отображения панели.
+        private void LoadCheckedViewData(bool tempBool, Panel panel)
+        {
+            if (tempBool)
+                panel.Visible = true;
+            else
+                panel.Visible = false;
+        }
+
+        // Метод открытия COM-порта.
+        private void OpenComPort()
         {
             timeOut = true;
             comm.Parity = temp_Parity;
@@ -242,80 +247,183 @@ namespace SerialPortComm
             comm.DisplayWindow_Rch = rchbLogInfo;
             comm.DisplayWindow_Tb_Answer = tbAnswerData;
             comm.DisplayWindow_TbSend = tbSendHex;
-            BtnOpenPort.Visible = false;
-            btnStartSend.Visible = true;
-            btnClosePort.Visible = true;
             comm.OpenPort();
+            if (comm.ComPortIsOpen())
+            {
+                BtnOpenPort.Visible = false;
+                btnStartSend.Visible = true;
+                btnClosePort.Visible = true;
+                btnMenu.Enabled = false;
+            }
         }
 
-        private void BtnClosePort_Click(object sender, EventArgs e)
+        // Метод закрытия COM-порта.
+        private void CloseComPort()
         {
             timeOut = false;
-            BtnOpenPort.Visible = true;
-            btnStartSend.Visible = false;
-            btnClosePort.Visible = false;
             comm.ClosePort();
+
+            if (!comm.ComPortIsOpen())
+            {
+                BtnOpenPort.Visible = true;
+                btnStartSend.Visible = false;
+                btnClosePort.Visible = false;
+                btnMenu.Enabled = true;
+                Console.WriteLine("Закрытие COM-порта!!!");
+            }
         }
 
-        // Метод кнопки "Start Send".
-        private void BtnStartSend_Click(object sender, EventArgs e)
+        // Метод рестарта приложения.
+        private void RestartApp()
         {
-            try
+            FlagRestartON();
+            System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
+            this.Close(); //to turn off current app
+        }
+
+        // Метод отправки запроса и чтение параметра, отображаеммого элемента данных.
+        private void SendSingleDataCOM(string tempHex, Label lbDataValue)
+        {
+            comm.WriteData(tempHex);
+            Wait(temp_Timeout);
+            Console.Write(coutData + ". Температура: " + lbDataValue.Text + " Package: " + tbAnswerData.Text);
+            //rchbLogInfo.AppendText(coutData + ". Температура: " + lbDataValue.Text + " Package: " + tbAnswerData.Text);
+            coutData++;
+        }
+
+        // Метод отправки запросов и чтение ответа от счетчика РСМ по COM-порту.
+        private void SendDataCOM()
+        {
+            btnStartSend.Visible = false;
+            rchbLogInfo.AppendText("Начата отправка запросов на получение данных от счетчика РСМ-05. |" + DateTime.Now + "|\n");
+            while (timeOut)
             {
-                while (timeOut)
+                if (panel_Temperature.Visible && timeOut)
                 {
-                    if (timeOut && comm.ComPortIsOpen())
+                    if (comm.ComPortIsOpen() && timeOut)
                     {
-                        comm.WriteData(tempHex_Temperature);
-                        Wait(temp_Timeout);
-                        Console.Write(coutData + ". Температура: " + lbDataValue_Temperature.Text + " Package: " + tbAnswerData.Text);
-                        rchbLogInfo.AppendText(coutData + ". Температура: " + lbDataValue_Temperature.Text + " Package: " + tbAnswerData.Text);
-                        coutData++;
+                        SendSingleDataCOM(tempHex_Temperature, lbDataValue_Temperature);
                     }
-                    if (timeOut && comm.ComPortIsOpen())
+                    else
                     {
-                        comm.WriteData(tempHex_DozaNow);
-                        Wait(temp_Timeout);
-                        Console.Write(coutData + ". Доза: " + lbDataValue_DozaNow.Text + " Package: " + tbAnswerData.Text);
-                        rchbLogInfo.AppendText(coutData + ". Доза: " + lbDataValue_DozaNow.Text + " Package: " + tbAnswerData.Text);
-                        coutData++;
+                        RestartApp();
+                        break;
                     }
-                    if (timeOut && comm.ComPortIsOpen())
+                }
+                if (panel_DozaNow.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
                     {
-                        comm.WriteData(tempHex_MassFlow);
-                        Wait(temp_Timeout);
-                        Console.Write(coutData + ". Массовый расход: " + lbDataValue_MassFlow.Text + " Package: " + tbAnswerData.Text);
-                        rchbLogInfo.AppendText(coutData + ". Массовый расход: " + lbDataValue_MassFlow.Text + " Package: " + tbAnswerData.Text);
-                        coutData++;
+                        SendSingleDataCOM(tempHex_DozaNow, lbDataValue_DozaNow);
                     }
-                    if (timeOut && comm.ComPortIsOpen())
+                    else
                     {
-                        comm.WriteData(tempHex_VolumeFlow);
-                        Wait(temp_Timeout);
-                        Console.Write(coutData + ". Объемный расход: " + lbDataValue_VolumeFlow.Text + " Package: " + tbAnswerData.Text);
-                        rchbLogInfo.AppendText(coutData + ". Объемный расход: " + lbDataValue_VolumeFlow.Text + " Package: " + tbAnswerData.Text);
-                        coutData++;
+                        RestartApp();
+                        break;
                     }
-                    if (timeOut && comm.ComPortIsOpen())
+                }
+                if (panel_MassFlow.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
                     {
-                        comm.WriteData(tempHex_RoH2O);
-                        Wait(temp_Timeout);
-                        Console.Write(coutData + ". Плотность: " + lbDataValue_RoH2O.Text + " Package: " + tbAnswerData.Text);
-                        rchbLogInfo.AppendText(coutData + ". Плотность: " + lbDataValue_RoH2O.Text + " Package: " + tbAnswerData.Text);
-                        coutData++;
+                        SendSingleDataCOM(tempHex_MassFlow, lbDataValue_MassFlow);
+                    }
+                    else
+                    {
+                        RestartApp();
+                        break;
+                    }
+                }
+                if (panel_VolumeFlow.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
+                    {
+                        SendSingleDataCOM(tempHex_VolumeFlow, lbDataValue_VolumeFlow);
+                    }
+                    else
+                    {
+                        RestartApp();
+                        break;
+
+                    }
+                }
+                if (panel_RoH2O.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
+                    {
+                        SendSingleDataCOM(tempHex_RoH2O, lbDataValue_RoH2O);
+                    }
+                    else
+                    {
+                        RestartApp();
+                        break;
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                rchbLogInfo.AppendText("Связь с COM портом потеряна!\n");
-                MessageBox.Show("Связь с COM портом потеряна!\n" + ex,
-                "Ошибка !");
-            }
-
-
         }
 
+        #endregion
+
+        //----------------↑--------------
+        //------------- МЕТОДЫ ----------
+        //-------------------------------
+        //------------ СОБЫТИЯ ----------
+        //----------------↓--------------
+
+        #region Evant's (Событие формы)
+
+        // Событие нициализации элементов и автоматического запуска запрос\чтение параметров.
+        private void frmMain_Activated(object sender, EventArgs e)
+        {
+            AutoActivate();
+            if (FlagRestartBool())
+            {
+                FlagRestartOFF();
+                Wait(10000);
+                OpenComPort();
+                SendDataCOM();
+            }
+        }
+
+        // Событие загрузки формы.
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            // Присвоение шрифта для "цифровых" значений.
+            lbDataValue_DozaNow.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_VolumeFlow.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_Temperature.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_MassFlow.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_RoH2O.Font = new Font(fontFamilySelected(1), 24);
+            rchbLogInfo.Clear();
+        }
+
+        // Событие кнопки "Menu".
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
+        }
+
+        // Событие кнопки "Open Port"
+        private void BtnOpenPort_Click(object sender, EventArgs e)
+        {
+            OpenComPort();
+        }
+
+        // Событие кнопки "Close Port"
+        private void BtnClosePort_Click(object sender, EventArgs e)
+        {
+            CloseComPort();
+        }
+
+        // Собыите кнопки "Start Send".
+        private void BtnStartSend_Click(object sender, EventArgs e)
+        {
+            SendDataCOM();
+        }
+
+        // Событие изменения TexBox, который получает ответ из COM-порта.
+        // Производит запись преобразованных ответов в Label's на форме.
         private void TbAnswerData_TextChanged(object sender, EventArgs e)
         {
             if(tbSendHex.Text.Equals(tempHex_DozaNow))
@@ -329,5 +437,7 @@ namespace SerialPortComm
             else if (tbSendHex.Text.Equals(tempHex_RoH2O))
                 FloutConverter(tbAnswerData.Text, lbDataValue_RoH2O);
         }
+
+        #endregion
     }
 }

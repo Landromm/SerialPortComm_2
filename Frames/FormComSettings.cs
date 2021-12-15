@@ -40,6 +40,7 @@ namespace SerialPortComm.Frames
             {
                 IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
                 ComplianceCheck(INI.ReadINI("COMportSettings", "PortName"), cbPortName);
+                cbPortName.SelectedIndex = 0;
                 ComplianceCheck(INI.ReadINI("COMportSettings", "BaudRate"), cbBaudRate);
                 ComplianceCheck(INI.ReadINI("COMportSettings", "Parity"), cbParity);
                 ComplianceCheck(INI.ReadINI("COMportSettings", "StopBits"), cbStopBits);
@@ -51,6 +52,7 @@ namespace SerialPortComm.Frames
             {
                 MessageBox.Show("Ошибка чтения config.ini файла!\n" + ex,
                                 "Ошибка !");
+                
             }
         }
         private void ComplianceCheck(string param, ComboBox comboBox)
