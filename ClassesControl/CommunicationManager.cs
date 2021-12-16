@@ -2,12 +2,15 @@
 using System.Text;
 using System.IO.Ports;
 using System.Windows.Forms;
+using SerialPortComm.ClassesControl;
 
 
 namespace SerialPortComm.ClassesControl
 {
     class CommunicationManager
     {
+        LogWriter logWriter = new LogWriter();
+
         #region Manager Enums
         /// <summary>
         /// enumeration to hold our transmission types
@@ -255,6 +258,7 @@ namespace SerialPortComm.ClassesControl
                 comPort.ReadTimeout = 500;
                 comPort.Open();
 
+                logWriter.WriteInformation(("Открытие COM-порта: " + comPort.PortName));                
                 DisplayData_Rch("COM-порт открыт в |" + DateTime.Now + "|\n");
                 return true;
             }
@@ -266,6 +270,7 @@ namespace SerialPortComm.ClassesControl
         }
         #endregion
 
+        #region ClosePort
         public bool ClosePort()
         {
             try
@@ -275,6 +280,7 @@ namespace SerialPortComm.ClassesControl
                     comPort.BreakState = false;
                     comPort.Close();
                 }
+                logWriter.WriteInformation(("Закрытие COM-порта: " + comPort.PortName));
                 DisplayData_Rch("COM-порт закрыт в |" + DateTime.Now + "|\n");
                 //return true
                 return true;
@@ -285,6 +291,7 @@ namespace SerialPortComm.ClassesControl
                 return false;
             }
         }
+        #endregion
 
         #region SetParityValues
         public void SetParityValues(object obj)
@@ -332,12 +339,14 @@ namespace SerialPortComm.ClassesControl
                     {  
                         if (!(comPort.IsOpen == true)) comPort.Open();
                         byte[] newMsg = HexToByte(msg);
+                        logWriter.WriteData("ОТПРАВКА hex-сообщения счетчику: |" + msg + "|", "_InfoWriteRead.txt");
                         comPort.Write(newMsg, 0, newMsg.Length);
                         DisplayData_Tb_Send(msg);
                     }
                     catch (FormatException ex)
                     {
                         DisplayData_Rch(ex.Message);
+                        logWriter.WriteError(ex.Message);
                         byte[] newMsg = HexToByte(msg);
                         DisplayData_Rch(ByteToHex(newMsg) + "\n");
                     }
@@ -378,6 +387,7 @@ namespace SerialPortComm.ClassesControl
                         int bytes = comPort.BytesToRead;
                         byte[] comBuffer = new byte[bytes];
                         comPort.Read(comBuffer, 0, bytes);
+                        logWriter.WriteData("ПРИНЯТО hex-сообщения от счетчика: |" + ByteToHex(comBuffer) + "|", "_InfoWriteRead.txt");
                         DisplayData_Tb(ByteToHex(comBuffer) + "\n");
                     }
                     break;

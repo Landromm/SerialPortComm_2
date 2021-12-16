@@ -55,6 +55,7 @@ namespace SerialPortComm
             }
             catch (Exception ex)
             {
+                logWriter.WriteError(ex.Message);
                 MessageBox.Show("Ошибка чтения шрифтов!\n" + ex,
                                 "Ошибка !");
             }
@@ -96,6 +97,7 @@ namespace SerialPortComm
             }
             catch (Exception ex)
             {
+                logWriter.WriteError(ex.Message);
                 MessageBox.Show("Ошибка чтения config.ini файла!\n" + ex,
                                 "Ошибка !");
             }
@@ -216,6 +218,7 @@ namespace SerialPortComm
             }
             catch (Exception ex)
             {
+                logWriter.WriteError(ex.Message);
                 MessageBox.Show("Ошибка чтения config.ini файла!\n" + ex,
                                 "Ошибка !");
             }
@@ -257,6 +260,12 @@ namespace SerialPortComm
                 btnStartSend.Visible = true;
                 btnClosePort.Visible = true;
                 btnMenu.Enabled = false;
+                logWriter.WriteInformation("Параметры COM-порта:\n " +
+                     "Четность: " + temp_Parity + "\n" +
+                     "Стоповые биты: " + temp_StopBits + "\n" +
+                     "Биты данных: " + temp_DataBits + "\n" +
+                     "Бит в секунду: " + temp_BaudRate + "\n" +
+                     "Таймаут: " + temp_Timeout + "\n");
             }
         }
 
@@ -281,12 +290,14 @@ namespace SerialPortComm
         {
             FlagRestartON();
             System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
+            logWriter.WriteInformation("----------РЕСТАРТ ПРИЛОЖЕНИЯ!----------");
             this.Close(); //to turn off current app
         }
 
         // Метод отправки запроса и чтение параметра, отображаеммого элемента данных.
         private void SendSingleDataCOM(string tempHex, Label lbDataValue)
         {
+            tbAnswerData.Clear();
             comm.WriteData(tempHex);
             Wait(temp_Timeout);
             Console.Write(coutData + ". " + lbDataValue.Text + " Package: " + tbAnswerData.Text);
@@ -397,12 +408,14 @@ namespace SerialPortComm
             lbDataValue_MassFlow.Font = new Font(fontFamilySelected(1), 24);
             lbDataValue_RoH2O.Font = new Font(fontFamilySelected(1), 24);
             rchbLogInfo.Clear();
+            logWriter.WriteInformation("Запуск приложения!");
         }
 
         // Событие кнопки "Menu".
         private void btnMenu_Click(object sender, EventArgs e)
         {
             MainForm mainForm = new MainForm();
+            logWriter.WriteInformation("Вход в меню приложения.");
             mainForm.ShowDialog();
         }
 
@@ -421,6 +434,7 @@ namespace SerialPortComm
         // Собыите кнопки "Start Send".
         private void BtnStartSend_Click(object sender, EventArgs e)
         {
+            logWriter.WriteInformation("Инициализирована отправка запросов к счетчику.");
             SendDataCOM();
         }
 
@@ -431,32 +445,31 @@ namespace SerialPortComm
             if (tbSendHex.Text.Equals(tempHex_DozaNow))
             {
                 FloutConverter(tbAnswerData.Text, lbDataValue_DozaNow);
-                logWriter.WriteData("Data |" + lbDataValue_DozaNow.Text, "_Doza.txt");
+                logWriter.WriteData(lbDataValue_DozaNow.Text, "_Doza.txt");
             }
             else if (tbSendHex.Text.Equals(tempHex_MassFlow))
             {
                 FloutConverter(tbAnswerData.Text, lbDataValue_MassFlow);
-                logWriter.WriteData("Data |" + lbDataValue_MassFlow.Text, "_MassFlow.txt");
+                logWriter.WriteData(lbDataValue_MassFlow.Text, "_MassFlow.txt");
             }
             else if (tbSendHex.Text.Equals(tempHex_Temperature))
             {            
                 FloutConverter(tbAnswerData.Text, lbDataValue_Temperature);
-                logWriter.WriteData("Data |" + lbDataValue_Temperature.Text, "_Temperature.txt");
+                logWriter.WriteData(lbDataValue_Temperature.Text, "_Temperature.txt");
             }
             else if (tbSendHex.Text.Equals(tempHex_VolumeFlow))
             {
                 FloutConverter(tbAnswerData.Text, lbDataValue_VolumeFlow);
-                logWriter.WriteData("Data |" + lbDataValue_VolumeFlow.Text, "_VolumeFlow.txt");
+                logWriter.WriteData(lbDataValue_VolumeFlow.Text, "_VolumeFlow.txt");
             }
 
             else if (tbSendHex.Text.Equals(tempHex_RoH2O))
             {
                 FloutConverter(tbAnswerData.Text, lbDataValue_RoH2O);
-                logWriter.WriteData("Data |" + lbDataValue_RoH2O.Text, "_RoH2O.txt");
+                logWriter.WriteData(lbDataValue_RoH2O.Text, "_RoH2O.txt");
             }
 
         }
-
         #endregion
 
         private void LbDataValue_DozaNow_TextChanged(object sender, EventArgs e)

@@ -25,50 +25,59 @@ namespace SerialPortComm.ClassesControl
             }
         }
 
-        public void TestOutConsole()
+        public void WriteData(string data, string nameFile)
         {
-            Console.WriteLine(pathLogData);
-            Console.WriteLine(pathLogInformaiion);
+            try
+            {                
+                using (StreamWriter sw = File.AppendText(pathLogData + nameFile))
+                {
+                    sw.WriteLine(DateTime.Now.ToString() + "| DATA | " + data);
+                }                
+            }
+            catch (Exception ex)
+            {                
+                using (StreamWriter sw = File.AppendText(pathLogData + "_ErrorWrite.txt"))
+                {
+                    sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
+                }                
+            }
         }
 
-        public  void WriteData(string data, string nameFile)
+        public void WriteError(string error)
         {
             try
             {
-                if (!File.Exists(pathLogData + nameFile))
+                using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_Error.txt"))
                 {
-                    using (StreamWriter sw = new StreamWriter(pathLogData + nameFile, false, Encoding.Default))
-                    {
-                         sw.WriteLineAsync(DateTime.Now.ToString() + "| " + data);
-                    }
-                }
-                else
-                {
-                    using (StreamWriter sw = new StreamWriter(pathLogData + nameFile, true, Encoding.Default))
-                    {
-                         sw.WriteLineAsync(DateTime.Now.ToString() + "| " + data);
-                    }
+                    sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + error);
                 }
             }
             catch (Exception ex)
             {
-                if (!File.Exists(pathLogInformaiion))
+                using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_ErrorWrite.txt"))
                 {
-                    using (StreamWriter sw = new StreamWriter(pathLogInformaiion, false, Encoding.Default))
-                    {
-                         sw.WriteLineAsync(DateTime.Now.ToString() + "| " + ex.Message);
-                    }
-                }
-                else 
-                {
-                    using (StreamWriter sw = new StreamWriter(pathLogInformaiion, true, Encoding.Default))
-                    {
-                         sw.WriteLineAsync(DateTime.Now.ToString() + "| " + ex.Message);
-                    }
+                    sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
                 }
             }
         }
 
+        public void WriteInformation(string info)
+        {
+            try
+            {
+                using (StreamWriter sw = File.AppendText(pathLogInformaiion + ".txt"))
+                {
+                    sw.WriteLine(DateTime.Now.ToString() + "| INFO | " + info);
+                }
+            }
+            catch (Exception ex)
+            {
+                using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_ErrorWrite.txt"))
+                {
+                    sw.WriteLine(DateTime.Now.ToString() + "| INFO | " + ex.Message);
+                }
+            }
+        }
 
     }
 }
