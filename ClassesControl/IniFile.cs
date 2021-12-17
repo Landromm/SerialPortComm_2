@@ -15,9 +15,9 @@ namespace SerialPortComm.ClassesControl
         string Path; 
 
         // С помощью конструктора записываем путь до файла и его имя.
-        public IniFile(string IniPath)
+        public IniFile(string iniPath)
         {
-            Path = new FileInfo(IniPath).FullName.ToString();
+            Path = new FileInfo(iniPath).FullName.ToString();
         }
 
         public void WriteINI(string section, string key, string value)

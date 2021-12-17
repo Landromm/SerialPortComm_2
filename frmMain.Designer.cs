@@ -201,7 +201,6 @@ namespace SerialPortComm
             this.lbDataValue_DozaNow.Size = new System.Drawing.Size(91, 25);
             this.lbDataValue_DozaNow.TabIndex = 1;
             this.lbDataValue_DozaNow.Text = "0000,0000";
-            this.lbDataValue_DozaNow.TextChanged += new System.EventHandler(this.LbDataValue_DozaNow_TextChanged);
             // 
             // lbInfo_DozaNow
             // 
@@ -737,6 +736,7 @@ namespace SerialPortComm
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serial Port Communication";
             this.Activated += new System.EventHandler(this.frmMain_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.PanelMain.ResumeLayout(false);
             this.panelChildFill.ResumeLayout(false);

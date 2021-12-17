@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>36</ApplicationRevision>
+    <ApplicationRevision>39</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassesControl\CommunicationManager.cs" />
+    <Compile Include="ClassesControl\DataFileWriter.cs" />
     <Compile Include="ClassesControl\IniFile.cs" />
     <Compile Include="ClassesControl\LogWriter.cs" />
     <Compile Include="ClassesControl\NativeMethods.cs" />

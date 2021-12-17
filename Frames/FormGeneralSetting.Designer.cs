@@ -30,6 +30,9 @@ namespace SerialPortComm.Frames
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Separator = new System.Windows.Forms.Label();
+            this.tbTimeRestartApp = new System.Windows.Forms.TextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.lbFolderBrowserDialogInfo = new System.Windows.Forms.Label();
             this.btnFolderBrowserDialog = new System.Windows.Forms.Button();
             this.tbPathFileSaveData = new System.Windows.Forms.TextBox();
@@ -56,9 +59,6 @@ namespace SerialPortComm.Frames
             this.lb_MassFlow = new System.Windows.Forms.Label();
             this.panelInfoView = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.tbTimeRestartApp = new System.Windows.Forms.TextBox();
-            this.Separator = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,6 +86,33 @@ namespace SerialPortComm.Frames
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(534, 311);
             this.panel1.TabIndex = 0;
+            // 
+            // Separator
+            // 
+            this.Separator.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Separator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Separator.Location = new System.Drawing.Point(3, 220);
+            this.Separator.Name = "Separator";
+            this.Separator.Size = new System.Drawing.Size(160, 2);
+            this.Separator.TabIndex = 7;
+            // 
+            // tbTimeRestartApp
+            // 
+            this.tbTimeRestartApp.Location = new System.Drawing.Point(172, 225);
+            this.tbTimeRestartApp.Name = "tbTimeRestartApp";
+            this.tbTimeRestartApp.Size = new System.Drawing.Size(78, 20);
+            this.tbTimeRestartApp.TabIndex = 6;
+            this.tbTimeRestartApp.Text = "10000";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Location = new System.Drawing.Point(7, 224);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(159, 31);
+            this.richTextBox2.TabIndex = 5;
+            this.richTextBox2.Text = "Время \"рестарта\" программы после критического сбоя, мс.";
             // 
             // lbFolderBrowserDialogInfo
             // 
@@ -396,33 +423,6 @@ namespace SerialPortComm.Frames
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "Выберите данные, которые будут отображаться на главном экране и записываться в фа" +
     "йл.";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(7, 224);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(159, 31);
-            this.richTextBox2.TabIndex = 5;
-            this.richTextBox2.Text = "Время \"рестарта\" программы после критического сбоя, мс.";
-            // 
-            // tbTimeRestartApp
-            // 
-            this.tbTimeRestartApp.Location = new System.Drawing.Point(172, 225);
-            this.tbTimeRestartApp.Name = "tbTimeRestartApp";
-            this.tbTimeRestartApp.Size = new System.Drawing.Size(78, 20);
-            this.tbTimeRestartApp.TabIndex = 6;
-            this.tbTimeRestartApp.Text = "10000";
-            // 
-            // Separator
-            // 
-            this.Separator.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Separator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Separator.Location = new System.Drawing.Point(3, 220);
-            this.Separator.Name = "Separator";
-            this.Separator.Size = new System.Drawing.Size(160, 2);
-            this.Separator.TabIndex = 7;
             // 
             // FormGeneralSetting
             // 

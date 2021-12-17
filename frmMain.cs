@@ -52,6 +52,8 @@ namespace SerialPortComm
             {
                 fontCollection.AddFontFile(@ConfigurationManager.AppSettings["digital-7"]); // файл шрифта
                 fontCollection.AddFontFile(@ConfigurationManager.AppSettings["digital-7_mono"]); // файл шрифта
+                DataFileWriter dataFileWriter = new DataFileWriter();
+                dataFileWriter.WriterDataFile_ExitOpen();
             }
             catch (Exception ex)
             {
@@ -260,7 +262,7 @@ namespace SerialPortComm
                 btnStartSend.Visible = true;
                 btnClosePort.Visible = true;
                 btnMenu.Enabled = false;
-                logWriter.WriteInformation("Параметры COM-порта:\n " +
+                logWriter.WriteInformation("Параметры COM-порта:\n" +
                      "Четность: " + temp_Parity + "\n" +
                      "Стоповые биты: " + temp_StopBits + "\n" +
                      "Биты данных: " + temp_DataBits + "\n" +
@@ -277,11 +279,13 @@ namespace SerialPortComm
 
             if (!comm.ComPortIsOpen())
             {
+                DataFileWriter dataFileWriter = new DataFileWriter();
                 BtnOpenPort.Visible = true;
                 btnStartSend.Visible = false;
                 btnClosePort.Visible = false;
                 btnMenu.Enabled = true;
                 Console.WriteLine("Закрытие COM-порта!!!");
+                dataFileWriter.WriterDataFile_ExitOpen();                
             }
         }
 
@@ -375,6 +379,25 @@ namespace SerialPortComm
             }
         }
 
+        private void WriterEnableDataSCADA()
+        {
+            DataFileWriter dataFileWriter = new DataFileWriter();
+            if (tbAnswerData.Text != string.Empty)
+            {
+                if (checkedViewTemperature)
+                    dataFileWriter.Temperature = lbDataValue_Temperature.Text;
+                if (checkedViewMassFlow)
+                    dataFileWriter.MassFlow = lbDataValue_MassFlow.Text;
+                if (checkedViewVolumeFlow)
+                    dataFileWriter.VolumFlow = lbDataValue_VolumeFlow.Text;
+                if (checkedViewDozaNow)
+                    dataFileWriter.Doza = lbDataValue_DozaNow.Text;
+                if (checkedViewRoH2O)
+                    dataFileWriter.RoH2O1 = lbDataValue_RoH2O.Text;
+
+                dataFileWriter.WriterDataFile();
+            }
+        }
         #endregion
 
         //----------------↑--------------
@@ -469,12 +492,18 @@ namespace SerialPortComm
                 logWriter.WriteData(lbDataValue_RoH2O.Text, "_RoH2O.txt");
             }
 
+            WriterEnableDataSCADA();
         }
+
+        // Событие закрытия главной формы.
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DataFileWriter dataFileWriter = new DataFileWriter();
+            dataFileWriter.WriterDataFile_ExitOpen();
+            logWriter.WriteInformation("ЗАКРЫТИЕ приложения.");
+        }
+
         #endregion
 
-        private void LbDataValue_DozaNow_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
