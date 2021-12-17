@@ -108,8 +108,7 @@ namespace SerialPortComm.ClassesControl
             catch (Exception ex)
             {
                 logWriter.WriteError("Ошибка записи DataRSM.txt файла!\n" + ex.Message);
-                MessageBox.Show("Ошибка записи DataRSM.txt файла!\n" + ex,
-                                "Ошибка !");
+                WriterDataFile_ExitOpen();
             }
         }
     }
