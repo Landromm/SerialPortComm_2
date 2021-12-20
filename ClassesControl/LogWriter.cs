@@ -39,7 +39,8 @@ namespace SerialPortComm.ClassesControl
                 using (StreamWriter sw = File.AppendText(pathLogData + "_ErrorWrite.txt"))
                 {
                     sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
-                }                
+                }
+                WriteData(data, nameFile);
             }
         }
 
@@ -58,6 +59,7 @@ namespace SerialPortComm.ClassesControl
                 {
                     sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
                 }
+                WriteError(error);
             }
         }
 
@@ -76,6 +78,7 @@ namespace SerialPortComm.ClassesControl
                 {
                     sw.WriteLine(DateTime.Now.ToString() + "| INFO | " + ex.Message);
                 }
+                WriteInformation(info);
             }
         }
 

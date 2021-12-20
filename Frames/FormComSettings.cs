@@ -51,8 +51,7 @@ namespace SerialPortComm.Frames
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка чтения config.ini файла!\n" + ex,
-                                "Ошибка !");
-                
+                                "Ошибка !");                
             }
         }
         private void ComplianceCheck(string param, ComboBox comboBox)

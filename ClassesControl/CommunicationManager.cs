@@ -224,7 +224,7 @@ namespace SerialPortComm.ClassesControl
         {
             _displayWindow_Tb_Answer.Invoke(new EventHandler(delegate
             {
-                _displayWindow_Tb_Answer.Text = msg;
+                _displayWindow_Tb_Answer.Text += msg;
                 _displayWindow_Tb_Answer.ScrollToCaret();
             }));
         }
@@ -346,7 +346,7 @@ namespace SerialPortComm.ClassesControl
                     catch (FormatException ex)
                     {
                         DisplayData_Rch(ex.Message);
-                        logWriter.WriteError(ex.Message);
+                        logWriter.WriteError("Ошибка отправки hex - сообщения счетчику:" + ex.Message);
                         byte[] newMsg = HexToByte(msg);
                         DisplayData_Rch(ByteToHex(newMsg) + "\n");
                     }
@@ -384,11 +384,18 @@ namespace SerialPortComm.ClassesControl
                 case TransmissionType.Hex:
                     if (!comPort.BreakState)
                     {
-                        int bytes = comPort.BytesToRead;
-                        byte[] comBuffer = new byte[bytes];
-                        comPort.Read(comBuffer, 0, bytes);
-                        logWriter.WriteData("ПРИНЯТО hex-сообщения от счетчика: |" + ByteToHex(comBuffer) + "|", "_InfoWriteRead.txt");
-                        DisplayData_Tb(ByteToHex(comBuffer) + "\n");
+                        try
+                        {
+                            int bytes = comPort.BytesToRead;
+                            byte[] comBuffer = new byte[bytes];
+                            comPort.Read(comBuffer, 0, bytes);
+                            logWriter.WriteData("ПРИНЯТО hex-сообщения от счетчика: |" + ByteToHex(comBuffer) + "|", "_InfoWriteRead.txt");
+                            DisplayData_Tb(ByteToHex(comBuffer));
+                        }
+                        catch (Exception ex)
+                        {
+                            logWriter.WriteError("Ошибка чтения с порта." + ex.Message);
+                        }
                     }
                     break;
                 default:

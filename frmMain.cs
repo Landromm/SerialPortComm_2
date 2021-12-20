@@ -275,6 +275,7 @@ namespace SerialPortComm
         private void CloseComPort()
         {
             timeOut = false;
+            Wait(1500);
             comm.ClosePort();
 
             if (!comm.ComPortIsOpen())
@@ -304,7 +305,7 @@ namespace SerialPortComm
             tbAnswerData.Clear();
             comm.WriteData(tempHex);
             Wait(temp_Timeout);
-            Console.Write(coutData + ". " + lbDataValue.Text + " Package: " + tbAnswerData.Text);
+            //Console.Write(coutData + ". " + lbDataValue.Text + " Package: " + tbAnswerData.Text);
             //rchbLogInfo.AppendText(coutData + ". Температура: " + lbDataValue.Text + " Package: " + tbAnswerData.Text);
             coutData++;
         }
