@@ -21,7 +21,7 @@ namespace SerialPortComm.ClassesControl
         private string _volumFlow = string.Empty;
         private string _RoH2O = string.Empty;
         private string pathDataFile = string.Empty;
-        private string nameDataFile = "DataRSM.txt";
+        private string nameDataFile = "TestRSM.txt";
 
         public string Doza { get => _doza; set => _doza = value; }
         public string Temperature { get => _temperature; set => _temperature = value; }
@@ -64,11 +64,11 @@ namespace SerialPortComm.ClassesControl
             {
                 if (!File.Exists(@ConfigurationManager.AppSettings["pathConfig"]))
                 {
-                    File.Create(pathDataFile);
+                    File.Create(@pathDataFile);
                 }
                 else
                 {
-                    using (StreamWriter sw = new StreamWriter(pathDataFile, false))
+                    using (StreamWriter sw = new StreamWriter(@pathDataFile, false))
                     {
                         sw.WriteLine(Temperature);
                         sw.WriteLine(MassFlow);
@@ -81,8 +81,8 @@ namespace SerialPortComm.ClassesControl
             catch (Exception ex)
             {
                 logWriter.WriteError("Ошибка записи DataRSM.txt файла!\n" + ex.Message);
-                MessageBox.Show("Ошибка записи DataRSM.txt файла!\n" + ex,
-                                "Ошибка !");
+                WriterDataFile();
+
             }
         }
         public void WriterDataFile_ExitOpen()
@@ -91,11 +91,11 @@ namespace SerialPortComm.ClassesControl
             {
                 if (!File.Exists(@ConfigurationManager.AppSettings["pathConfig"]))
                 {
-                    File.Create(pathDataFile);
+                    File.Create(@pathDataFile);
                 }
                 else
                 {
-                    using (StreamWriter sw = new StreamWriter(pathDataFile, false))
+                    using (StreamWriter sw = new StreamWriter(@pathDataFile, false))
                     {
                         sw.WriteLine(Temperature = "-1");
                         sw.WriteLine(MassFlow = "-1");
