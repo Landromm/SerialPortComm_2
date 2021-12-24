@@ -29,6 +29,8 @@ namespace SerialPortComm
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.PanelMain = new System.Windows.Forms.Panel();
             this.panelChildFill = new System.Windows.Forms.Panel();
             this.panelData = new System.Windows.Forms.Panel();
@@ -79,6 +81,7 @@ namespace SerialPortComm
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.PanelMain.SuspendLayout();
             this.panelChildFill.SuspendLayout();
             this.panelData.SuspendLayout();
@@ -724,6 +727,12 @@ namespace SerialPortComm
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(95, 17);
             this.toolStripStatusLabel3.Text = "Name Send Data";
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "SerialCommRSM";
+            this.notifyIcon.Visible = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -820,6 +829,7 @@ namespace SerialPortComm
         private System.Windows.Forms.Label lbInfo_RoH2O;
         private System.Windows.Forms.TextBox tbAnswerData;
         private System.Windows.Forms.TextBox tbSendHex;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 

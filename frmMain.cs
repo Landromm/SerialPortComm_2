@@ -61,9 +61,30 @@ namespace SerialPortComm
                 MessageBox.Show("Ошибка чтения шрифтов!\n" + ex,
                                 "Ошибка !");
             }
+            notifyIcon.Visible = false;
+            // добавляем Эвент или событие по 2му клику мышки, 
+            //вызывая функцию  notifyIcon1_MouseDoubleClick
+            this.notifyIcon.MouseDoubleClick += new MouseEventHandler(notifyIcon_MouseDoubleClick);
+
+            // добавляем событие на изменение окна
+            this.Resize += new System.EventHandler(this.Form1_Resize);
         }
 
+
+
         #region All Method's (Методы формы)
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            // проверяем наше окно, и если оно было свернуто, делаем событие        
+            if (WindowState == FormWindowState.Minimized)
+            {
+                // прячем наше окно из панели
+                this.ShowInTaskbar = false;
+                // делаем нашу иконку в трее активной
+                notifyIcon.Visible = true;
+            }
+        }
 
         // Инициализация шррифта для "цифровых" значений.
         private FontFamily fontFamilySelected(int index)
@@ -502,6 +523,16 @@ namespace SerialPortComm
             DataFileWriter dataFileWriter = new DataFileWriter();
             dataFileWriter.WriterDataFile_ExitOpen();
             logWriter.WriteInformation("ЗАКРЫТИЕ приложения.");
+        }
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // делаем нашу иконку скрытой
+            notifyIcon.Visible = false;
+            // возвращаем отображение окна в панели
+            this.ShowInTaskbar = true;
+            //разворачиваем окно
+            WindowState = FormWindowState.Normal;
         }
 
         #endregion

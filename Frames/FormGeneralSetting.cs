@@ -148,7 +148,7 @@ namespace SerialPortComm.Frames
 
             if (DirDialog.ShowDialog() == DialogResult.OK)
             {
-                tbPathFileSaveData.Text = DirDialog.SelectedPath;
+                tbPathFileSaveData.Text = DirDialog.SelectedPath + @"\";
             }
         }
 
