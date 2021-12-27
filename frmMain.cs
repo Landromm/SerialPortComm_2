@@ -434,6 +434,7 @@ namespace SerialPortComm
         private void frmMain_Activated(object sender, EventArgs e)
         {
             AutoActivate();
+            logWriter.LoadFlagLog();
             if (FlagRestartBool())
             {
                 FlagRestartOFF();

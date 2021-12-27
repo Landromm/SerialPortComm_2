@@ -115,8 +115,9 @@ namespace SerialPortComm.Frames
             OpenChildForm(new FormInfo(), sender, btnInfo.Text);
         }
 
-
-
-
+        private void btnLogger_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormLogger(), sender, btnLogger.Text);
+        }
     }
 }

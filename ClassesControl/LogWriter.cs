@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SerialPortComm.ClassesControl
 {
@@ -12,6 +13,10 @@ namespace SerialPortComm.ClassesControl
     {
         string pathLogData = @ConfigurationManager.AppSettings["pathLogData"] + DateTime.Now.ToString("dd_MM_yyyy");
         string pathLogInformaiion = @ConfigurationManager.AppSettings["pathLogInfo"] + DateTime.Now.ToString("dd_MM_yyyy");
+
+        bool tempBoolLogData;
+        bool tempBoolLogInfo;
+        bool tempBoolHexWriteRead;
 
         public LogWriter()
         {
@@ -25,62 +30,108 @@ namespace SerialPortComm.ClassesControl
             }
         }
 
-        public void WriteData(string data, string nameFile)
+        public void LoadFlagLog()
         {
             try
-            {                
-                using (StreamWriter sw = File.AppendText(pathLogData + nameFile))
-                {
-                    sw.WriteLine(DateTime.Now.ToString() + "| DATA | " + data);
-                }                
+            {
+                IniFile INI = new IniFile(@ConfigurationManager.AppSettings["pathConfig"]);
+                tempBoolLogData = bool.Parse(INI.ReadINI("LogFlag", "logData"));
+                tempBoolLogInfo = bool.Parse(INI.ReadINI("LogFlag", "logInfo"));
+                tempBoolHexWriteRead = bool.Parse(INI.ReadINI("LogFlag", "logHex"));
             }
             catch (Exception ex)
-            {                
-                using (StreamWriter sw = File.AppendText(pathLogData + "_ErrorWrite.txt"))
+            {
+                MessageBox.Show("Ошибка чтения config.ini файла!\n" + ex,
+                                "Ошибка !");
+            }
+        }
+
+        public void HexWriteRead(string data, string nameFile)
+        {
+            if (tempBoolHexWriteRead)
+            {
+                try
                 {
-                    sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
+                    using (StreamWriter sw = File.AppendText(pathLogData + nameFile))
+                    {
+                        sw.WriteLine(DateTime.Now.ToString() + "| DATA | " + data);
+                    }
                 }
-                WriteData(data, nameFile);
+                catch (Exception ex)
+                {
+                    using (StreamWriter sw = File.AppendText(pathLogData + "_ErrorWrite.txt"))
+                    {
+                        sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
+                    }
+                    WriteData(data, nameFile);
+                }
+            }
+        }
+
+        public void WriteData(string data, string nameFile)
+        {
+            if (tempBoolLogData)
+            {
+                try
+                {
+                    using (StreamWriter sw = File.AppendText(pathLogData + nameFile))
+                    {
+                        sw.WriteLine(DateTime.Now.ToString() + "| DATA | " + data);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    using (StreamWriter sw = File.AppendText(pathLogData + "_ErrorWrite.txt"))
+                    {
+                        sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
+                    }
+                    WriteData(data, nameFile);
+                }
             }
         }
 
         public void WriteError(string error)
         {
-            try
+            if (tempBoolLogInfo)
             {
-                using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_Error.txt"))
+                try
                 {
-                    sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + error);
+                    using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_Error.txt"))
+                    {
+                        sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + error);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_ErrorWrite.txt"))
+                catch (Exception ex)
                 {
-                    sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
+                    using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_ErrorWrite.txt"))
+                    {
+                        sw.WriteLine(DateTime.Now.ToString() + "| ERROR | " + ex.Message);
+                    }
+                    WriteError(error);
                 }
-                WriteError(error);
             }
         }
 
         public void WriteInformation(string info)
         {
-            try
+            if (tempBoolLogInfo)
             {
-                using (StreamWriter sw = File.AppendText(pathLogInformaiion + ".txt"))
+                try
                 {
-                    sw.WriteLine(DateTime.Now.ToString() + "| INFO | " + info);
+                    using (StreamWriter sw = File.AppendText(pathLogInformaiion + ".txt"))
+                    {
+                        sw.WriteLine(DateTime.Now.ToString() + "| INFO | " + info);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_ErrorWrite.txt"))
+                catch (Exception ex)
                 {
-                    sw.WriteLine(DateTime.Now.ToString() + "| INFO | " + ex.Message);
+                    using (StreamWriter sw = File.AppendText(pathLogInformaiion + "_ErrorWrite.txt"))
+                    {
+                        sw.WriteLine(DateTime.Now.ToString() + "| INFO | " + ex.Message);
+                    }
+                    WriteInformation(info);
                 }
-                WriteInformation(info);
             }
         }
-
     }
 }

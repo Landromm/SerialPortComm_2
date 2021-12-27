@@ -83,5 +83,15 @@ namespace SerialPortComm.Frames
                                 "Ошибка !");
             }
         }
+
+        private void btnResetTextBox_Click(object sender, EventArgs e)
+        {
+            cbPortName.SelectedIndex = 0;
+            cbBaudRate.SelectedIndex = 0;
+            cbParity.SelectedIndex = 0;
+            cbStopBits.SelectedIndex = 1;
+            cbDataBits.SelectedIndex = 3;
+            tbTimeout.Text = "500";
+        }
     }
 }

@@ -258,6 +258,7 @@ namespace SerialPortComm.ClassesControl
                 comPort.ReadTimeout = 500;
                 comPort.Open();
 
+                logWriter.LoadFlagLog();
                 logWriter.WriteInformation(("Открытие COM-порта: " + comPort.PortName));                
                 DisplayData_Rch("COM-порт открыт в |" + DateTime.Now + "|\n");
                 return true;
@@ -280,6 +281,7 @@ namespace SerialPortComm.ClassesControl
                     comPort.BreakState = false;
                     comPort.Close();
                 }
+                logWriter.LoadFlagLog();
                 logWriter.WriteInformation(("Закрытие COM-порта: " + comPort.PortName));
                 DisplayData_Rch("COM-порт закрыт в |" + DateTime.Now + "|\n");
                 //return true
@@ -339,7 +341,7 @@ namespace SerialPortComm.ClassesControl
                     {  
                         if (!(comPort.IsOpen == true)) comPort.Open();
                         byte[] newMsg = HexToByte(msg);
-                        logWriter.WriteData("ОТПРАВКА hex-сообщения счетчику: |" + msg + "|", "_InfoWriteRead.txt");
+                        logWriter.HexWriteRead("ОТПРАВКА hex-сообщения счетчику: |" + msg + "|", "_InfoWriteRead.txt");
                         comPort.Write(newMsg, 0, newMsg.Length);
                         DisplayData_Tb_Send(msg);
                     }
@@ -389,7 +391,7 @@ namespace SerialPortComm.ClassesControl
                             int bytes = comPort.BytesToRead;
                             byte[] comBuffer = new byte[bytes];
                             comPort.Read(comBuffer, 0, bytes);
-                            logWriter.WriteData("ПРИНЯТО hex-сообщения от счетчика: |" + ByteToHex(comBuffer) + "|", "_InfoWriteRead.txt");
+                            logWriter.HexWriteRead("ПРИНЯТО hex-сообщения от счетчика: |" + ByteToHex(comBuffer) + "|", "_InfoWriteRead.txt");
                             DisplayData_Tb(ByteToHex(comBuffer));
                         }
                         catch (Exception ex)

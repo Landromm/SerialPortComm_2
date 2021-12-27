@@ -283,6 +283,7 @@ namespace SerialPortComm.Frames
             this.btnResetTextBox.TabIndex = 1;
             this.btnResetTextBox.Text = "По умолчанию";
             this.btnResetTextBox.UseVisualStyleBackColor = true;
+            this.btnResetTextBox.Click += new System.EventHandler(this.btnResetTextBox_Click);
             // 
             // btnSaveTextBox
             // 

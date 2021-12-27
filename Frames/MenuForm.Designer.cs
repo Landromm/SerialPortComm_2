@@ -30,6 +30,7 @@ namespace SerialPortComm.Frames
         private void InitializeComponent()
         {
             this.panelTreeMenu = new System.Windows.Forms.Panel();
+            this.btnLogger = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnSendSettings = new System.Windows.Forms.Button();
             this.btnComSettings = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@ namespace SerialPortComm.Frames
             this.panelTreeMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.panelTreeMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelTreeMenu.Controls.Add(this.btnInfo);
+            this.panelTreeMenu.Controls.Add(this.btnLogger);
             this.panelTreeMenu.Controls.Add(this.btnSendSettings);
             this.panelTreeMenu.Controls.Add(this.btnComSettings);
             this.panelTreeMenu.Controls.Add(this.btnGeneralSettings);
@@ -60,13 +62,29 @@ namespace SerialPortComm.Frames
             this.panelTreeMenu.Size = new System.Drawing.Size(150, 361);
             this.panelTreeMenu.TabIndex = 0;
             // 
+            // btnLogger
+            // 
+            this.btnLogger.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogger.FlatAppearance.BorderSize = 0;
+            this.btnLogger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogger.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnLogger.Location = new System.Drawing.Point(0, 230);
+            this.btnLogger.Name = "btnLogger";
+            this.btnLogger.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnLogger.Size = new System.Drawing.Size(148, 60);
+            this.btnLogger.TabIndex = 7;
+            this.btnLogger.Text = "Логирование";
+            this.btnLogger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogger.UseVisualStyleBackColor = true;
+            this.btnLogger.Click += new System.EventHandler(this.btnLogger_Click);
+            // 
             // btnInfo
             // 
             this.btnInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInfo.FlatAppearance.BorderSize = 0;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnInfo.Location = new System.Drawing.Point(0, 230);
+            this.btnInfo.Location = new System.Drawing.Point(0, 290);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnInfo.Size = new System.Drawing.Size(148, 60);
@@ -210,5 +228,6 @@ namespace SerialPortComm.Frames
         private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Button btnSendSettings;
         private System.Windows.Forms.Button btnComSettings;
+        private System.Windows.Forms.Button btnLogger;
     }
 }
