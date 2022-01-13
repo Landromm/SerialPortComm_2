@@ -59,6 +59,7 @@ namespace SerialPortComm.ClassesControl
             _volumFlow = volumFlow;
             _RoH2O = RoH2O;
             pathDataFile = INI.ReadINI("PathFolderSaveData", "pathFolder") + nameDataFile;
+            flagWriteWithDot = bool.Parse(INI.ReadINI("PathFolderSaveData", "writeWithDot"));
         }
         public DataFileWriter()
         {
@@ -68,6 +69,7 @@ namespace SerialPortComm.ClassesControl
             _volumFlow = "-1";
             _RoH2O = "-1";
             pathDataFile = INI.ReadINI("PathFolderSaveData", "pathFolder") + nameDataFile;
+            flagWriteWithDot = bool.Parse(INI.ReadINI("PathFolderSaveData", "writeWithDot"));
         }
 
         #region WriteData
@@ -91,7 +93,6 @@ namespace SerialPortComm.ClassesControl
                 {
                     using (StreamWriter sw = new StreamWriter(@pathDataFile, false))
                     {
-                        flagWriteWithDot = bool.Parse(INI.ReadINI("PathFolderSaveData", "writeWithDot"));
                         sw.WriteLine(ReturnFormatString(Temperature));
                         sw.WriteLine(ReturnFormatString(MassFlow));
                         sw.WriteLine(ReturnFormatString(VolumFlow));
