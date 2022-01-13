@@ -20,6 +20,12 @@ namespace SerialPortComm.ClassesControl
             Path = new FileInfo(iniPath).FullName.ToString();
         }
 
+        /// <summary>
+        /// Метод записи в .ini файл
+        /// </summary>
+        /// <param name="section">sring - Наименование блока данных в квадратых скобках "[ ]"</param>
+        /// <param name="key">string - Название ключа данных в конкретном блоке данных</param>
+        /// <param name="value">string - Записываемое значение</param>
         public void WriteINI(string section, string key, string value)
         {
             if (NativeMethods.WritePrivateProfileString(section, key, value, Path) == false)
@@ -28,6 +34,12 @@ namespace SerialPortComm.ClassesControl
             }
         }
 
+        /// <summary>
+        /// Метод чтения из .ini файла
+        /// </summary>
+        /// <param name="section">sring - Наименование блока данных в квадратых скобках "[ ]"</param>
+        /// <param name="key">string - Название ключа данных в конкретном блоке данных</param>
+        /// <returns>string</returns>
         public string ReadINI(string section, string key)
         {
             uint maxLength = 32;
@@ -36,13 +48,17 @@ namespace SerialPortComm.ClassesControl
             return value.Split('\0')[0];
         }
 
+        #region ReadSections
+        /// <summary>
+        /// Чтение всех блоков.
+        /// </summary>
+        /// <returns>string[] array</returns>
         public string[] ReadSections()
         {
             string value = new string(' ', 65535);
             NativeMethods.GetPrivateProfileString(null, null, "\0", value, 65535, Path);
             return SplitNullTerminatedStrings(value);
         }
-
         private static string[] SplitNullTerminatedStrings(string value)
         {
             string[] raw = value.Split('\0');
@@ -51,13 +67,13 @@ namespace SerialPortComm.ClassesControl
             Array.Copy(raw, items, itemCount);
             return items;
         }
+        #endregion
 
-        public string[] ReadKeysInSection(string section)
-        {
-            string value = new string(' ', 65535);
-            NativeMethods.GetPrivateProfileString(section, null, "\0", value, 65535, Path);
-            return SplitNullTerminatedStrings(value);
-        }
-
+        //public string[] ReadKeysInSection(string section)
+        //{
+        //    string value = new string(' ', 65535);
+        //    NativeMethods.GetPrivateProfileString(section, null, "\0", value, 65535, Path);
+        //    return SplitNullTerminatedStrings(value);
+        //}
     }
 }

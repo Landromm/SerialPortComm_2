@@ -23,11 +23,33 @@ namespace SerialPortComm.ClassesControl
         private string pathDataFile = string.Empty;
         private string nameDataFile = "TestRSM.txt";
 
-        public string Doza { get => _doza; set => _doza = value; }
-        public string Temperature { get => _temperature; set => _temperature = value; }
-        public string MassFlow { get => _massFlow; set => _massFlow = value; }
-        public string VolumFlow { get => _volumFlow; set => _volumFlow = value; }
-        public string RoH2O1 { get => _RoH2O; set => _RoH2O = value; }
+        public string Doza 
+        { 
+            get => _doza; 
+            set => _doza = value; 
+        }
+        public string Temperature 
+        { 
+            get => _temperature; 
+            set => _temperature = value; 
+        }
+        public string MassFlow 
+        { 
+            get => _massFlow; 
+            set => _massFlow = value; 
+        }
+        public string VolumFlow 
+        { 
+            get => _volumFlow; 
+            set => _volumFlow = value; 
+        }
+        public string RoH2O1 
+        { 
+            get => _RoH2O; 
+            set => _RoH2O = value; 
+        }
+
+        private bool flagWriteWithDot = false;
 
         public DataFileWriter(string doza, string temperature, string massFlow, string volumFlow, string RoH2O)
         {
@@ -38,7 +60,6 @@ namespace SerialPortComm.ClassesControl
             _RoH2O = RoH2O;
             pathDataFile = INI.ReadINI("PathFolderSaveData", "pathFolder") + nameDataFile;
         }
-
         public DataFileWriter()
         {
             _doza = "-1";
@@ -49,7 +70,7 @@ namespace SerialPortComm.ClassesControl
             pathDataFile = INI.ReadINI("PathFolderSaveData", "pathFolder") + nameDataFile;
         }
 
-
+        #region WriteData
         /// <summary>
         /// Метод записи данных в файл для чтения SCADA
         /// </summary>
@@ -70,11 +91,12 @@ namespace SerialPortComm.ClassesControl
                 {
                     using (StreamWriter sw = new StreamWriter(@pathDataFile, false))
                     {
-                        sw.WriteLine(Temperature);
-                        sw.WriteLine(MassFlow);
-                        sw.WriteLine(VolumFlow);
-                        sw.WriteLine(Doza);
-                        sw.WriteLine(RoH2O1);
+                        flagWriteWithDot = bool.Parse(INI.ReadINI("PathFolderSaveData", "writeWithDot"));
+                        sw.WriteLine(ReturnFormatString(Temperature));
+                        sw.WriteLine(ReturnFormatString(MassFlow));
+                        sw.WriteLine(ReturnFormatString(VolumFlow));
+                        sw.WriteLine(ReturnFormatString(Doza));
+                        sw.WriteLine(ReturnFormatString(RoH2O1));
                     }
                 }
             }
@@ -82,9 +104,22 @@ namespace SerialPortComm.ClassesControl
             {
                 //logWriter.WriteError("Ошибка записи DataRSM.txt файла!\n" + ex.Message);
                 WriterDataFile();
-
             }
         }
+
+        private string ReturnFormatString(string str)
+        {
+            return flagWriteWithDot ? str.Replace(',', '.') : str;
+        }
+
+        /// <summary>
+        /// Метод записи данных в файл для чтения SCADA при закрытии приложения или прекращения его работы. Все параметры равны -1.
+        /// </summary>
+        /// <param name="temperature">Значение температуры</param>
+        /// <param name="massFlow">Значение массового расхода</param>
+        /// <param name="volumFlow">Значение объемного расхода</param>
+        /// <param name="doza">Значение дозы</param>
+        /// <param name="RoH2O">Значение плотности</param>
         public void WriterDataFile_ExitOpen()
         {
             try
@@ -111,5 +146,6 @@ namespace SerialPortComm.ClassesControl
                 WriterDataFile_ExitOpen();
             }
         }
+        #endregion
     }
 }

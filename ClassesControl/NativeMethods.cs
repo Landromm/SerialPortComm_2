@@ -9,6 +9,8 @@ namespace SerialPortComm.ClassesControl
 {
     class NativeMethods
     {
+        // Подключение системных библиотек для чтения\записи ini файла.
+
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         internal static extern bool WritePrivateProfileString(string lpAppName, string lpKeyName, string lpString, string lpFileName);
 

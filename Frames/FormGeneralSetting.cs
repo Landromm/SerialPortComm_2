@@ -19,6 +19,7 @@ namespace SerialPortComm.Frames
         bool tempBoolVolumeFlow;
         bool tempBoolTemperature;
         bool tempBoolRoH2O;
+        bool tempBoolFlagWriteWithDot;
 
         public FormGeneralSetting()
         {
@@ -87,6 +88,7 @@ namespace SerialPortComm.Frames
                 INI.WriteINI("CheckedViewDataValue", "Temperature", chb_Temperature.Checked.ToString());
                 INI.WriteINI("CheckedViewDataValue", "RoH2O", chb_RoH2O.Checked.ToString());
                 INI.WriteINI("RestartFlag", "timeOutRestart", tbTimeRestartApp.Text);
+                INI.WriteINI("PathFolderSaveData", "writeWithDot", chbFlagWriteWithDot.Checked.ToString());
             }
             catch (Exception ex)
             {
@@ -120,6 +122,7 @@ namespace SerialPortComm.Frames
                 tempBoolRoH2O = bool.Parse(INI.ReadINI("CheckedViewDataValue", "RoH2O"));
                 tbPathFileSaveData.Text = INI.ReadINI("PathFolderSaveData", "pathFolder");
                 tbTimeRestartApp.Text = INI.ReadINI("RestartFlag", "timeOutRestart");
+                tempBoolFlagWriteWithDot = bool.Parse(INI.ReadINI("PathFolderSaveData", "writeWithDot"));
             }
             catch (Exception ex)
             {
@@ -132,6 +135,7 @@ namespace SerialPortComm.Frames
             LoadCheckedCheckBox(tempBoolVolumeFlow, chb_VolumeFlow);
             LoadCheckedCheckBox(tempBoolTemperature, chb_Temperature);
             LoadCheckedCheckBox(tempBoolRoH2O, chb_RoH2O);
+            LoadCheckedCheckBox(tempBoolFlagWriteWithDot, chbFlagWriteWithDot);
         }
 
         private void LoadCheckedCheckBox(bool tempBool, CheckBox checkBox)

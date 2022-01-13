@@ -9,7 +9,6 @@ namespace SerialPortComm.ClassesControl
 {
     public static class ThemeColor
     {
-
         public static Color PrimaryColor { get; set; }
         public static Color SecondaryColor { get; set; }
         public static List<string> ColorList = new List<string>() { "#3F51B5",
@@ -39,6 +38,7 @@ namespace SerialPortComm.ClassesControl
                                                                     "#43B76E",
                                                                     "#7BCFE9",
                                                                     "#B71C46"};
+
         public static Color ChangeColorBrightness(Color color, double correctionFactor)
         {
             double red = color.R;
@@ -63,6 +63,5 @@ namespace SerialPortComm.ClassesControl
 
             return Color.FromArgb(color.A, (byte)red, (byte)green, (byte)blue);
         }
-
     }
 }

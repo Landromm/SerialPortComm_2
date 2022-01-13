@@ -26,12 +26,11 @@ namespace SerialPortComm.ClassesControl
         private string _stopBits = string.Empty;
         private string _dataBits = string.Empty;
         private string _portName = string.Empty;
+
         private TransmissionType _transType;
         private RichTextBox _displayWindow_Rch;
         private TextBox _displayWindow_Tb_Answer;
         private TextBox _displayWindow_Tb_Send;
-        //global manager variables
-        //private Color[] MessageColor = { Color.Blue, Color.Green, Color.Black, Color.Orange, Color.Red };
         private SerialPort comPort = new SerialPort();
         #endregion
 
@@ -97,7 +96,7 @@ namespace SerialPortComm.ClassesControl
         }
 
         /// <summary>
-        /// property to hold our display window
+        /// Свойство данных в окне протокола.
         /// value
         /// </summary>
         public RichTextBox DisplayWindow_Rch
@@ -105,11 +104,21 @@ namespace SerialPortComm.ClassesControl
             get { return _displayWindow_Rch; }
             set { _displayWindow_Rch = value; }
         }
+
+        /// <summary>
+        /// Свойство данных в поле ответа от счетчика.
+        /// value
+        /// </summary>
         public TextBox DisplayWindow_Tb_Answer
         {
             get { return _displayWindow_Tb_Answer; }
             set { _displayWindow_Tb_Answer = value; }
         }
+
+        /// <summary>
+        /// Свойство данных в поле отправки счетчику.
+        /// value
+        /// </summary>
         public TextBox DisplayWindow_TbSend
         {
             get { return _displayWindow_Tb_Send; }
@@ -159,6 +168,9 @@ namespace SerialPortComm.ClassesControl
         }
         #endregion
 
+        /// <summary>
+        /// Метод проверки открытия COM-порта.
+        /// </summary>
         public bool ComPortIsOpen()
         {
             if (comPort.IsOpen && !comPort.BreakState)
@@ -204,10 +216,9 @@ namespace SerialPortComm.ClassesControl
 
         #region DisplayData
         /// <summary>
-        /// method to display the data to & from the port
+        /// Метод отображения событий в поле протокола.
         /// on the screen
         /// </summary>
-        /// <param name="type">MessageType of the message</param>
         /// <param name="msg">Message to display</param>
         [STAThread]
         private void DisplayData_Rch(string msg)
@@ -219,6 +230,10 @@ namespace SerialPortComm.ClassesControl
             }));
         }
 
+        /// <summary>
+        /// Метод отображения данных от счетчика в поле TextBox.
+        /// </summary>
+        /// <param name="msg">Message to display</param>
         [STAThread]
         private void DisplayData_Tb(string msg)
         {
@@ -228,6 +243,11 @@ namespace SerialPortComm.ClassesControl
                 _displayWindow_Tb_Answer.ScrollToCaret();
             }));
         }
+
+        /// <summary>
+        /// Метод отображения отправляемых данных счетчику в поле TextBox.
+        /// </summary>
+        /// <param name="msg">Message to display</param>
         [STAThread]
         private void DisplayData_Tb_Send(string msg)
         {
@@ -239,12 +259,18 @@ namespace SerialPortComm.ClassesControl
         }
         #endregion
 
+        /// <summary>
+        /// Метод возвращает состояние сигнала разрыва COM-порта в текстовом виде.
+        /// </summary>
         public string ErrorBreakState()
         {
             return comPort.BreakState.ToString();
         }
 
         #region OpenPort
+        /// <summary>
+        /// Метод открытия COM-порта.
+        /// </summary>
         public bool OpenPort()
         {
             try
@@ -272,6 +298,9 @@ namespace SerialPortComm.ClassesControl
         #endregion
 
         #region ClosePort
+        /// <summary>
+        /// Метод закрытия COM-порта.
+        /// </summary>
         public bool ClosePort()
         {
             try
@@ -284,7 +313,6 @@ namespace SerialPortComm.ClassesControl
                 logWriter.LoadFlagLog();
                 logWriter.WriteInformation(("Закрытие COM-порта: " + comPort.PortName));
                 DisplayData_Rch("COM-порт закрыт в |" + DateTime.Now + "|\n");
-                //return true
                 return true;
             }
             catch (Exception ex)
@@ -296,6 +324,9 @@ namespace SerialPortComm.ClassesControl
         #endregion
 
         #region SetParityValues
+        /// <summary>
+        /// Метод заполнения ComboBox Parity (Четность) параметра COM-порта.
+        /// </summary>
         public void SetParityValues(object obj)
         {
             foreach (string str in Enum.GetNames(typeof(Parity)))
@@ -306,6 +337,9 @@ namespace SerialPortComm.ClassesControl
         #endregion
 
         #region SetStopBitValues
+        /// <summary>
+        /// Метод заполнения ComboBox StopBit (Стоповые биты) параметра COM-порта.
+        /// </summary>
         public void SetStopBitValues(object obj)
         {
             foreach (string str in Enum.GetNames(typeof(StopBits)))
@@ -316,9 +350,11 @@ namespace SerialPortComm.ClassesControl
         #endregion
 
         #region SetPortNameValues
+        /// <summary>
+        /// Метод заполнения ComboBox PortName (Наименование порта) параметра COM-порта.
+        /// </summary>
         public void SetPortNameValues(object obj)
         {
-
             foreach (string str in SerialPort.GetPortNames())
             {
                 ((ComboBox)obj).Items.Add(str);
@@ -327,19 +363,25 @@ namespace SerialPortComm.ClassesControl
         #endregion
 
         #region WriteData
+        /// <summary>
+        /// Метод отправки данных-hex счетчику.
+        /// </summary>
+        /// <param name="msg">string hex</param>
         public void WriteData(string msg)
         {
             switch (CurrentTransmissionType)
             {
                 case TransmissionType.Text:
-                    if (!(comPort.IsOpen == true)) comPort.Open();
+                    if (!(comPort.IsOpen == true)) 
+                        comPort.Open();
                     comPort.Write(msg);
                     DisplayData_Rch(msg + "\n");
                     break;
                 case TransmissionType.Hex:
                     try
                     {  
-                        if (!(comPort.IsOpen == true)) comPort.Open();
+                        if (!(comPort.IsOpen == true)) 
+                            comPort.Open();
                         byte[] newMsg = HexToByte(msg);
                         logWriter.HexWriteRead("ОТПРАВКА hex-сообщения счетчику: |" + msg + "|", "_InfoWriteRead.txt");
                         comPort.Write(newMsg, 0, newMsg.Length);
@@ -356,7 +398,8 @@ namespace SerialPortComm.ClassesControl
                 default:
                     //first make sure the port is open
                     //if its not open then open it
-                    if (!(comPort.IsOpen == true)) comPort.Open();
+                    if (!(comPort.IsOpen == true)) 
+                        comPort.Open();
                     //send the message to the port
                     comPort.Write(msg);
                     //display the message
@@ -368,7 +411,7 @@ namespace SerialPortComm.ClassesControl
 
         #region comPort_DataReceived
         /// <summary>
-        /// method that will be called when theres data waiting in the buffer
+        /// Метод, который будет вызываться, когда в буфере ожидают данные.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

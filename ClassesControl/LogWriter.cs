@@ -30,6 +30,9 @@ namespace SerialPortComm.ClassesControl
             }
         }
 
+        /// <summary>
+        /// Инициализация флагов записи логов.
+        /// </summary>
         public void LoadFlagLog()
         {
             try
@@ -46,6 +49,11 @@ namespace SerialPortComm.ClassesControl
             }
         }
 
+        /// <summary>
+        /// Метод записи логов чтение и отправки данных в формете hex.
+        /// </summary>
+        /// <param name="data">sring - Значение логирумых данных</param>
+        /// <param name="nameFile">string - Наименование файла логов</param>
         public void HexWriteRead(string data, string nameFile)
         {
             if (tempBoolHexWriteRead)
@@ -68,6 +76,11 @@ namespace SerialPortComm.ClassesControl
             }
         }
 
+        /// <summary>
+        /// Метод записи логов в виде данных.
+        /// </summary>
+        /// <param name="data">sring - Значение логирумых данных</param>
+        /// <param name="nameFile">string - Наименование файла логов</param>
         public void WriteData(string data, string nameFile)
         {
             if (tempBoolLogData)
@@ -90,6 +103,10 @@ namespace SerialPortComm.ClassesControl
             }
         }
 
+        /// <summary>
+        /// Метод записи логов ошибок и исключений работы программы.
+        /// </summary>
+        /// <param name="error">sring - Логируемая ошибка</param>
         public void WriteError(string error)
         {
             if (tempBoolLogInfo)
@@ -112,6 +129,10 @@ namespace SerialPortComm.ClassesControl
             }
         }
 
+        /// <summary>
+        /// Метод записи информационных логов.
+        /// </summary>
+        /// <param name="info">sring - Логируемая информация</param>
         public void WriteInformation(string info)
         {
             if (tempBoolLogInfo)

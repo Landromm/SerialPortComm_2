@@ -30,6 +30,9 @@ namespace SerialPortComm.Frames
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chbFlagWriteWithDot = new System.Windows.Forms.CheckBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.Separator = new System.Windows.Forms.Label();
             this.tbTimeRestartApp = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -73,6 +76,9 @@ namespace SerialPortComm.Frames
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.chbFlagWriteWithDot);
+            this.panel1.Controls.Add(this.richTextBox3);
             this.panel1.Controls.Add(this.Separator);
             this.panel1.Controls.Add(this.tbTimeRestartApp);
             this.panel1.Controls.Add(this.richTextBox2);
@@ -87,20 +93,49 @@ namespace SerialPortComm.Frames
             this.panel1.Size = new System.Drawing.Size(534, 311);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(296, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(2, 45);
+            this.label1.TabIndex = 10;
+            // 
+            // chbFlagWriteWithDot
+            // 
+            this.chbFlagWriteWithDot.AutoSize = true;
+            this.chbFlagWriteWithDot.Location = new System.Drawing.Point(242, 229);
+            this.chbFlagWriteWithDot.Name = "chbFlagWriteWithDot";
+            this.chbFlagWriteWithDot.Size = new System.Drawing.Size(48, 17);
+            this.chbFlagWriteWithDot.TabIndex = 9;
+            this.chbFlagWriteWithDot.Text = "Вкл.";
+            this.chbFlagWriteWithDot.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox3.Location = new System.Drawing.Point(7, 226);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(229, 31);
+            this.richTextBox3.TabIndex = 8;
+            this.richTextBox3.Text = "Разделитель десятичной части числа в виде \'.\' (точки), при записи данных в файл.";
+            // 
             // Separator
             // 
             this.Separator.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Separator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Separator.Location = new System.Drawing.Point(3, 220);
+            this.Separator.Location = new System.Drawing.Point(3, 212);
             this.Separator.Name = "Separator";
-            this.Separator.Size = new System.Drawing.Size(160, 2);
+            this.Separator.Size = new System.Drawing.Size(525, 2);
             this.Separator.TabIndex = 7;
             // 
             // tbTimeRestartApp
             // 
-            this.tbTimeRestartApp.Location = new System.Drawing.Point(172, 225);
+            this.tbTimeRestartApp.Location = new System.Drawing.Point(469, 226);
             this.tbTimeRestartApp.Name = "tbTimeRestartApp";
-            this.tbTimeRestartApp.Size = new System.Drawing.Size(78, 20);
+            this.tbTimeRestartApp.Size = new System.Drawing.Size(59, 20);
             this.tbTimeRestartApp.TabIndex = 6;
             this.tbTimeRestartApp.Text = "10000";
             // 
@@ -108,7 +143,7 @@ namespace SerialPortComm.Frames
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(7, 224);
+            this.richTextBox2.Location = new System.Drawing.Point(304, 226);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(159, 31);
             this.richTextBox2.TabIndex = 5;
@@ -117,7 +152,7 @@ namespace SerialPortComm.Frames
             // lbFolderBrowserDialogInfo
             // 
             this.lbFolderBrowserDialogInfo.AutoSize = true;
-            this.lbFolderBrowserDialogInfo.Location = new System.Drawing.Point(4, 199);
+            this.lbFolderBrowserDialogInfo.Location = new System.Drawing.Point(4, 183);
             this.lbFolderBrowserDialogInfo.Name = "lbFolderBrowserDialogInfo";
             this.lbFolderBrowserDialogInfo.Size = new System.Drawing.Size(153, 13);
             this.lbFolderBrowserDialogInfo.TabIndex = 4;
@@ -128,7 +163,7 @@ namespace SerialPortComm.Frames
             this.btnFolderBrowserDialog.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFolderBrowserDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFolderBrowserDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnFolderBrowserDialog.Location = new System.Drawing.Point(409, 196);
+            this.btnFolderBrowserDialog.Location = new System.Drawing.Point(409, 178);
             this.btnFolderBrowserDialog.Name = "btnFolderBrowserDialog";
             this.btnFolderBrowserDialog.Size = new System.Drawing.Size(121, 23);
             this.btnFolderBrowserDialog.TabIndex = 3;
@@ -139,7 +174,7 @@ namespace SerialPortComm.Frames
             // tbPathFileSaveData
             // 
             this.tbPathFileSaveData.BackColor = System.Drawing.SystemColors.Menu;
-            this.tbPathFileSaveData.Location = new System.Drawing.Point(172, 199);
+            this.tbPathFileSaveData.Location = new System.Drawing.Point(172, 178);
             this.tbPathFileSaveData.Name = "tbPathFileSaveData";
             this.tbPathFileSaveData.Size = new System.Drawing.Size(232, 20);
             this.tbPathFileSaveData.TabIndex = 2;
@@ -487,5 +522,8 @@ namespace SerialPortComm.Frames
         private System.Windows.Forms.TextBox tbTimeRestartApp;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label Separator;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chbFlagWriteWithDot;
+        private System.Windows.Forms.RichTextBox richTextBox3;
     }
 }

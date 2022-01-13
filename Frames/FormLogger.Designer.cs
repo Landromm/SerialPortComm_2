@@ -32,20 +32,20 @@ namespace SerialPortComm.Frames
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_LogWriteReadHex = new System.Windows.Forms.Panel();
+            this.chb_LogWriteReadHex = new System.Windows.Forms.CheckBox();
+            this.lb_LogWriteReadHex = new System.Windows.Forms.Label();
             this.panel_LogInfo = new System.Windows.Forms.Panel();
             this.chb_LogInfo = new System.Windows.Forms.CheckBox();
             this.lb_LogInfo = new System.Windows.Forms.Label();
             this.panel_LogData = new System.Windows.Forms.Panel();
             this.chb_LogData = new System.Windows.Forms.CheckBox();
             this.lb_LogData = new System.Windows.Forms.Label();
-            this.panel_LogWriteReadHex = new System.Windows.Forms.Panel();
-            this.chb_LogWriteReadHex = new System.Windows.Forms.CheckBox();
-            this.lb_LogWriteReadHex = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel_LogWriteReadHex.SuspendLayout();
             this.panel_LogInfo.SuspendLayout();
             this.panel_LogData.SuspendLayout();
-            this.panel_LogWriteReadHex.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,6 +82,41 @@ namespace SerialPortComm.Frames
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(534, 261);
             this.panel2.TabIndex = 1;
+            // 
+            // panel_LogWriteReadHex
+            // 
+            this.panel_LogWriteReadHex.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_LogWriteReadHex.Controls.Add(this.chb_LogWriteReadHex);
+            this.panel_LogWriteReadHex.Controls.Add(this.lb_LogWriteReadHex);
+            this.panel_LogWriteReadHex.Location = new System.Drawing.Point(12, 110);
+            this.panel_LogWriteReadHex.Name = "panel_LogWriteReadHex";
+            this.panel_LogWriteReadHex.Size = new System.Drawing.Size(225, 43);
+            this.panel_LogWriteReadHex.TabIndex = 4;
+            // 
+            // chb_LogWriteReadHex
+            // 
+            this.chb_LogWriteReadHex.AutoSize = true;
+            this.chb_LogWriteReadHex.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chb_LogWriteReadHex.Location = new System.Drawing.Point(0, 19);
+            this.chb_LogWriteReadHex.Name = "chb_LogWriteReadHex";
+            this.chb_LogWriteReadHex.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
+            this.chb_LogWriteReadHex.Size = new System.Drawing.Size(223, 20);
+            this.chb_LogWriteReadHex.TabIndex = 2;
+            this.chb_LogWriteReadHex.Text = "Включить";
+            this.chb_LogWriteReadHex.UseVisualStyleBackColor = true;
+            this.chb_LogWriteReadHex.CheckedChanged += new System.EventHandler(this.chb_LogWriteReadHex_CheckedChanged);
+            // 
+            // lb_LogWriteReadHex
+            // 
+            this.lb_LogWriteReadHex.AutoSize = true;
+            this.lb_LogWriteReadHex.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_LogWriteReadHex.Location = new System.Drawing.Point(0, 0);
+            this.lb_LogWriteReadHex.Name = "lb_LogWriteReadHex";
+            this.lb_LogWriteReadHex.Padding = new System.Windows.Forms.Padding(3);
+            this.lb_LogWriteReadHex.Size = new System.Drawing.Size(184, 19);
+            this.lb_LogWriteReadHex.TabIndex = 1;
+            this.lb_LogWriteReadHex.Text = "Логирование hex (Запрос/Ответ):";
+            this.lb_LogWriteReadHex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel_LogInfo
             // 
@@ -153,41 +188,6 @@ namespace SerialPortComm.Frames
             this.lb_LogData.Text = "Логирование данных:";
             this.lb_LogData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel_LogWriteReadHex
-            // 
-            this.panel_LogWriteReadHex.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_LogWriteReadHex.Controls.Add(this.chb_LogWriteReadHex);
-            this.panel_LogWriteReadHex.Controls.Add(this.lb_LogWriteReadHex);
-            this.panel_LogWriteReadHex.Location = new System.Drawing.Point(12, 110);
-            this.panel_LogWriteReadHex.Name = "panel_LogWriteReadHex";
-            this.panel_LogWriteReadHex.Size = new System.Drawing.Size(225, 43);
-            this.panel_LogWriteReadHex.TabIndex = 4;
-            // 
-            // chb_LogWriteReadHex
-            // 
-            this.chb_LogWriteReadHex.AutoSize = true;
-            this.chb_LogWriteReadHex.Dock = System.Windows.Forms.DockStyle.Top;
-            this.chb_LogWriteReadHex.Location = new System.Drawing.Point(0, 19);
-            this.chb_LogWriteReadHex.Name = "chb_LogWriteReadHex";
-            this.chb_LogWriteReadHex.Padding = new System.Windows.Forms.Padding(7, 3, 0, 0);
-            this.chb_LogWriteReadHex.Size = new System.Drawing.Size(223, 20);
-            this.chb_LogWriteReadHex.TabIndex = 2;
-            this.chb_LogWriteReadHex.Text = "Включить";
-            this.chb_LogWriteReadHex.UseVisualStyleBackColor = true;
-            this.chb_LogWriteReadHex.CheckedChanged += new System.EventHandler(this.chb_LogWriteReadHex_CheckedChanged);
-            // 
-            // lb_LogWriteReadHex
-            // 
-            this.lb_LogWriteReadHex.AutoSize = true;
-            this.lb_LogWriteReadHex.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_LogWriteReadHex.Location = new System.Drawing.Point(0, 0);
-            this.lb_LogWriteReadHex.Name = "lb_LogWriteReadHex";
-            this.lb_LogWriteReadHex.Padding = new System.Windows.Forms.Padding(3);
-            this.lb_LogWriteReadHex.Size = new System.Drawing.Size(184, 19);
-            this.lb_LogWriteReadHex.TabIndex = 1;
-            this.lb_LogWriteReadHex.Text = "Логирование hex (Запрос/Ответ):";
-            this.lb_LogWriteReadHex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // FormLogger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,12 +202,12 @@ namespace SerialPortComm.Frames
             this.Load += new System.EventHandler(this.FormLogger_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel_LogWriteReadHex.ResumeLayout(false);
+            this.panel_LogWriteReadHex.PerformLayout();
             this.panel_LogInfo.ResumeLayout(false);
             this.panel_LogInfo.PerformLayout();
             this.panel_LogData.ResumeLayout(false);
             this.panel_LogData.PerformLayout();
-            this.panel_LogWriteReadHex.ResumeLayout(false);
-            this.panel_LogWriteReadHex.PerformLayout();
             this.ResumeLayout(false);
 
         }
