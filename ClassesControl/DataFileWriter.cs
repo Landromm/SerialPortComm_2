@@ -26,7 +26,7 @@ namespace SerialPortComm.ClassesControl
         private string _volumFlow_2 = string.Empty;
         private string _RoH2O_2 = string.Empty;
         private string pathDataFile = string.Empty;
-        private string nameDataFile = "TestRSM.txt";
+        private string nameDataFile = "DataRSM_SCADA.txt";
 
         // ------------------------------- Счетчик №1
         public string Doza 

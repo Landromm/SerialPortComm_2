@@ -619,7 +619,7 @@ namespace SerialPortComm
             }
 
             //------------------------------- Счетчик №1
-            if (tbSendHex.Text.Equals(tempHex_DozaNow_2))
+            else if (tbSendHex.Text.Equals(tempHex_DozaNow_2))
             {
                 FloutConverter(tbAnswerData.Text, lbDataValue_DozaNow_2);
                 logWriter.WriteData(lbDataValue_DozaNow_2.Text, "_Doza_2.txt");
