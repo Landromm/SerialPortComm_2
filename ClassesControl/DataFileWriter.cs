@@ -20,9 +20,15 @@ namespace SerialPortComm.ClassesControl
         private string _massFlow = string.Empty;
         private string _volumFlow = string.Empty;
         private string _RoH2O = string.Empty;
+        private string _doza_2 = string.Empty;
+        private string _temperature_2 = string.Empty;
+        private string _massFlow_2 = string.Empty;
+        private string _volumFlow_2 = string.Empty;
+        private string _RoH2O_2 = string.Empty;
         private string pathDataFile = string.Empty;
         private string nameDataFile = "TestRSM.txt";
 
+        // ------------------------------- Счетчик №1
         public string Doza 
         { 
             get => _doza; 
@@ -49,15 +55,48 @@ namespace SerialPortComm.ClassesControl
             set => _RoH2O = value; 
         }
 
+        // ------------------------------- Счетчик №2
+        public string Doza_2
+        {
+            get => _doza_2;
+            set => _doza_2 = value;
+        }
+        public string Temperature_2
+        {
+            get => _temperature_2;
+            set => _temperature_2 = value;
+        }
+        public string MassFlow_2
+        {
+            get => _massFlow_2;
+            set => _massFlow_2 = value;
+        }
+        public string VolumFlow_2
+        {
+            get => _volumFlow_2;
+            set => _volumFlow_2 = value;
+        }
+        public string RoH2O1_2
+        {
+            get => _RoH2O_2;
+            set => _RoH2O_2 = value;
+        }
+
         private bool flagWriteWithDot = false;
 
-        public DataFileWriter(string doza, string temperature, string massFlow, string volumFlow, string RoH2O)
+        public DataFileWriter(string doza, string temperature, string massFlow, string volumFlow, string RoH2O,
+                            string doza_2, string temperature_2, string massFlow_2, string volumFlow_2, string RoH2O_2)
         {
             _doza = doza;
             _temperature = temperature;
             _massFlow = massFlow;
             _volumFlow = volumFlow;
             _RoH2O = RoH2O;
+            _doza_2 = doza_2;
+            _temperature_2 = temperature_2;
+            _massFlow_2 = massFlow_2;
+            _volumFlow_2 = volumFlow_2;
+            _RoH2O_2 = RoH2O_2;
             pathDataFile = INI.ReadINI("PathFolderSaveData", "pathFolder") + nameDataFile;
             flagWriteWithDot = bool.Parse(INI.ReadINI("PathFolderSaveData", "writeWithDot"));
         }
@@ -68,6 +107,11 @@ namespace SerialPortComm.ClassesControl
             _massFlow = "-1";
             _volumFlow = "-1";
             _RoH2O = "-1";
+            _doza_2 = "-1";
+            _temperature_2 = "-1";
+            _massFlow_2 = "-1";
+            _volumFlow_2 = "-1";
+            _RoH2O_2 = "-1";
             pathDataFile = INI.ReadINI("PathFolderSaveData", "pathFolder") + nameDataFile;
             flagWriteWithDot = bool.Parse(INI.ReadINI("PathFolderSaveData", "writeWithDot"));
         }
@@ -98,6 +142,11 @@ namespace SerialPortComm.ClassesControl
                         sw.WriteLine(ReturnFormatString(VolumFlow));
                         sw.WriteLine(ReturnFormatString(Doza));
                         sw.WriteLine(ReturnFormatString(RoH2O1));
+                        sw.WriteLine(ReturnFormatString(Temperature_2));
+                        sw.WriteLine(ReturnFormatString(MassFlow_2));
+                        sw.WriteLine(ReturnFormatString(VolumFlow_2));
+                        sw.WriteLine(ReturnFormatString(Doza_2));
+                        sw.WriteLine(ReturnFormatString(RoH2O1_2));
                     }
                 }
             }
@@ -138,6 +187,11 @@ namespace SerialPortComm.ClassesControl
                         sw.WriteLine(VolumFlow = "-1");
                         sw.WriteLine(Doza = "-1");
                         sw.WriteLine(RoH2O1 = "-1");
+                        sw.WriteLine(Temperature_2 = "-1");
+                        sw.WriteLine(MassFlow_2 = "-1");
+                        sw.WriteLine(VolumFlow_2 = "-1");
+                        sw.WriteLine(Doza_2 = "-1");
+                        sw.WriteLine(RoH2O1_2 = "-1");
                     }
                 }
             }

@@ -36,7 +36,8 @@ namespace SerialPortComm
             this.panelData = new System.Windows.Forms.Panel();
             this.tbSendHex = new System.Windows.Forms.TextBox();
             this.tbAnswerData = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage_Counter_1 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_DozaNow = new System.Windows.Forms.Panel();
             this.lbDataValue_DozaNow = new System.Windows.Forms.Label();
@@ -53,6 +54,23 @@ namespace SerialPortComm
             this.panel_RoH2O = new System.Windows.Forms.Panel();
             this.lbDataValue_RoH2O = new System.Windows.Forms.Label();
             this.lbInfo_RoH2O = new System.Windows.Forms.Label();
+            this.tabPage_Counter_2 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel_DozaNow_2 = new System.Windows.Forms.Panel();
+            this.lbDataValue_DozaNow_2 = new System.Windows.Forms.Label();
+            this.lbInfo_DozaNow_2 = new System.Windows.Forms.Label();
+            this.panel_VolumeFlow_2 = new System.Windows.Forms.Panel();
+            this.lbDataValue_VolumeFlow_2 = new System.Windows.Forms.Label();
+            this.lbInfo_VolumeFlow_2 = new System.Windows.Forms.Label();
+            this.panel_Temperature_2 = new System.Windows.Forms.Panel();
+            this.lbDataValue_Temperature_2 = new System.Windows.Forms.Label();
+            this.lbInfo_Temperature_2 = new System.Windows.Forms.Label();
+            this.panel_MassFlow_2 = new System.Windows.Forms.Panel();
+            this.lbDataValue_MassFlow_2 = new System.Windows.Forms.Label();
+            this.lbInfo_MassFlow_2 = new System.Windows.Forms.Label();
+            this.panel_RoH2O_2 = new System.Windows.Forms.Panel();
+            this.lbDataValue_RoH2O_2 = new System.Windows.Forms.Label();
+            this.lbInfo_RoH2O_2 = new System.Windows.Forms.Label();
             this.panelLogInfo = new System.Windows.Forms.Panel();
             this.rchbLogInfo = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -85,13 +103,21 @@ namespace SerialPortComm
             this.PanelMain.SuspendLayout();
             this.panelChildFill.SuspendLayout();
             this.panelData.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage_Counter_1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel_DozaNow.SuspendLayout();
             this.panel_VolumeFlow.SuspendLayout();
             this.panel_Temperature.SuspendLayout();
             this.panel_MassFlow.SuspendLayout();
             this.panel_RoH2O.SuspendLayout();
+            this.tabPage_Counter_2.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.panel_DozaNow_2.SuspendLayout();
+            this.panel_VolumeFlow_2.SuspendLayout();
+            this.panel_Temperature_2.SuspendLayout();
+            this.panel_MassFlow_2.SuspendLayout();
+            this.panel_RoH2O_2.SuspendLayout();
             this.panelLogInfo.SuspendLayout();
             this.panelChildRight.SuspendLayout();
             this.groupBoxSettingCom.SuspendLayout();
@@ -125,18 +151,18 @@ namespace SerialPortComm
             // 
             this.panelData.Controls.Add(this.tbSendHex);
             this.panelData.Controls.Add(this.tbAnswerData);
-            this.panelData.Controls.Add(this.groupBox1);
+            this.panelData.Controls.Add(this.tabControl1);
             this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelData.Location = new System.Drawing.Point(0, 0);
             this.panelData.Name = "panelData";
-            this.panelData.Padding = new System.Windows.Forms.Padding(10, 5, 10, 33);
+            this.panelData.Padding = new System.Windows.Forms.Padding(10, 5, 10, 25);
             this.panelData.Size = new System.Drawing.Size(764, 389);
             this.panelData.TabIndex = 2;
             // 
             // tbSendHex
             // 
             this.tbSendHex.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbSendHex.Location = new System.Drawing.Point(10, 316);
+            this.tbSendHex.Location = new System.Drawing.Point(10, 324);
             this.tbSendHex.Name = "tbSendHex";
             this.tbSendHex.Size = new System.Drawing.Size(744, 20);
             this.tbSendHex.TabIndex = 6;
@@ -144,24 +170,34 @@ namespace SerialPortComm
             // tbAnswerData
             // 
             this.tbAnswerData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbAnswerData.Location = new System.Drawing.Point(10, 336);
+            this.tbAnswerData.Location = new System.Drawing.Point(10, 344);
             this.tbAnswerData.Name = "tbAnswerData";
             this.tbAnswerData.Size = new System.Drawing.Size(744, 20);
             this.tbAnswerData.TabIndex = 5;
             this.tbAnswerData.TextChanged += new System.EventHandler(this.TbAnswerData_TextChanged);
             // 
-            // groupBox1
+            // tabControl1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(744, 351);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Data Value";
+            this.tabControl1.Controls.Add(this.tabPage_Counter_1);
+            this.tabControl1.Controls.Add(this.tabPage_Counter_2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Location = new System.Drawing.Point(10, 5);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(744, 313);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage_Counter_1
+            // 
+            this.tabPage_Counter_1.AutoScroll = true;
+            this.tabPage_Counter_1.Controls.Add(this.flowLayoutPanel1);
+            this.tabPage_Counter_1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Counter_1.Name = "tabPage_Counter_1";
+            this.tabPage_Counter_1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Counter_1.Size = new System.Drawing.Size(736, 287);
+            this.tabPage_Counter_1.TabIndex = 0;
+            this.tabPage_Counter_1.Text = "Счетчик №1";
+            this.tabPage_Counter_1.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel1
             // 
@@ -172,9 +208,9 @@ namespace SerialPortComm
             this.flowLayoutPanel1.Controls.Add(this.panel_MassFlow);
             this.flowLayoutPanel1.Controls.Add(this.panel_RoH2O);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(738, 332);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(730, 281);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel_DozaNow
@@ -201,7 +237,7 @@ namespace SerialPortComm
             this.lbDataValue_DozaNow.Location = new System.Drawing.Point(5, 33);
             this.lbDataValue_DozaNow.Name = "lbDataValue_DozaNow";
             this.lbDataValue_DozaNow.Padding = new System.Windows.Forms.Padding(5);
-            this.lbDataValue_DozaNow.Size = new System.Drawing.Size(91, 25);
+            this.lbDataValue_DozaNow.Size = new System.Drawing.Size(70, 25);
             this.lbDataValue_DozaNow.TabIndex = 1;
             this.lbDataValue_DozaNow.Text = "0000,0000";
             // 
@@ -242,7 +278,7 @@ namespace SerialPortComm
             this.lbDataValue_VolumeFlow.Location = new System.Drawing.Point(5, 33);
             this.lbDataValue_VolumeFlow.Name = "lbDataValue_VolumeFlow";
             this.lbDataValue_VolumeFlow.Padding = new System.Windows.Forms.Padding(5);
-            this.lbDataValue_VolumeFlow.Size = new System.Drawing.Size(91, 25);
+            this.lbDataValue_VolumeFlow.Size = new System.Drawing.Size(70, 25);
             this.lbDataValue_VolumeFlow.TabIndex = 1;
             this.lbDataValue_VolumeFlow.Text = "0000,0000";
             // 
@@ -283,7 +319,7 @@ namespace SerialPortComm
             this.lbDataValue_Temperature.Location = new System.Drawing.Point(5, 33);
             this.lbDataValue_Temperature.Name = "lbDataValue_Temperature";
             this.lbDataValue_Temperature.Padding = new System.Windows.Forms.Padding(5);
-            this.lbDataValue_Temperature.Size = new System.Drawing.Size(59, 25);
+            this.lbDataValue_Temperature.Size = new System.Drawing.Size(46, 25);
             this.lbDataValue_Temperature.TabIndex = 1;
             this.lbDataValue_Temperature.Text = "00,00";
             // 
@@ -295,9 +331,9 @@ namespace SerialPortComm
             this.lbInfo_Temperature.Location = new System.Drawing.Point(5, 5);
             this.lbInfo_Temperature.Name = "lbInfo_Temperature";
             this.lbInfo_Temperature.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.lbInfo_Temperature.Size = new System.Drawing.Size(214, 28);
+            this.lbInfo_Temperature.Size = new System.Drawing.Size(212, 28);
             this.lbInfo_Temperature.TabIndex = 0;
-            this.lbInfo_Temperature.Text = "Текущее температура (℃):";
+            this.lbInfo_Temperature.Text = "Текущая температура (℃):";
             this.lbInfo_Temperature.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel_MassFlow
@@ -324,7 +360,7 @@ namespace SerialPortComm
             this.lbDataValue_MassFlow.Location = new System.Drawing.Point(5, 33);
             this.lbDataValue_MassFlow.Name = "lbDataValue_MassFlow";
             this.lbDataValue_MassFlow.Padding = new System.Windows.Forms.Padding(5);
-            this.lbDataValue_MassFlow.Size = new System.Drawing.Size(91, 25);
+            this.lbDataValue_MassFlow.Size = new System.Drawing.Size(70, 25);
             this.lbDataValue_MassFlow.TabIndex = 1;
             this.lbDataValue_MassFlow.Text = "0000,0000";
             // 
@@ -365,7 +401,7 @@ namespace SerialPortComm
             this.lbDataValue_RoH2O.Location = new System.Drawing.Point(5, 33);
             this.lbDataValue_RoH2O.Name = "lbDataValue_RoH2O";
             this.lbDataValue_RoH2O.Padding = new System.Windows.Forms.Padding(5);
-            this.lbDataValue_RoH2O.Size = new System.Drawing.Size(59, 25);
+            this.lbDataValue_RoH2O.Size = new System.Drawing.Size(46, 25);
             this.lbDataValue_RoH2O.TabIndex = 1;
             this.lbDataValue_RoH2O.Text = "00,00";
             // 
@@ -381,6 +417,236 @@ namespace SerialPortComm
             this.lbInfo_RoH2O.TabIndex = 0;
             this.lbInfo_RoH2O.Text = "Текущая плотность (т/м³):";
             this.lbInfo_RoH2O.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tabPage_Counter_2
+            // 
+            this.tabPage_Counter_2.Controls.Add(this.flowLayoutPanel2);
+            this.tabPage_Counter_2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Counter_2.Name = "tabPage_Counter_2";
+            this.tabPage_Counter_2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Counter_2.Size = new System.Drawing.Size(736, 287);
+            this.tabPage_Counter_2.TabIndex = 1;
+            this.tabPage_Counter_2.Text = "Счетчик №2";
+            this.tabPage_Counter_2.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.Controls.Add(this.panel_DozaNow_2);
+            this.flowLayoutPanel2.Controls.Add(this.panel_VolumeFlow_2);
+            this.flowLayoutPanel2.Controls.Add(this.panel_Temperature_2);
+            this.flowLayoutPanel2.Controls.Add(this.panel_MassFlow_2);
+            this.flowLayoutPanel2.Controls.Add(this.panel_RoH2O_2);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(730, 281);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // panel_DozaNow_2
+            // 
+            this.panel_DozaNow_2.AutoSize = true;
+            this.panel_DozaNow_2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_DozaNow_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_DozaNow_2.Controls.Add(this.lbDataValue_DozaNow_2);
+            this.panel_DozaNow_2.Controls.Add(this.lbInfo_DozaNow_2);
+            this.panel_DozaNow_2.Location = new System.Drawing.Point(3, 3);
+            this.panel_DozaNow_2.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_DozaNow_2.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_DozaNow_2.Name = "panel_DozaNow_2";
+            this.panel_DozaNow_2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_DozaNow_2.Size = new System.Drawing.Size(275, 70);
+            this.panel_DozaNow_2.TabIndex = 0;
+            // 
+            // lbDataValue_DozaNow_2
+            // 
+            this.lbDataValue_DozaNow_2.AutoSize = true;
+            this.lbDataValue_DozaNow_2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_DozaNow_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_DozaNow_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_DozaNow_2.Location = new System.Drawing.Point(5, 33);
+            this.lbDataValue_DozaNow_2.Name = "lbDataValue_DozaNow_2";
+            this.lbDataValue_DozaNow_2.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_DozaNow_2.Size = new System.Drawing.Size(70, 25);
+            this.lbDataValue_DozaNow_2.TabIndex = 1;
+            this.lbDataValue_DozaNow_2.Text = "0000,0000";
+            // 
+            // lbInfo_DozaNow_2
+            // 
+            this.lbInfo_DozaNow_2.AutoSize = true;
+            this.lbInfo_DozaNow_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_DozaNow_2.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfo_DozaNow_2.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_DozaNow_2.Name = "lbInfo_DozaNow_2";
+            this.lbInfo_DozaNow_2.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_DozaNow_2.Size = new System.Drawing.Size(232, 28);
+            this.lbInfo_DozaNow_2.TabIndex = 0;
+            this.lbInfo_DozaNow_2.Text = "Текущее значение дозы (м³):";
+            this.lbInfo_DozaNow_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel_VolumeFlow_2
+            // 
+            this.panel_VolumeFlow_2.AutoSize = true;
+            this.panel_VolumeFlow_2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_VolumeFlow_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_VolumeFlow_2.Controls.Add(this.lbDataValue_VolumeFlow_2);
+            this.panel_VolumeFlow_2.Controls.Add(this.lbInfo_VolumeFlow_2);
+            this.panel_VolumeFlow_2.Location = new System.Drawing.Point(284, 3);
+            this.panel_VolumeFlow_2.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_VolumeFlow_2.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_VolumeFlow_2.Name = "panel_VolumeFlow_2";
+            this.panel_VolumeFlow_2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_VolumeFlow_2.Size = new System.Drawing.Size(275, 70);
+            this.panel_VolumeFlow_2.TabIndex = 1;
+            // 
+            // lbDataValue_VolumeFlow_2
+            // 
+            this.lbDataValue_VolumeFlow_2.AutoSize = true;
+            this.lbDataValue_VolumeFlow_2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_VolumeFlow_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_VolumeFlow_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_VolumeFlow_2.Location = new System.Drawing.Point(5, 33);
+            this.lbDataValue_VolumeFlow_2.Name = "lbDataValue_VolumeFlow_2";
+            this.lbDataValue_VolumeFlow_2.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_VolumeFlow_2.Size = new System.Drawing.Size(70, 25);
+            this.lbDataValue_VolumeFlow_2.TabIndex = 1;
+            this.lbDataValue_VolumeFlow_2.Text = "0000,0000";
+            // 
+            // lbInfo_VolumeFlow_2
+            // 
+            this.lbInfo_VolumeFlow_2.AutoSize = true;
+            this.lbInfo_VolumeFlow_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_VolumeFlow_2.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfo_VolumeFlow_2.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_VolumeFlow_2.Name = "lbInfo_VolumeFlow_2";
+            this.lbInfo_VolumeFlow_2.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_VolumeFlow_2.Size = new System.Drawing.Size(274, 28);
+            this.lbInfo_VolumeFlow_2.TabIndex = 0;
+            this.lbInfo_VolumeFlow_2.Text = "Текущий объёмный расход (м³/ч):";
+            this.lbInfo_VolumeFlow_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel_Temperature_2
+            // 
+            this.panel_Temperature_2.AutoSize = true;
+            this.panel_Temperature_2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_Temperature_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_Temperature_2.Controls.Add(this.lbDataValue_Temperature_2);
+            this.panel_Temperature_2.Controls.Add(this.lbInfo_Temperature_2);
+            this.panel_Temperature_2.Location = new System.Drawing.Point(3, 79);
+            this.panel_Temperature_2.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_Temperature_2.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_Temperature_2.Name = "panel_Temperature_2";
+            this.panel_Temperature_2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_Temperature_2.Size = new System.Drawing.Size(275, 70);
+            this.panel_Temperature_2.TabIndex = 2;
+            // 
+            // lbDataValue_Temperature_2
+            // 
+            this.lbDataValue_Temperature_2.AutoSize = true;
+            this.lbDataValue_Temperature_2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_Temperature_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_Temperature_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_Temperature_2.Location = new System.Drawing.Point(5, 33);
+            this.lbDataValue_Temperature_2.Name = "lbDataValue_Temperature_2";
+            this.lbDataValue_Temperature_2.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_Temperature_2.Size = new System.Drawing.Size(46, 25);
+            this.lbDataValue_Temperature_2.TabIndex = 1;
+            this.lbDataValue_Temperature_2.Text = "00,00";
+            // 
+            // lbInfo_Temperature_2
+            // 
+            this.lbInfo_Temperature_2.AutoSize = true;
+            this.lbInfo_Temperature_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_Temperature_2.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfo_Temperature_2.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_Temperature_2.Name = "lbInfo_Temperature_2";
+            this.lbInfo_Temperature_2.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_Temperature_2.Size = new System.Drawing.Size(212, 28);
+            this.lbInfo_Temperature_2.TabIndex = 0;
+            this.lbInfo_Temperature_2.Text = "Текущая температура (℃):";
+            this.lbInfo_Temperature_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel_MassFlow_2
+            // 
+            this.panel_MassFlow_2.AutoSize = true;
+            this.panel_MassFlow_2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_MassFlow_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_MassFlow_2.Controls.Add(this.lbDataValue_MassFlow_2);
+            this.panel_MassFlow_2.Controls.Add(this.lbInfo_MassFlow_2);
+            this.panel_MassFlow_2.Location = new System.Drawing.Point(284, 79);
+            this.panel_MassFlow_2.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_MassFlow_2.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_MassFlow_2.Name = "panel_MassFlow_2";
+            this.panel_MassFlow_2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_MassFlow_2.Size = new System.Drawing.Size(275, 70);
+            this.panel_MassFlow_2.TabIndex = 3;
+            // 
+            // lbDataValue_MassFlow_2
+            // 
+            this.lbDataValue_MassFlow_2.AutoSize = true;
+            this.lbDataValue_MassFlow_2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_MassFlow_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_MassFlow_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_MassFlow_2.Location = new System.Drawing.Point(5, 33);
+            this.lbDataValue_MassFlow_2.Name = "lbDataValue_MassFlow_2";
+            this.lbDataValue_MassFlow_2.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_MassFlow_2.Size = new System.Drawing.Size(70, 25);
+            this.lbDataValue_MassFlow_2.TabIndex = 1;
+            this.lbDataValue_MassFlow_2.Text = "0000,0000";
+            // 
+            // lbInfo_MassFlow_2
+            // 
+            this.lbInfo_MassFlow_2.AutoSize = true;
+            this.lbInfo_MassFlow_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_MassFlow_2.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfo_MassFlow_2.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_MassFlow_2.Name = "lbInfo_MassFlow_2";
+            this.lbInfo_MassFlow_2.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_MassFlow_2.Size = new System.Drawing.Size(261, 28);
+            this.lbInfo_MassFlow_2.TabIndex = 0;
+            this.lbInfo_MassFlow_2.Text = "Текущий массовый расход (т/ч):";
+            this.lbInfo_MassFlow_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel_RoH2O_2
+            // 
+            this.panel_RoH2O_2.AutoSize = true;
+            this.panel_RoH2O_2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_RoH2O_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_RoH2O_2.Controls.Add(this.lbDataValue_RoH2O_2);
+            this.panel_RoH2O_2.Controls.Add(this.lbInfo_RoH2O_2);
+            this.panel_RoH2O_2.Location = new System.Drawing.Point(3, 155);
+            this.panel_RoH2O_2.MaximumSize = new System.Drawing.Size(300, 150);
+            this.panel_RoH2O_2.MinimumSize = new System.Drawing.Size(275, 70);
+            this.panel_RoH2O_2.Name = "panel_RoH2O_2";
+            this.panel_RoH2O_2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_RoH2O_2.Size = new System.Drawing.Size(275, 70);
+            this.panel_RoH2O_2.TabIndex = 4;
+            // 
+            // lbDataValue_RoH2O_2
+            // 
+            this.lbDataValue_RoH2O_2.AutoSize = true;
+            this.lbDataValue_RoH2O_2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDataValue_RoH2O_2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbDataValue_RoH2O_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDataValue_RoH2O_2.Location = new System.Drawing.Point(5, 33);
+            this.lbDataValue_RoH2O_2.Name = "lbDataValue_RoH2O_2";
+            this.lbDataValue_RoH2O_2.Padding = new System.Windows.Forms.Padding(5);
+            this.lbDataValue_RoH2O_2.Size = new System.Drawing.Size(46, 25);
+            this.lbDataValue_RoH2O_2.TabIndex = 1;
+            this.lbDataValue_RoH2O_2.Text = "00,00";
+            // 
+            // lbInfo_RoH2O_2
+            // 
+            this.lbInfo_RoH2O_2.AutoSize = true;
+            this.lbInfo_RoH2O_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbInfo_RoH2O_2.Font = new System.Drawing.Font("Lucida Sans Unicode", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInfo_RoH2O_2.Location = new System.Drawing.Point(5, 5);
+            this.lbInfo_RoH2O_2.Name = "lbInfo_RoH2O_2";
+            this.lbInfo_RoH2O_2.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.lbInfo_RoH2O_2.Size = new System.Drawing.Size(211, 28);
+            this.lbInfo_RoH2O_2.TabIndex = 0;
+            this.lbInfo_RoH2O_2.Text = "Текущая плотность (т/м³):";
+            this.lbInfo_RoH2O_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelLogInfo
             // 
@@ -752,7 +1018,8 @@ namespace SerialPortComm
             this.panelChildFill.PerformLayout();
             this.panelData.ResumeLayout(false);
             this.panelData.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage_Counter_1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel_DozaNow.ResumeLayout(false);
@@ -765,6 +1032,19 @@ namespace SerialPortComm
             this.panel_MassFlow.PerformLayout();
             this.panel_RoH2O.ResumeLayout(false);
             this.panel_RoH2O.PerformLayout();
+            this.tabPage_Counter_2.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.panel_DozaNow_2.ResumeLayout(false);
+            this.panel_DozaNow_2.PerformLayout();
+            this.panel_VolumeFlow_2.ResumeLayout(false);
+            this.panel_VolumeFlow_2.PerformLayout();
+            this.panel_Temperature_2.ResumeLayout(false);
+            this.panel_Temperature_2.PerformLayout();
+            this.panel_MassFlow_2.ResumeLayout(false);
+            this.panel_MassFlow_2.PerformLayout();
+            this.panel_RoH2O_2.ResumeLayout(false);
+            this.panel_RoH2O_2.PerformLayout();
             this.panelLogInfo.ResumeLayout(false);
             this.panelChildRight.ResumeLayout(false);
             this.groupBoxSettingCom.ResumeLayout(false);
@@ -809,7 +1089,6 @@ namespace SerialPortComm
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.RichTextBox rchbLogInfo;
         private System.Windows.Forms.Panel panelData;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel_DozaNow;
@@ -830,6 +1109,25 @@ namespace SerialPortComm
         private System.Windows.Forms.TextBox tbAnswerData;
         private System.Windows.Forms.TextBox tbSendHex;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage_Counter_1;
+        private System.Windows.Forms.TabPage tabPage_Counter_2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Panel panel_DozaNow_2;
+        private System.Windows.Forms.Label lbDataValue_DozaNow_2;
+        private System.Windows.Forms.Label lbInfo_DozaNow_2;
+        private System.Windows.Forms.Panel panel_VolumeFlow_2;
+        private System.Windows.Forms.Label lbDataValue_VolumeFlow_2;
+        private System.Windows.Forms.Label lbInfo_VolumeFlow_2;
+        private System.Windows.Forms.Panel panel_Temperature_2;
+        private System.Windows.Forms.Label lbDataValue_Temperature_2;
+        private System.Windows.Forms.Label lbInfo_Temperature_2;
+        private System.Windows.Forms.Panel panel_MassFlow_2;
+        private System.Windows.Forms.Label lbDataValue_MassFlow_2;
+        private System.Windows.Forms.Label lbInfo_MassFlow_2;
+        private System.Windows.Forms.Panel panel_RoH2O_2;
+        private System.Windows.Forms.Label lbDataValue_RoH2O_2;
+        private System.Windows.Forms.Label lbInfo_RoH2O_2;
     }
 }
 

@@ -29,17 +29,27 @@ namespace SerialPortComm
         bool checkedViewTemperature;
         bool checkedViewRoH2O;
         bool timeOut = true;
-
+        //--------------------------
         string temp_PortName;
         string temp_BaudRate;
         string temp_Parity;
         string temp_StopBits;
         string temp_DataBits;
+        //--------------------------
         string tempHex_Temperature;
         string tempHex_DozaNow;
         string tempHex_MassFlow;
         string tempHex_VolumeFlow;
         string tempHex_RoH2O;
+        string hex_answer;
+        //--------------------------
+        string tempHex_Temperature_2;
+        string tempHex_DozaNow_2;
+        string tempHex_MassFlow_2;
+        string tempHex_VolumeFlow_2;
+        string tempHex_RoH2O_2;
+        string hex_answer_2;
+        //--------------------------
 
         int restart_TimeOut = 2500;
         int temp_Timeout = 500; 
@@ -86,7 +96,7 @@ namespace SerialPortComm
             }
         }
 
-        // Инициализация шррифта для "цифровых" значений.
+        // Инициализация шрифта для "цифровых" значений.
         private FontFamily fontFamilySelected(int index)
         {
             FontFamily family = fontCollection.Families[0];
@@ -117,6 +127,13 @@ namespace SerialPortComm
                 tempHex_MassFlow = INI.ReadINI("HexStringToSend", "hex_MassFlow");
                 tempHex_VolumeFlow = INI.ReadINI("HexStringToSend", "hex_VolumeFlow");
                 tempHex_RoH2O = INI.ReadINI("HexStringToSend", "hex_RoH2O");
+                tempHex_Temperature_2 = INI.ReadINI("HexStringToSend", "hex_Temperature_2");
+                tempHex_DozaNow_2 = INI.ReadINI("HexStringToSend", "hex_DozaNow_2");
+                tempHex_MassFlow_2 = INI.ReadINI("HexStringToSend", "hex_MassFlow_2");
+                tempHex_VolumeFlow_2 = INI.ReadINI("HexStringToSend", "hex_VolumeFlow_2");
+                tempHex_RoH2O_2 = INI.ReadINI("HexStringToSend", "hex_RoH2O_2");
+                hex_answer = INI.ReadINI("HexStringToSend", "hex_answer");
+                hex_answer_2 = INI.ReadINI("HexStringToSend", "hex_answer_2");
             }
             catch (Exception ex)
             {
@@ -157,7 +174,7 @@ namespace SerialPortComm
         // Метод считывания текста с поля вывода результата
         private string FilterString(String text)
         {
-            if (text.Contains("AA01FE0C0104") && text.Length <= 23)
+            if ((text.Contains(hex_answer) || text.Contains(hex_answer_2)) && text.Length <= 23)
                 return text.Trim()
                             .Replace(".", "")
                             .Replace("\n", "")
@@ -169,9 +186,9 @@ namespace SerialPortComm
         private void FloutConverter(string str, Label labelResult)
         {
             string strTempHex = FilterString(str);
-            if (strTempHex.Contains("AA01FE0C0104") && (strTempHex.Length == 22))
+            if ((strTempHex.Contains(hex_answer) || strTempHex.Contains(hex_answer_2)) && (strTempHex.Length == 22))
             {
-                strTempHex = strTempHex.Replace("AA01FE0C0104", "");
+                strTempHex = strTempHex.Replace(hex_answer, "").Replace(hex_answer_2, "");
                 int j = 3;
                 byte[] byteOrigin = ToByteArray(strTempHex.Substring(0, 8));
                 byte[] byteReverce = new byte[4];
@@ -250,6 +267,11 @@ namespace SerialPortComm
             LoadCheckedViewData(checkedViewVolumeFlow, panel_VolumeFlow);
             LoadCheckedViewData(checkedViewTemperature, panel_Temperature);
             LoadCheckedViewData(checkedViewRoH2O, panel_RoH2O);
+            LoadCheckedViewData(checkedViewDozaNow, panel_DozaNow_2);
+            LoadCheckedViewData(checkedViewMassFlow, panel_MassFlow_2);
+            LoadCheckedViewData(checkedViewVolumeFlow, panel_VolumeFlow_2);
+            LoadCheckedViewData(checkedViewTemperature, panel_Temperature_2);
+            LoadCheckedViewData(checkedViewRoH2O, panel_RoH2O_2);
 
             Console.WriteLine("Обновление главного экрана!");
         }
@@ -338,6 +360,7 @@ namespace SerialPortComm
             rchbLogInfo.AppendText("Начата отправка запросов на получение данных от счетчика РСМ-05. |" + DateTime.Now + "|\n");
             while (timeOut)
             {
+                // --------------------------------------------- Счетчик №1
                 if (panel_Temperature.Visible && timeOut)
                 {
                     if (comm.ComPortIsOpen() && timeOut)
@@ -398,6 +421,68 @@ namespace SerialPortComm
                         break;
                     }
                 }
+
+                // --------------------------------------------- Счетчик №2
+                if (panel_Temperature_2.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
+                    {
+                        SendSingleDataCOM(tempHex_Temperature_2, lbDataValue_Temperature_2);
+                    }
+                    else
+                    {
+                        RestartApp();
+                        break;
+                    }
+                }
+                if (panel_DozaNow_2.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
+                    {
+                        SendSingleDataCOM(tempHex_DozaNow_2, lbDataValue_DozaNow_2);
+                    }
+                    else
+                    {
+                        RestartApp();
+                        break;
+                    }
+                }
+                if (panel_MassFlow_2.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
+                    {
+                        SendSingleDataCOM(tempHex_MassFlow_2, lbDataValue_MassFlow_2);
+                    }
+                    else
+                    {
+                        RestartApp();
+                        break;
+                    }
+                }
+                if (panel_VolumeFlow_2.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
+                    {
+                        SendSingleDataCOM(tempHex_VolumeFlow_2, lbDataValue_VolumeFlow_2);
+                    }
+                    else
+                    {
+                        RestartApp();
+                        break;
+                    }
+                }
+                if (panel_RoH2O_2.Visible && timeOut)
+                {
+                    if (comm.ComPortIsOpen() && timeOut)
+                    {
+                        SendSingleDataCOM(tempHex_RoH2O_2, lbDataValue_RoH2O_2);
+                    }
+                    else
+                    {
+                        RestartApp();
+                        break;
+                    }
+                }
             }
         }
 
@@ -406,6 +491,7 @@ namespace SerialPortComm
             DataFileWriter dataFileWriter = new DataFileWriter();
             if (tbAnswerData.Text != string.Empty)
             {
+                //------------------------------- Счетчик №1
                 if (checkedViewTemperature)
                     dataFileWriter.Temperature = lbDataValue_Temperature.Text;
                 if (checkedViewMassFlow)
@@ -416,6 +502,17 @@ namespace SerialPortComm
                     dataFileWriter.Doza = lbDataValue_DozaNow.Text;
                 if (checkedViewRoH2O)
                     dataFileWriter.RoH2O1 = lbDataValue_RoH2O.Text;
+                //------------------------------- Счетчик №2
+                if (checkedViewTemperature)
+                    dataFileWriter.Temperature_2 = lbDataValue_Temperature_2.Text;
+                if (checkedViewMassFlow)
+                    dataFileWriter.MassFlow_2 = lbDataValue_MassFlow_2.Text;
+                if (checkedViewVolumeFlow)
+                    dataFileWriter.VolumFlow_2 = lbDataValue_VolumeFlow_2.Text;
+                if (checkedViewDozaNow)
+                    dataFileWriter.Doza_2 = lbDataValue_DozaNow_2.Text;
+                if (checkedViewRoH2O)
+                    dataFileWriter.RoH2O1_2 = lbDataValue_RoH2O_2.Text;
 
                 dataFileWriter.WriterDataFile();
             }
@@ -453,6 +550,11 @@ namespace SerialPortComm
             lbDataValue_Temperature.Font = new Font(fontFamilySelected(1), 24);
             lbDataValue_MassFlow.Font = new Font(fontFamilySelected(1), 24);
             lbDataValue_RoH2O.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_DozaNow_2.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_VolumeFlow_2.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_Temperature_2.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_MassFlow_2.Font = new Font(fontFamilySelected(1), 24);
+            lbDataValue_RoH2O_2.Font = new Font(fontFamilySelected(1), 24);
             rchbLogInfo.Clear();
             logWriter.WriteInformation("Запуск приложения!");
         }
@@ -488,6 +590,7 @@ namespace SerialPortComm
         // Производит запись преобразованных ответов в Label's на форме.
         private void TbAnswerData_TextChanged(object sender, EventArgs e)
         {
+            //------------------------------- Счетчик №1
             if (tbSendHex.Text.Equals(tempHex_DozaNow))
             {
                 FloutConverter(tbAnswerData.Text, lbDataValue_DozaNow);
@@ -513,6 +616,34 @@ namespace SerialPortComm
             {
                 FloutConverter(tbAnswerData.Text, lbDataValue_RoH2O);
                 logWriter.WriteData(lbDataValue_RoH2O.Text, "_RoH2O.txt");
+            }
+
+            //------------------------------- Счетчик №1
+            if (tbSendHex.Text.Equals(tempHex_DozaNow_2))
+            {
+                FloutConverter(tbAnswerData.Text, lbDataValue_DozaNow_2);
+                logWriter.WriteData(lbDataValue_DozaNow_2.Text, "_Doza_2.txt");
+            }
+            else if (tbSendHex.Text.Equals(tempHex_MassFlow_2))
+            {
+                FloutConverter(tbAnswerData.Text, lbDataValue_MassFlow_2);
+                logWriter.WriteData(lbDataValue_MassFlow_2.Text, "_MassFlow_2.txt");
+            }
+            else if (tbSendHex.Text.Equals(tempHex_Temperature_2))
+            {
+                FloutConverter(tbAnswerData.Text, lbDataValue_Temperature_2);
+                logWriter.WriteData(lbDataValue_Temperature_2.Text, "_Temperature_2.txt");
+            }
+            else if (tbSendHex.Text.Equals(tempHex_VolumeFlow_2))
+            {
+                FloutConverter(tbAnswerData.Text, lbDataValue_VolumeFlow_2);
+                logWriter.WriteData(lbDataValue_VolumeFlow_2.Text, "_VolumeFlow_2.txt");
+            }
+
+            else if (tbSendHex.Text.Equals(tempHex_RoH2O_2))
+            {
+                FloutConverter(tbAnswerData.Text, lbDataValue_RoH2O_2);
+                logWriter.WriteData(lbDataValue_RoH2O_2.Text, "_RoH2O_2.txt");
             }
 
             WriterEnableDataSCADA();
