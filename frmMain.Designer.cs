@@ -34,8 +34,7 @@ namespace SerialPortComm
             this.PanelMain = new System.Windows.Forms.Panel();
             this.panelChildFill = new System.Windows.Forms.Panel();
             this.panelData = new System.Windows.Forms.Panel();
-            this.tbSendHex = new System.Windows.Forms.TextBox();
-            this.tbAnswerData = new System.Windows.Forms.TextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_DozaNow = new System.Windows.Forms.Panel();
             this.lbDataValue_DozaNow = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@ namespace SerialPortComm
             this.panel_RoH2O = new System.Windows.Forms.Panel();
             this.lbDataValue_RoH2O = new System.Windows.Forms.Label();
             this.lbInfo_RoH2O = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_DozaNow_2 = new System.Windows.Forms.Panel();
             this.lbDataValue_DozaNow_2 = new System.Windows.Forms.Label();
@@ -68,6 +68,9 @@ namespace SerialPortComm
             this.panel_RoH2O_2 = new System.Windows.Forms.Panel();
             this.lbDataValue_RoH2O_2 = new System.Windows.Forms.Label();
             this.lbInfo_RoH2O_2 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbSendHex = new System.Windows.Forms.TextBox();
+            this.tbAnswerData = new System.Windows.Forms.TextBox();
             this.panelLogInfo = new System.Windows.Forms.Panel();
             this.rchbLogInfo = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -97,10 +100,13 @@ namespace SerialPortComm
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.PanelMain.SuspendLayout();
             this.panelChildFill.SuspendLayout();
             this.panelData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel_DozaNow.SuspendLayout();
             this.panel_VolumeFlow.SuspendLayout();
@@ -119,10 +125,6 @@ namespace SerialPortComm
             this.panelGroupBoxTop.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelRigth.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelMain
@@ -132,7 +134,7 @@ namespace SerialPortComm
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(0, 0);
             this.PanelMain.Name = "PanelMain";
-            this.PanelMain.Size = new System.Drawing.Size(964, 661);
+            this.PanelMain.Size = new System.Drawing.Size(809, 761);
             this.PanelMain.TabIndex = 0;
             // 
             // panelChildFill
@@ -143,7 +145,7 @@ namespace SerialPortComm
             this.panelChildFill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildFill.Location = new System.Drawing.Point(0, 0);
             this.panelChildFill.Name = "panelChildFill";
-            this.panelChildFill.Size = new System.Drawing.Size(764, 661);
+            this.panelChildFill.Size = new System.Drawing.Size(609, 761);
             this.panelChildFill.TabIndex = 1;
             // 
             // panelData
@@ -155,25 +157,38 @@ namespace SerialPortComm
             this.panelData.Location = new System.Drawing.Point(0, 0);
             this.panelData.Name = "panelData";
             this.panelData.Padding = new System.Windows.Forms.Padding(10, 5, 10, 25);
-            this.panelData.Size = new System.Drawing.Size(764, 489);
+            this.panelData.Size = new System.Drawing.Size(609, 589);
             this.panelData.TabIndex = 2;
             // 
-            // tbSendHex
+            // splitContainer1
             // 
-            this.tbSendHex.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbSendHex.Location = new System.Drawing.Point(10, 424);
-            this.tbSendHex.Name = "tbSendHex";
-            this.tbSendHex.Size = new System.Drawing.Size(744, 20);
-            this.tbSendHex.TabIndex = 6;
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
+            this.splitContainer1.Location = new System.Drawing.Point(10, 5);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // tbAnswerData
+            // splitContainer1.Panel1
             // 
-            this.tbAnswerData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbAnswerData.Location = new System.Drawing.Point(10, 444);
-            this.tbAnswerData.Name = "tbAnswerData";
-            this.tbAnswerData.Size = new System.Drawing.Size(744, 20);
-            this.tbAnswerData.TabIndex = 5;
-            this.tbAnswerData.TextChanged += new System.EventHandler(this.TbAnswerData_TextChanged);
+            this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.AutoScrollMargin = new System.Drawing.Size(0, 30);
+            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.AutoScrollMargin = new System.Drawing.Size(0, 30);
+            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel2);
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.Size = new System.Drawing.Size(589, 519);
+            this.splitContainer1.SplitterDistance = 300;
+            this.splitContainer1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -184,9 +199,9 @@ namespace SerialPortComm
             this.flowLayoutPanel1.Controls.Add(this.panel_MassFlow);
             this.flowLayoutPanel1.Controls.Add(this.panel_RoH2O);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 37);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(376, 415);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(296, 478);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel_DozaNow
@@ -394,6 +409,18 @@ namespace SerialPortComm
             this.lbInfo_RoH2O.Text = "Текущая плотность (т/м³):";
             this.lbInfo_RoH2O.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Consolas", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(0, 5);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 10);
+            this.label1.Size = new System.Drawing.Size(140, 32);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Счетчик №1";
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
@@ -403,9 +430,9 @@ namespace SerialPortComm
             this.flowLayoutPanel2.Controls.Add(this.panel_MassFlow_2);
             this.flowLayoutPanel2.Controls.Add(this.panel_RoH2O_2);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 37);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(356, 415);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(281, 478);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // panel_DozaNow_2
@@ -613,15 +640,44 @@ namespace SerialPortComm
             this.lbInfo_RoH2O_2.Text = "Текущая плотность (т/м³):";
             this.lbInfo_RoH2O_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Consolas", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(0, 5);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 10);
+            this.label2.Size = new System.Drawing.Size(140, 32);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Счетчик №2";
+            // 
+            // tbSendHex
+            // 
+            this.tbSendHex.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbSendHex.Location = new System.Drawing.Point(10, 524);
+            this.tbSendHex.Name = "tbSendHex";
+            this.tbSendHex.Size = new System.Drawing.Size(589, 20);
+            this.tbSendHex.TabIndex = 6;
+            // 
+            // tbAnswerData
+            // 
+            this.tbAnswerData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbAnswerData.Location = new System.Drawing.Point(10, 544);
+            this.tbAnswerData.Name = "tbAnswerData";
+            this.tbAnswerData.Size = new System.Drawing.Size(589, 20);
+            this.tbAnswerData.TabIndex = 5;
+            this.tbAnswerData.TextChanged += new System.EventHandler(this.TbAnswerData_TextChanged);
+            // 
             // panelLogInfo
             // 
             this.panelLogInfo.BackColor = System.Drawing.Color.Silver;
             this.panelLogInfo.Controls.Add(this.rchbLogInfo);
             this.panelLogInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLogInfo.Location = new System.Drawing.Point(0, 489);
+            this.panelLogInfo.Location = new System.Drawing.Point(0, 589);
             this.panelLogInfo.Name = "panelLogInfo";
             this.panelLogInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.panelLogInfo.Size = new System.Drawing.Size(764, 150);
+            this.panelLogInfo.Size = new System.Drawing.Size(609, 150);
             this.panelLogInfo.TabIndex = 1;
             // 
             // rchbLogInfo
@@ -633,16 +689,16 @@ namespace SerialPortComm
             this.rchbLogInfo.Location = new System.Drawing.Point(3, 3);
             this.rchbLogInfo.Name = "rchbLogInfo";
             this.rchbLogInfo.ReadOnly = true;
-            this.rchbLogInfo.Size = new System.Drawing.Size(758, 144);
+            this.rchbLogInfo.Size = new System.Drawing.Size(603, 144);
             this.rchbLogInfo.TabIndex = 0;
             this.rchbLogInfo.Text = "Тестовый текст....";
             this.rchbLogInfo.WordWrap = false;
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 739);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(764, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(609, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -654,10 +710,10 @@ namespace SerialPortComm
             this.panelChildRight.Controls.Add(this.BtnOpenPort);
             this.panelChildRight.Controls.Add(this.groupBoxSettingCom);
             this.panelChildRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelChildRight.Location = new System.Drawing.Point(764, 0);
+            this.panelChildRight.Location = new System.Drawing.Point(609, 0);
             this.panelChildRight.Name = "panelChildRight";
             this.panelChildRight.Padding = new System.Windows.Forms.Padding(5, 5, 5, 20);
-            this.panelChildRight.Size = new System.Drawing.Size(200, 661);
+            this.panelChildRight.Size = new System.Drawing.Size(200, 761);
             this.panelChildRight.TabIndex = 0;
             // 
             // btnMenu
@@ -686,7 +742,7 @@ namespace SerialPortComm
             this.btnStartSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnStartSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartSend.Location = new System.Drawing.Point(5, 521);
+            this.btnStartSend.Location = new System.Drawing.Point(5, 621);
             this.btnStartSend.Name = "btnStartSend";
             this.btnStartSend.Size = new System.Drawing.Size(190, 40);
             this.btnStartSend.TabIndex = 3;
@@ -704,7 +760,7 @@ namespace SerialPortComm
             this.btnClosePort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnClosePort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosePort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClosePort.Location = new System.Drawing.Point(5, 561);
+            this.btnClosePort.Location = new System.Drawing.Point(5, 661);
             this.btnClosePort.Name = "btnClosePort";
             this.btnClosePort.Size = new System.Drawing.Size(190, 40);
             this.btnClosePort.TabIndex = 2;
@@ -722,7 +778,7 @@ namespace SerialPortComm
             this.BtnOpenPort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.BtnOpenPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnOpenPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOpenPort.Location = new System.Drawing.Point(5, 601);
+            this.BtnOpenPort.Location = new System.Drawing.Point(5, 701);
             this.BtnOpenPort.Name = "BtnOpenPort";
             this.BtnOpenPort.Size = new System.Drawing.Size(190, 40);
             this.BtnOpenPort.TabIndex = 1;
@@ -964,37 +1020,11 @@ namespace SerialPortComm
             this.notifyIcon.Text = "SerialCommRSM";
             this.notifyIcon.Visible = true;
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(10, 5);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.AutoScrollMargin = new System.Drawing.Size(0, 30);
-            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.AutoScrollMargin = new System.Drawing.Size(0, 30);
-            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer1.Size = new System.Drawing.Size(744, 419);
-            this.splitContainer1.SplitterDistance = 380;
-            this.splitContainer1.TabIndex = 0;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 661);
+            this.ClientSize = new System.Drawing.Size(809, 761);
             this.Controls.Add(this.PanelMain);
             this.HelpButton = true;
             this.MinimumSize = new System.Drawing.Size(825, 500);
@@ -1009,6 +1039,12 @@ namespace SerialPortComm
             this.panelChildFill.PerformLayout();
             this.panelData.ResumeLayout(false);
             this.panelData.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel_DozaNow.ResumeLayout(false);
@@ -1041,10 +1077,6 @@ namespace SerialPortComm
             this.panelLeft.PerformLayout();
             this.panelRigth.ResumeLayout(false);
             this.panelRigth.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1118,6 +1150,8 @@ namespace SerialPortComm
         private System.Windows.Forms.Label lbDataValue_RoH2O_2;
         private System.Windows.Forms.Label lbInfo_RoH2O_2;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

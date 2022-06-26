@@ -188,7 +188,9 @@ namespace SerialPortComm
             string strTempHex = FilterString(str);
             if ((strTempHex.Contains(hex_answer) || strTempHex.Contains(hex_answer_2)) && (strTempHex.Length == 22))
             {
-                strTempHex = strTempHex.Replace(hex_answer, "").Replace(hex_answer_2, "");
+                strTempHex = strTempHex
+                                .Replace(hex_answer, "")    
+                                .Replace(hex_answer_2, "");
                 int j = 3;
                 byte[] byteOrigin = ToByteArray(strTempHex.Substring(0, 8));
                 byte[] byteReverce = new byte[4];
